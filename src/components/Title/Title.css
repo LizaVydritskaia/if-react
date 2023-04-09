@@ -1,0 +1,8 @@
+.homes__title {
+  font-weight: 500;
+  font-size: 40px;
+  color: var(--text-primary-color);
+  text-align: center;
+  padding-top: 120px;
+  margin-bottom: 105px;
+}
