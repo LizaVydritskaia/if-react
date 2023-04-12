@@ -10,10 +10,10 @@ import './HomesGuestsLoves.css';
 export const HomesGuestsLoves = () => (
   <section className="homes">
     <Container>
-      <Title className="homes__title" content={'Homes guests loves'}></Title>
+      <Title content="Homes guests loves" />
       <div className="homes__hotels">
-        <Hotel className="col-lg-3 col-md-6 col-sm-3"></Hotel>
-        <Arrow></Arrow>
+        <Hotel className="col-lg-3 col-md-6 col-sm-3" />
+        <Arrow />
       </div>
     </Container>
   </section>
