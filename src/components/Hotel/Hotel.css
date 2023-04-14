@@ -1,16 +1,16 @@
-.homes__hotels-image {
+.hotel-image {
   width: 100%;
   height: 296px;
 }
 
-.homes__hotel-name {
+.hotel-name {
   font-weight: 400;
   font-size: 24px;
   color: var(--accent-blue);
   margin: 24px 0;
 }
 
-.homes__hotel-location {
+.hotel-location {
   font-weight: 400;
   font-size: 24px;
   color: var(--text-secondary-color);

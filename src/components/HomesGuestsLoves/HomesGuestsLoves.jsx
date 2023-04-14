@@ -5,6 +5,8 @@ import { Container } from '../Container';
 import { Hotel } from '../Hotel';
 import { Title } from '../Title';
 
+import { hotelsData } from '../Hotel/config';
+
 import './HomesGuestsLoves.css';
 
 export const HomesGuestsLoves = () => (
@@ -12,7 +14,10 @@ export const HomesGuestsLoves = () => (
     <Container>
       <Title content="Homes guests loves" />
       <div className="homes__hotels">
-        <Hotel className="col-lg-3 col-md-6 col-sm-3" />
+        <Hotel
+          hotelsDataArray={hotelsData}
+          className="col-lg-3 col-md-6 col-sm-3"
+        />
         <Arrow />
       </div>
     </Container>
