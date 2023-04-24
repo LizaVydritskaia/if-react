@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
@@ -7,29 +7,30 @@ import { availableHotelsData } from '../AvailableHotels/config';
 
 import './Form.css';
 
-export const Form = ({ setShowAvailableHotels, setAvailableHotels }) => {
-  const [destinationInputValue, setDestinationInputValue] = useState('');
-  const handleChangeDestinationInputValue = (event) => {
-    setDestinationInputValue(event.target.value.toLowerCase().trim());
-  };
-
-  const handleClick = (event) => {
+export const Form = ({ setAvailableHotels, setShowAvailableHotels }) => {
+  const handleSubmitClick = (event) => {
     event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+
+    const { destinations } = data;
+
     setAvailableHotels(
       availableHotelsData.filter((item) => {
         return (
-          item.name.toLowerCase().includes(destinationInputValue) ||
-          item.city.toLowerCase().includes(destinationInputValue) ||
-          item.country.toLowerCase().includes(destinationInputValue)
+          item.name.toLowerCase().includes(destinations) ||
+          item.city.toLowerCase().includes(destinations) ||
+          item.country.toLowerCase().includes(destinations)
         );
       }),
     );
 
-    setShowAvailableHotels('block');
+    setShowAvailableHotels(true);
   };
 
   return (
-    <form className="top-section__form">
+    <form className="top-section__form" onSubmit={handleSubmitClick}>
       <Input
         id="destinations"
         className="top-section__input-destination"
@@ -39,7 +40,6 @@ export const Form = ({ setShowAvailableHotels, setAvailableHotels }) => {
         forId="destinations"
         labelClassName="top-section__label-destination"
         content="Your destination or hotel name"
-        onChange={handleChangeDestinationInputValue}
       />
       <div className="top-section__date">
         <div className="top-section__check-in">
@@ -110,11 +110,7 @@ export const Form = ({ setShowAvailableHotels, setAvailableHotels }) => {
           />
         </div>
       </div>
-      <Button
-        className="top-section__button"
-        type="submit"
-        onClick={handleClick}
-      >
+      <Button className="top-section__button" type="submit">
         Search
       </Button>
     </form>

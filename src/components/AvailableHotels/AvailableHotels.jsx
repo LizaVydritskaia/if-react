@@ -7,19 +7,21 @@ import { Title } from '../Title';
 
 import './AvailableHotels.css';
 
-export const AvailableHotels = ({ filteredArray, displayStyle }) => {
+export const AvailableHotels = ({ filteredArray, showAvailableHotels }) => {
   return (
-    <section className="available-hotels" style={displayStyle}>
-      <Container>
-        <Title content="Available hotels" />
-        <div className="homes__hotels">
-          <Hotel
-            hotelsDataArray={filteredArray}
-            className="col-lg-3 col-md-6 col-sm-3"
-          />
-          <Arrow />
-        </div>
-      </Container>
-    </section>
+    showAvailableHotels && (
+      <section className="available-hotels">
+        <Container>
+          <Title content="Available hotels" />
+          <div className="homes__hotels">
+            <Hotel
+              hotelsDataArray={filteredArray}
+              className="col-lg-3 col-md-6 col-sm-3"
+            />
+            <Arrow />
+          </div>
+        </Container>
+      </section>
+    )
   );
 };

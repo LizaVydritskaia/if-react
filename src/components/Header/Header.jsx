@@ -2,9 +2,7 @@ import React from 'react';
 
 //components
 import { Container } from '../Container';
-
-//icons
-import { Account, Logo, Menu, Night } from '../../assets/icons';
+import { Icon } from '../Icon';
 
 //styles
 import './Header.css';
@@ -12,7 +10,7 @@ import './Header.css';
 export const Header = () => (
   <Container>
     <header className="header">
-      <Logo />
+      <Icon className="header__logo" hrefIconName="#logo" />
       <nav className="header__nav">
         <div className="header__stays-attractions">
           <span className="header__stays header__hover-line">
@@ -27,9 +25,9 @@ export const Header = () => (
           </span>
         </div>
         <div className="header__night-account">
-          <Night />
-          <Account />
-          <Menu />
+          <Icon className="header__night" hrefIconName="#night" />
+          <Icon className="header__account" hrefIconName="#account" />
+          <Icon className="header__menu" hrefIconName="#menu" />
         </div>
       </nav>
     </header>
