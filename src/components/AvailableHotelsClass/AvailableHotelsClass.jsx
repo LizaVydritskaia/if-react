@@ -26,13 +26,15 @@ export class AvailableHotelsClass extends Component {
   }
 
   filterHotels() {
-    return this.state.availableHotels.filter((item) => {
-      return (
-        item.name.toLowerCase().includes(this.props.searchParams) ||
-        item.city.toLowerCase().includes(this.props.searchParams) ||
-        item.country.toLowerCase().includes(this.props.searchParams)
-      );
-    });
+    this.setState((prevState) => ({
+      availableHotels: prevState.availableHotels.filter((hotel) => {
+        return (
+          hotel.name.toLowerCase().includes(this.props.searchParams) ||
+          hotel.city.toLowerCase().includes(this.props.searchParams) ||
+          hotel.country.toLowerCase().includes(this.props.searchParams)
+        );
+      }),
+    }));
   }
 
   render() {
