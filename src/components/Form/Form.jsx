@@ -3,11 +3,9 @@ import React from 'react';
 import { Button } from '../Button';
 import { Input } from '../Input';
 
-import { availableHotelsData } from '../AvailableHotels/config';
-
 import './Form.css';
 
-export const Form = ({ setAvailableHotels, setShowAvailableHotels }) => {
+export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
   const handleSubmitClick = (event) => {
     event.preventDefault();
 
@@ -16,15 +14,7 @@ export const Form = ({ setAvailableHotels, setShowAvailableHotels }) => {
 
     const { destinations } = data;
 
-    setAvailableHotels(
-      availableHotelsData.filter((item) => {
-        return (
-          item.name.toLowerCase().includes(destinations) ||
-          item.city.toLowerCase().includes(destinations) ||
-          item.country.toLowerCase().includes(destinations)
-        );
-      }),
-    );
+    setSearchParams(destinations);
 
     setShowAvailableHotels(true);
   };
