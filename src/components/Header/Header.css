@@ -1,0 +1,67 @@
+.header {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav {
+  display: flex;
+  gap: 48px;
+}
+
+.header__stays-attractions {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+}
+
+.header__stays {
+  position: relative;
+}
+
+.header__attractions {
+  position: relative;
+}
+
+.header__link {
+  font-weight: 400;
+  font-size: 24px;
+  color: var(--text-general-white);
+  text-decoration: none;
+}
+
+.header__hover-line:hover::after {
+  content: '';
+  display: block;
+  height: 4px;
+  background-color: var(--accent-yellow);
+  border-style: none;
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  transform: translate(-50%);
+  animation: hover-line 200ms ease-in 1 20ms forwards;
+}
+
+@keyframes hover-line {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  70% {
+    width: 35px;
+    opacity: 0.7;
+  }
+  100% {
+    width: 50px;
+    opacity: 1;
+  }
+}
+
+.header__night-account {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
