@@ -15,26 +15,12 @@ export class AvailableHotelsClass extends Component {
     this.state = {
       availableHotels: [],
     };
-
-    this.filterHotels = this.filterHotels.bind(this);
   }
 
   componentDidMount() {
     getAvailableHotels(this.props.searchParams).then((hotels) =>
       this.setState({ availableHotels: hotels }),
     );
-  }
-
-  filterHotels() {
-    this.setState((prevState) => ({
-      availableHotels: prevState.availableHotels.filter((hotel) => {
-        return (
-          hotel.name.toLowerCase().includes(this.props.searchParams) ||
-          hotel.city.toLowerCase().includes(this.props.searchParams) ||
-          hotel.country.toLowerCase().includes(this.props.searchParams)
-        );
-      }),
-    }));
   }
 
   render() {
@@ -46,7 +32,19 @@ export class AvailableHotelsClass extends Component {
             <Title content="Available hotels" />
             <div className="homes__hotels">
               <Hotel
-                hotelsDataArray={this.filterHotels}
+                hotelsDataArray={this.state.availableHotels.filter((hotel) => {
+                  return (
+                    hotel.name
+                      .toLowerCase()
+                      .includes(this.props.searchParams) ||
+                    hotel.city
+                      .toLowerCase()
+                      .includes(this.props.searchParams) ||
+                    hotel.country
+                      .toLowerCase()
+                      .includes(this.props.searchParams)
+                  );
+                })}
                 className="col-lg-3 col-md-6 col-sm-3"
               />
               <Arrow />

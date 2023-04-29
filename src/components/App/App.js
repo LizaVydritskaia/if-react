@@ -7,9 +7,9 @@ import { AvailableHotelsClass } from '../AvailableHotelsClass';
 import { HomesGuestsLovesClass } from '../HomesGuestsLovesClass';
 
 export const App = () => {
-  const [searchParams, setSearchParams] = useState('');
   const [showAvailableHotelsBlock, setShowAvailableHotelsBlock] =
     useState(false);
+  const [searchParams, setSearchParams] = useState('');
 
   return (
     <>
