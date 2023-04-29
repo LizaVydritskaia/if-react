@@ -8,19 +8,19 @@ import { TopSection } from '../TopSection';
 
 export const App = () => {
   const [showAvailableHotels, setShowAvailableHotels] = useState(false);
-  const [availableHotels, setAvailableHotels] = useState([]);
+  const [searchParams, setSearchParams] = useState('');
 
   return (
     <>
       <Sprite />
       <MainContent>
         <TopSection
-          setAvailableHotels={setAvailableHotels}
+          setSearchParams={setSearchParams}
           setShowAvailableHotels={setShowAvailableHotels}
         />
         <AvailableHotels
+          searchParams={searchParams}
           showAvailableHotels={showAvailableHotels}
-          filteredArray={availableHotels}
         />
         <HomesGuestsLoves />
       </MainContent>

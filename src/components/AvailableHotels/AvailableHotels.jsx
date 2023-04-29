@@ -7,7 +7,17 @@ import { Title } from '../Title';
 
 import './AvailableHotels.css';
 
-export const AvailableHotels = ({ filteredArray, showAvailableHotels }) => {
+import { availableHotelsData } from './config';
+
+export const AvailableHotels = ({ searchParams, showAvailableHotels }) => {
+  const filteredHotels = availableHotelsData.filter((hotel) => {
+    return (
+      hotel.name.toLowerCase().includes(searchParams) ||
+      hotel.city.toLowerCase().includes(searchParams) ||
+      hotel.country.toLowerCase().includes(searchParams)
+    );
+  });
+
   return (
     showAvailableHotels && (
       <section className="available-hotels">
@@ -15,7 +25,7 @@ export const AvailableHotels = ({ filteredArray, showAvailableHotels }) => {
           <Title content="Available hotels" />
           <div className="homes__hotels">
             <Hotel
-              hotelsDataArray={filteredArray}
+              hotelsDataArray={filteredHotels}
               className="col-lg-3 col-md-6 col-sm-3"
             />
             <Arrow />

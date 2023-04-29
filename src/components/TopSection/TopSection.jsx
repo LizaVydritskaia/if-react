@@ -7,7 +7,7 @@ import { Icon } from '../Icon';
 
 import './TopSection.css';
 
-export const TopSection = ({ setAvailableHotels, setShowAvailableHotels }) => {
+export const TopSection = ({ setSearchParams, setShowAvailableHotels }) => {
   return (
     <section className="top-section">
       <Header />
@@ -18,7 +18,7 @@ export const TopSection = ({ setAvailableHotels, setShowAvailableHotels }) => {
           to live, work or just relax
         </h1>
         <Form
-          setAvailableHotels={setAvailableHotels}
+          setSearchParams={setSearchParams}
           setShowAvailableHotels={setShowAvailableHotels}
         />
         <div className="top-section__apps">
