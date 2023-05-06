@@ -10,9 +10,9 @@ export const Input = ({
   name,
   placeholder,
   forId,
-  content,
+  labelContent,
   children,
-  onChange,
+  props,
 }) => (
   <>
     <input
@@ -21,10 +21,10 @@ export const Input = ({
       type={type}
       name={name}
       placeholder={placeholder}
-      onChange={onChange}
+      {...props}
     />
     <label htmlFor={forId} className={labelClassName}>
-      {content}
+      {labelContent}
       {children}
     </label>
   </>
