@@ -9,7 +9,6 @@ import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.c
 
 export const App = () => {
   const [showAvailableHotels, setShowAvailableHotels] = useState(false);
-  // const [searchParams, setSearchParams] = useState('');
 
   return (
     <>

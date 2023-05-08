@@ -1,17 +1,19 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getAvailableHotels } from '../services/availableHotels';
 
 import { useAvailableHotelsContext } from '../contexts/AvailableHotels.context';
 
-export const useAvailableHotelsSearch = (params) => {
-  const { availableHotels, setAvailableHotels } = useAvailableHotelsContext();
+export const useAvailableHotelsSearch = () => {
+  const [searchParams, setSearchParams] = useState('');
+
+  const { setAvailableHotels } = useAvailableHotelsContext();
 
   useEffect(() => {
-    getAvailableHotels(params).then((availableHotelsData) =>
+    getAvailableHotels(searchParams).then((availableHotelsData) =>
       setAvailableHotels(availableHotelsData),
     );
-  }, [params, setAvailableHotels]);
+  }, [searchParams, setAvailableHotels]);
 
-  return availableHotels;
+  return { searchParams, setSearchParams };
 };

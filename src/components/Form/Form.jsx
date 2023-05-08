@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
@@ -9,8 +9,7 @@ import './Form.css';
 import { Calendar } from '../Calendar';
 
 export const Form = ({ setShowAvailableHotels }) => {
-  const [searchParams, setSearchParams] = useState('');
-  const availableHotels = useAvailableHotelsSearch(searchParams);
+  const { setSearchParams } = useAvailableHotelsSearch();
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
@@ -20,11 +19,9 @@ export const Form = ({ setShowAvailableHotels }) => {
 
     const { destinations } = data;
 
-    setSearchParams(() => destinations);
+    setSearchParams(destinations);
 
     setShowAvailableHotels(true);
-
-    return availableHotels;
   };
 
   return (
