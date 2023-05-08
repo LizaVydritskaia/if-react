@@ -5,6 +5,7 @@ import { HomesGuestsLoves } from '../HomesGuestsLoves';
 import { MainContent } from '../MainContent';
 import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
+
 import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
 
 export const App = () => {
