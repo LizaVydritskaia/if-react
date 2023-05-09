@@ -1,12 +1,11 @@
-import axios from 'axios';
 import { API_availableHotels } from '../constants';
 
+import { getRequest } from '../getRequest';
+
 export const getAvailableHotels = async (inputValue) => {
-  const { data: availableHotels } = await axios.get(API_availableHotels, {
+  return getRequest(API_availableHotels, {
     params: {
       search: inputValue,
     },
   });
-
-  return availableHotels;
 };
