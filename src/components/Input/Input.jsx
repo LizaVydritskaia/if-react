@@ -8,11 +8,13 @@ export const Input = ({
   labelClassName,
   type,
   name,
+  value,
   placeholder,
+  isDisabledInput,
   forId,
-  content,
+  labelContent,
   children,
-  onChange,
+  props,
 }) => (
   <>
     <input
@@ -20,11 +22,13 @@ export const Input = ({
       className={className}
       type={type}
       name={name}
+      value={value}
       placeholder={placeholder}
-      onChange={onChange}
+      disabled={isDisabledInput}
+      {...props}
     />
     <label htmlFor={forId} className={labelClassName}>
-      {content}
+      {labelContent}
       {children}
     </label>
   </>

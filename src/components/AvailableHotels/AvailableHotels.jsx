@@ -5,18 +5,12 @@ import { Container } from '../Container';
 import { Hotel } from '../Hotel';
 import { Title } from '../Title';
 
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+
 import './AvailableHotels.css';
 
-import { availableHotelsData } from './config';
-
-export const AvailableHotels = ({ searchParams, showAvailableHotels }) => {
-  const filteredHotels = availableHotelsData.filter((hotel) => {
-    return (
-      hotel.name.toLowerCase().includes(searchParams) ||
-      hotel.city.toLowerCase().includes(searchParams) ||
-      hotel.country.toLowerCase().includes(searchParams)
-    );
-  });
+export const AvailableHotels = ({ showAvailableHotels }) => {
+  const { availableHotels } = useAvailableHotelsContext();
 
   return (
     showAvailableHotels && (
@@ -25,7 +19,7 @@ export const AvailableHotels = ({ searchParams, showAvailableHotels }) => {
           <Title content="Available hotels" />
           <div className="homes__hotels">
             <Hotel
-              hotelsDataArray={filteredHotels}
+              hotelsDataArray={availableHotels}
               className="col-lg-3 col-md-6 col-sm-3"
             />
             <Arrow />

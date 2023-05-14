@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Button } from '../Button';
 import { Input } from '../Input';
 
-import './Form.css';
+import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
 
-export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
+import './Form.css';
+import { Calendar } from '../Calendar';
+import { Filter } from '../Filter';
+
+export const Form = ({ setShowAvailableHotels }) => {
+  const { setSearchParams } = useAvailableHotelsSearch();
+
+  const [showFilter, setShowFilter] = useState(false);
+
   const handleSubmitClick = (event) => {
     event.preventDefault();
 
@@ -19,6 +27,10 @@ export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
     setShowAvailableHotels(true);
   };
 
+  const openFilter = () => {
+    setShowFilter(true);
+  };
+
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
       <Input
@@ -29,38 +41,13 @@ export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
         placeholder="New York"
         forId="destinations"
         labelClassName="top-section__label-destination"
-        content="Your destination or hotel name"
+        labelContent="Your destination or hotel name"
       />
-      <div className="top-section__date">
-        <div className="top-section__check-in">
-          <Input
-            id="check-in"
-            className="top-section__input-check-in"
-            type="text"
-            name="date"
-            placeholder="Tue 15 Sept"
-            forId="check-in"
-            labelClassName="top-section__label-check-in"
-            content="Check-in"
-          >
-            <span>—</span>
-          </Input>
-        </div>
-        <span className="top-section__input-date-dash">—</span>
-        <div className="top-section__check-out">
-          <Input
-            id="check-out"
-            className="top-section__input-check-out"
-            type="text"
-            name="date"
-            placeholder="Sat 19 Sept"
-            forId="check-out"
-            labelClassName="top-section__label-check-out"
-            content="Check-out"
-          />
-        </div>
-      </div>
-      <div className="top-section__room">
+      <Calendar placeholderText="Tue 15 Sept — Sat 19 Sept" />
+      <span className="top-section__label-check-in-out">
+        Check-in — Check-out
+      </span>
+      <div className="top-section__room" onClick={openFilter}>
         <Input
           id="adults"
           className="top-section__input-adults"
@@ -69,7 +56,8 @@ export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
           placeholder="2"
           forId="adults"
           labelClassName="top-section__label-adults"
-          content="Adults"
+          labelContent="Adults"
+          isDisabledInput={true}
         />
         <span className="top-section__input-room-dash">—</span>
         <div className="top-section__children">
@@ -82,7 +70,8 @@ export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
             placeholder="0"
             forId="children"
             labelClassName="top-section__label-children"
-            content="Children"
+            labelContent="Children"
+            isDisabledInput={true}
           />
           <div className="top-section__line top-section__line--right"></div>
         </div>
@@ -96,9 +85,11 @@ export const Form = ({ setSearchParams, setShowAvailableHotels }) => {
             placeholder="1"
             forId="room"
             labelClassName="top-section__label-room"
-            content="Room"
+            labelContent="Room"
+            isDisabledInput={true}
           />
         </div>
+        <Filter showFilter={showFilter} />
       </div>
       <Button className="top-section__button" type="submit">
         Search

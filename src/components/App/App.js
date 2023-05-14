@@ -6,22 +6,19 @@ import { MainContent } from '../MainContent';
 import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
 
+import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
+
 export const App = () => {
   const [showAvailableHotels, setShowAvailableHotels] = useState(false);
-  const [searchParams, setSearchParams] = useState('');
 
   return (
     <>
       <Sprite />
       <MainContent>
-        <TopSection
-          setSearchParams={setSearchParams}
-          setShowAvailableHotels={setShowAvailableHotels}
-        />
-        <AvailableHotels
-          searchParams={searchParams}
-          showAvailableHotels={showAvailableHotels}
-        />
+        <AvailableHotelsContextProvider>
+          <TopSection setShowAvailableHotels={setShowAvailableHotels} />
+          <AvailableHotels showAvailableHotels={showAvailableHotels} />
+        </AvailableHotelsContextProvider>
         <HomesGuestsLoves />
       </MainContent>
     </>
