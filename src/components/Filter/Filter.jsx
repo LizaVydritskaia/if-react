@@ -5,31 +5,9 @@ import { ChildrenSelectAge } from '../ChildrenSelectAge';
 import { FilterChildrenSelect } from '../FilterChildrenSelect';
 import { Input } from '../Input';
 
-import './Filter.css';
+import { initialCounter } from './config';
 
-const initialCounter = [
-  {
-    id: 'adults',
-    filterText: 'Adults',
-    value: 2,
-    min: 1,
-    max: 30,
-  },
-  {
-    id: 'children',
-    filterText: 'Children',
-    value: 0,
-    min: 0,
-    max: 10,
-  },
-  {
-    id: 'room',
-    filterText: 'Room',
-    value: 1,
-    min: 1,
-    max: 30,
-  },
-];
+import './Filter.css';
 
 export const Filter = ({ showFilter }) => {
   const [counters, setCounters] = useState(initialCounter);
@@ -72,7 +50,7 @@ export const Filter = ({ showFilter }) => {
   };
 
   const closeFilterChildrenSelect = (id, value) => {
-    if (id === 'children' && value === 0) {
+    if (id === 'children' && value <= 1) {
       setShowFilterChildrenSelect(false);
     }
   };

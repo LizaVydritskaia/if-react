@@ -14,7 +14,7 @@ export const Input = ({
   forId,
   labelContent,
   children,
-  props,
+  ...props
 }) => (
   <>
     <input

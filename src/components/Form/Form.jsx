@@ -31,6 +31,10 @@ export const Form = ({ setShowAvailableHotels }) => {
     setShowFilter(true);
   };
 
+  const closeFilter = () => {
+    setShowFilter(false);
+  };
+
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
       <Input
@@ -91,7 +95,11 @@ export const Form = ({ setShowAvailableHotels }) => {
         </div>
         <Filter showFilter={showFilter} />
       </div>
-      <Button className="top-section__button" type="submit">
+      <Button
+        className="top-section__button"
+        type="submit"
+        onClick={closeFilter}
+      >
         Search
       </Button>
     </form>

@@ -8,7 +8,7 @@ export const Button = ({
   children,
   onClick,
   isDisabledButton,
-  props,
+  ...props
 }) => (
   <button
     className={className}
