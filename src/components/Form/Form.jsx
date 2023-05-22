@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
+import { Calendar } from '../Calendar';
+import { Filter } from '../Filter';
 import { Input } from '../Input';
 
 import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
 
 import './Form.css';
-import { Calendar } from '../Calendar';
 
 export const Form = ({ setShowAvailableHotels }) => {
   const { setSearchParams } = useAvailableHotelsSearch();
+
+  const [showFilter, setShowFilter] = useState(false);
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
@@ -23,6 +27,13 @@ export const Form = ({ setShowAvailableHotels }) => {
 
     setShowAvailableHotels(true);
   };
+
+  const handleOpenCloseFilter = useCallback(() => {
+    setShowFilter((prevState) => {
+      return !prevState;
+    });
+    console.log(showFilter);
+  }, [showFilter]);
 
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
@@ -40,7 +51,7 @@ export const Form = ({ setShowAvailableHotels }) => {
       <span className="top-section__label-check-in-out">
         Check-in — Check-out
       </span>
-      <div className="top-section__room">
+      <div className="top-section__room" onClick={handleOpenCloseFilter}>
         <Input
           id="adults"
           className="top-section__input-adults"
@@ -50,6 +61,7 @@ export const Form = ({ setShowAvailableHotels }) => {
           forId="adults"
           labelClassName="top-section__label-adults"
           labelContent="Adults"
+          isDisabledInput
         />
         <span className="top-section__input-room-dash">—</span>
         <div className="top-section__children">
@@ -63,6 +75,7 @@ export const Form = ({ setShowAvailableHotels }) => {
             forId="children"
             labelClassName="top-section__label-children"
             labelContent="Children"
+            isDisabledInput
           />
           <div className="top-section__line top-section__line--right"></div>
         </div>
@@ -77,12 +90,22 @@ export const Form = ({ setShowAvailableHotels }) => {
             forId="room"
             labelClassName="top-section__label-room"
             labelContent="Room"
+            isDisabledInput
           />
         </div>
       </div>
-      <Button className="top-section__button" type="submit">
+      <Filter showFilter={showFilter} />
+      <Button
+        className="top-section__button"
+        type="submit"
+        onClick={handleOpenCloseFilter}
+      >
         Search
       </Button>
     </form>
   );
+};
+
+Form.propTypes = {
+  setShowAvailableHotels: PropTypes.func,
 };
