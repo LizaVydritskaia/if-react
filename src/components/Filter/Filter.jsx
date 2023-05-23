@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
@@ -10,7 +10,7 @@ import { initialCounter } from './config';
 
 import './Filter.css';
 
-export const Filter = ({ showFilter }) => {
+export const Filter = memo(function Filter({ showFilter }) {
   const [counters, setCounters] = useState(initialCounter);
   const [selects, setSelects] = useState([]);
   const [showFilterChildrenSelect, setShowFilterChildrenSelect] =
@@ -120,7 +120,7 @@ export const Filter = ({ showFilter }) => {
       </div>
     )
   );
-};
+});
 
 Filter.propTypes = {
   showFilter: PropTypes.bool,

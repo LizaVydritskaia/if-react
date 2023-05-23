@@ -6,7 +6,7 @@
   border-radius: 8px;
   position: absolute;
   top: 130%;
-  right: 0;
+  right: 15%;
   z-index: 1;
   animation: show-filter 150ms ease-in 1 forwards;
 }

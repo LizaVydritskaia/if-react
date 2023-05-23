@@ -32,8 +32,7 @@ export const Form = ({ setShowAvailableHotels }) => {
     setShowFilter((prevState) => {
       return !prevState;
     });
-    console.log(showFilter);
-  }, [showFilter]);
+  }, []);
 
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
