@@ -34,6 +34,17 @@ export const Form = ({ setShowAvailableHotels }) => {
     });
   }, []);
 
+  const scrollToAvailableHotels = () => {
+    window.scrollTo({
+      top: 1000,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleScroll = () => {
+    setTimeout(scrollToAvailableHotels, 500);
+  };
+
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
       <Input
@@ -97,7 +108,10 @@ export const Form = ({ setShowAvailableHotels }) => {
       <Button
         className="top-section__button"
         type="submit"
-        onClick={handleOpenCloseFilter}
+        onClick={() => {
+          handleOpenCloseFilter();
+          handleScroll();
+        }}
       >
         Search
       </Button>
