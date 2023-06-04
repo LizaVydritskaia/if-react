@@ -9,8 +9,8 @@ import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.contex
 
 import './AvailableHotels.css';
 
-export const AvailableHotels = ({ showAvailableHotels }) => {
-  const { availableHotels } = useAvailableHotelsContext();
+export const AvailableHotels = () => {
+  const { availableHotels, showAvailableHotels } = useAvailableHotelsContext();
 
   return (
     showAvailableHotels && (

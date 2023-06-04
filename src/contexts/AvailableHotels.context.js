@@ -6,10 +6,16 @@ const AvailableHotelsContext = createContext({
 
 export const AvailableHotelsContextProvider = ({ children }) => {
   const [availableHotels, setAvailableHotels] = useState([]);
+  const [showAvailableHotels, setShowAvailableHotels] = useState(false);
 
   return (
     <AvailableHotelsContext.Provider
-      value={{ availableHotels, setAvailableHotels }}
+      value={{
+        availableHotels,
+        setAvailableHotels,
+        showAvailableHotels,
+        setShowAvailableHotels,
+      }}
     >
       {children}
     </AvailableHotelsContext.Provider>

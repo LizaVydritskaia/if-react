@@ -5,12 +5,15 @@ import { Calendar } from '../Calendar';
 import { Filter } from '../Filter';
 import { Input } from '../Input';
 
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+
 import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
 
 import './Form.css';
 
-export const Form = ({ setShowAvailableHotels }) => {
+export const Form = () => {
   const { setSearchParams } = useAvailableHotelsSearch();
+  const { setShowAvailableHotels } = useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
 
@@ -31,8 +34,7 @@ export const Form = ({ setShowAvailableHotels }) => {
     setShowFilter((prevState) => {
       return !prevState;
     });
-    console.log(showFilter);
-  }, [showFilter]);
+  }, []);
 
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
