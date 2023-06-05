@@ -6,12 +6,16 @@ import reportWebVitals from './reportWebVitals';
 
 import { router } from './routers';
 
+import { AuthContextProvider } from './contexts/Auth.context';
+
 import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthContextProvider>
+      <RouterProvider router={router} />
+    </AuthContextProvider>
   </React.StrictMode>,
 );
 
