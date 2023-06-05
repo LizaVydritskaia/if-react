@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Arrow } from '../Arrow';
 import { Container } from '../Container';
@@ -28,4 +29,8 @@ export const AvailableHotels = ({ showAvailableHotels }) => {
       </section>
     )
   );
+};
+
+AvailableHotels.propTypes = {
+  showAvailableHotels: PropTypes.bool,
 };

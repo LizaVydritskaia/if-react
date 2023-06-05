@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
 import './Input.css';
 
-export const Input = ({
+export const Input = memo(function Input({
   id,
   className,
   labelClassName,
@@ -15,21 +16,36 @@ export const Input = ({
   labelContent,
   children,
   ...props
-}) => (
-  <>
-    <input
-      id={id}
-      className={className}
-      type={type}
-      name={name}
-      value={value}
-      placeholder={placeholder}
-      disabled={isDisabledInput}
-      {...props}
-    />
-    <label htmlFor={forId} className={labelClassName}>
-      {labelContent}
-      {children}
-    </label>
-  </>
-);
+}) {
+  return (
+    <>
+      <input
+        id={id}
+        className={className}
+        type={type}
+        name={name}
+        value={value}
+        placeholder={placeholder}
+        disabled={isDisabledInput}
+        {...props}
+      />
+      <label htmlFor={forId} className={labelClassName}>
+        {labelContent}
+        {children}
+      </label>
+    </>
+  );
+});
+
+Input.propTypes = {
+  id: PropTypes.string,
+  className: PropTypes.string,
+  labelClassName: PropTypes.string,
+  type: PropTypes.string,
+  name: PropTypes.string,
+  value: PropTypes.number,
+  placeholder: PropTypes.string,
+  isDisabledInput: PropTypes.bool,
+  forId: PropTypes.string,
+  labelContent: PropTypes.string,
+};

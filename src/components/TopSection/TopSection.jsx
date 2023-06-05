@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Container } from '../Container';
 import { Form } from '../Form';
@@ -31,4 +32,8 @@ export const TopSection = ({ setShowAvailableHotels }) => {
       </Container>
     </section>
   );
+};
+
+TopSection.propTypes = {
+  setShowAvailableHotels: PropTypes.func,
 };

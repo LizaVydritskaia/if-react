@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
@@ -31,8 +32,18 @@ export const Form = ({ setShowAvailableHotels }) => {
     setShowFilter((prevState) => {
       return !prevState;
     });
-    console.log(showFilter);
-  }, [showFilter]);
+  }, []);
+
+  const scrollToAvailableHotels = () => {
+    window.scrollTo({
+      top: 1000,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleScroll = () => {
+    setTimeout(scrollToAvailableHotels, 500);
+  };
 
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
@@ -97,10 +108,17 @@ export const Form = ({ setShowAvailableHotels }) => {
       <Button
         className="top-section__button"
         type="submit"
-        onClick={handleOpenCloseFilter}
+        onClick={() => {
+          handleOpenCloseFilter();
+          handleScroll();
+        }}
       >
         Search
       </Button>
     </form>
   );
+};
+
+Form.propTypes = {
+  setShowAvailableHotels: PropTypes.func,
 };
