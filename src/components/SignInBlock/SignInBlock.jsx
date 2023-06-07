@@ -1,9 +1,9 @@
 import React, { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Button } from '../Button';
-
 import { useAuthContext } from '../../contexts/Auth.context';
+
+import { Button } from '../Button';
 
 import './SignInBlock.css';
 

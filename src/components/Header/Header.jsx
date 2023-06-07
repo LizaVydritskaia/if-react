@@ -1,15 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
+
+import { useAuthContext } from '../../contexts/Auth.context';
 
 //components
 import { Container } from '../Container';
 import { Icon } from '../Icon';
+import { IconAccount } from '../Icon/IconAccount';
+import { SignOutDropdown } from '../SignOutDropdown';
 
 //styles
 import './Header.css';
 
 export const Header = ({ className }) => {
+  const [showSignOutDropdown, setShowSignOutDropdown] = useState(false);
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { setIsAuthenticated } = useAuthContext();
+
+  const openDropdown = () => {
+    if (location.pathname !== '/sign-in') {
+      setShowSignOutDropdown(true);
+    }
+  };
+
+  const signOut = () => {
+    setIsAuthenticated(false);
+    navigate('/sign-in');
+  };
+
   return (
     <Container>
       <header className={classNames('header', className)}>
@@ -31,7 +53,11 @@ export const Header = ({ className }) => {
           </div>
           <div className="header__night-account">
             <Icon className="header__night" hrefIconName="#night" />
-            <Icon className="header__account" hrefIconName="#account" />
+            <IconAccount onClick={openDropdown} />
+            <SignOutDropdown
+              onClick={signOut}
+              showSignOutDropdown={showSignOutDropdown}
+            />
             <Icon className="header__menu" hrefIconName="#menu" />
           </div>
         </nav>

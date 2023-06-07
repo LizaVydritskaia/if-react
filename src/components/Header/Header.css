@@ -68,8 +68,5 @@
   display: flex;
   gap: 24px;
   align-items: center;
-}
-
-.header__account:hover {
-  cursor: pointer;
+  position: relative;
 }
