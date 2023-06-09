@@ -16,7 +16,6 @@ export const App = () => {
       <MainContent>
         <AvailableHotelsContextProvider>
           <TopSection />
-          <TopSection />
           <Suspense fallback={<Loader />}>
             <AvailableHotels />
           </Suspense>
