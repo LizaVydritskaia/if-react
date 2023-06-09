@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 
+//components
 import { AvailableHotels } from '../AvailableHotels';
 import { Footer } from '../Footer';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
@@ -15,7 +16,6 @@ export const App = () => {
       <MainContent>
         <AvailableHotelsContextProvider>
           <TopSection />
-          <AvailableHotels />
           <TopSection />
           <Suspense fallback={<Loader />}>
             <AvailableHotels />

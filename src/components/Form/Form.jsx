@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
@@ -120,8 +119,4 @@ export const Form = () => {
       </Button>
     </form>
   );
-};
-
-Form.propTypes = {
-  setShowAvailableHotels: PropTypes.func,
 };

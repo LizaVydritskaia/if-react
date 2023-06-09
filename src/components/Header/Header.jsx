@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 import { useAuthContext } from '../../contexts/Auth.context';
 
@@ -64,4 +65,8 @@ export const Header = ({ className }) => {
       </header>
     </Container>
   );
+};
+
+Header.propTypes = {
+  className: PropTypes.string,
 };
