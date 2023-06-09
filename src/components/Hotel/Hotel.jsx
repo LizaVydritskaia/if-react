@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './Hotel.css';
@@ -16,3 +17,8 @@ export const Hotel = ({ hotelsDataArray, className }) =>
       </p>
     </div>
   ));
+
+Hotel.propTypes = {
+  hotelsDataArray: PropTypes.array,
+  className: PropTypes.string,
+};

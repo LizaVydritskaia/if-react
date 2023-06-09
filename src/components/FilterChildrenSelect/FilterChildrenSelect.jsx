@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './FilterChildrenSelect.css';
 
@@ -18,4 +19,8 @@ export const FilterChildrenSelect = ({
       </div>
     )
   );
+};
+
+FilterChildrenSelect.propTypes = {
+  showFilterChildrenSelect: PropTypes.bool,
 };

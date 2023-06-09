@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import PropTypes from 'prop-types';
 
 import './ChildrenSelectAge.css';
 
@@ -31,4 +32,8 @@ export const ChildrenSelectAge = ({ onChange }) => {
       })}
     </select>
   );
+};
+
+ChildrenSelectAge.propTypes = {
+  onChange: PropTypes.func,
 };

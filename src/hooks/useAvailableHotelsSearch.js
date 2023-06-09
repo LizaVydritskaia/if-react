@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { getAvailableHotels } from '../services/availableHotels';
+import { getAvailableHotels } from '../services/getAvailableHotels';
 
 import { useAvailableHotelsContext } from '../contexts/AvailableHotels.context';
 
