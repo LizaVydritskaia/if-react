@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
+//components
 import { Arrow } from '../Arrow';
 import { Container } from '../Container';
 import { Hotel } from '../Hotel';
@@ -10,8 +10,8 @@ import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.contex
 
 import './AvailableHotels.css';
 
-export const AvailableHotels = ({ showAvailableHotels }) => {
-  const { availableHotels } = useAvailableHotelsContext();
+export const AvailableHotels = () => {
+  const { availableHotels, showAvailableHotels } = useAvailableHotelsContext();
 
   return (
     showAvailableHotels && (
@@ -29,8 +29,4 @@ export const AvailableHotels = ({ showAvailableHotels }) => {
       </section>
     )
   );
-};
-
-AvailableHotels.propTypes = {
-  showAvailableHotels: PropTypes.bool,
 };

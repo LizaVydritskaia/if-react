@@ -1,0 +1,11 @@
+.header__account:hover {
+  cursor: pointer;
+}
+
+use.header__account--logged-in {
+  fill: var(--accent-yellow);
+}
+
+.header__account--logged-out {
+  fill: var(--text-general-white);
+}

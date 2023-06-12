@@ -1,17 +1,19 @@
 import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
 
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
 import { Filter } from '../Filter';
 import { Input } from '../Input';
 
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+
 import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
 
 import './Form.css';
 
-export const Form = ({ setShowAvailableHotels }) => {
+export const Form = () => {
   const { setSearchParams } = useAvailableHotelsSearch();
+  const { setShowAvailableHotels } = useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
 
@@ -117,8 +119,4 @@ export const Form = ({ setShowAvailableHotels }) => {
       </Button>
     </form>
   );
-};
-
-Form.propTypes = {
-  setShowAvailableHotels: PropTypes.func,
 };
