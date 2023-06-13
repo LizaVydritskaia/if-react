@@ -56,16 +56,20 @@ export const Filter = memo(function Filter({ showFilter }) {
     }
   };
 
-  const addSelect = () => {
+  const addSelect = (buttonId) => {
     const newSelect = {
       id: Math.random(),
     };
 
-    setSelects([...selects, newSelect]);
+    if (buttonId === 'children') {
+      setSelects([...selects, newSelect]);
+    }
   };
 
-  const deleteSelect = () => {
-    setSelects([...selects.slice(0, selects.length - 1)]);
+  const deleteSelect = (buttonId) => {
+    if (buttonId === 'children') {
+      setSelects([...selects.slice(0, selects.length - 1)]);
+    }
   };
 
   return (
@@ -83,7 +87,7 @@ export const Filter = memo(function Filter({ showFilter }) {
                 isDisabledButton={counter.value === counter.min}
                 onClick={() => {
                   handleMinusClick(counter.id);
-                  deleteSelect();
+                  deleteSelect(counter.id);
                   closeFilterChildrenSelect(counter.id, counter.value);
                 }}
               >
@@ -93,7 +97,7 @@ export const Filter = memo(function Filter({ showFilter }) {
                 type="text"
                 value={counter.value}
                 className="top-section__input-value"
-                isDisabledInput={true}
+                isDisabledInput
               />
               <Button
                 type="button"
@@ -102,7 +106,7 @@ export const Filter = memo(function Filter({ showFilter }) {
                 onClick={() => {
                   handlePlusClick(counter.id);
                   openFilterChildrenSelect(counter.id);
-                  addSelect();
+                  addSelect(counter.id);
                 }}
               >
                 +
