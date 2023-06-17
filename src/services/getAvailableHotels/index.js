@@ -2,11 +2,19 @@ import { API_availableHotels } from '../constants';
 
 import { fetchData, wrapPromise } from '../../helpers/wrapPromise';
 
-export const getAvailableHotels = async (inputValue) => {
+export const getAvailableHotels = async (
+  destinationValue,
+  adultsValue,
+  childrenValue,
+  roomValue,
+) => {
   return wrapPromise(
     fetchData(API_availableHotels, {
       params: {
-        search: inputValue,
+        search: destinationValue,
+        adults: adultsValue,
+        children: childrenValue,
+        room: roomValue,
       },
     }),
   );

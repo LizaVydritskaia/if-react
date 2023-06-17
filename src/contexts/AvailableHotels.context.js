@@ -1,13 +1,15 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useRef, useState } from 'react';
 
 const AvailableHotelsContext = createContext({
   availableHotels: [],
   showAvailableHotels: false,
+  availableHotelsRef: null,
 });
 
 export const AvailableHotelsContextProvider = ({ children }) => {
   const [availableHotels, setAvailableHotels] = useState([]);
   const [showAvailableHotels, setShowAvailableHotels] = useState(false);
+  const availableHotelsRef = useRef(null);
 
   return (
     <AvailableHotelsContext.Provider
@@ -16,6 +18,7 @@ export const AvailableHotelsContextProvider = ({ children }) => {
         setAvailableHotels,
         showAvailableHotels,
         setShowAvailableHotels,
+        availableHotelsRef,
       }}
     >
       {children}

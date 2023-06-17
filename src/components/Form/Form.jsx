@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
@@ -7,15 +8,25 @@ import { Input } from '../Input';
 
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
-import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
+import {
+  checkInOutAction,
+  destinationAction,
+} from '../../store/actions/form.actions';
+
+// import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
 
 import './Form.css';
 
 export const Form = () => {
-  const { setSearchParams } = useAvailableHotelsSearch();
-  const { setShowAvailableHotels } = useAvailableHotelsContext();
+  // const { setSearchParams } = useAvailableHotelsSearch();
+  const { setShowAvailableHotels, availableHotelsRef } =
+    useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
+
+  const filterValues = useSelector((state) => state.filter);
+
+  const dispatch = useDispatch();
 
   const handleSubmitClick = (event) => {
     event.preventDefault();
@@ -23,9 +34,10 @@ export const Form = () => {
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    const { destinations } = data;
+    const { destination } = data;
 
-    setSearchParams(destinations);
+    // setSearchParams(destination);
+    dispatch(destinationAction(destination));
 
     setShowAvailableHotels(true);
   };
@@ -37,25 +49,30 @@ export const Form = () => {
   }, []);
 
   const scrollToAvailableHotels = () => {
-    window.scrollTo({
-      top: 1000,
-      behavior: 'smooth',
-    });
+    availableHotelsRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleScroll = () => {
     setTimeout(scrollToAvailableHotels, 500);
   };
 
+  const getCalendarValues = () => {
+    const calendarInput = document.getElementsByClassName(
+      'react-datepicker__input-container',
+    );
+
+    dispatch(checkInOutAction(calendarInput[0].children[1].value));
+  };
+
   return (
     <form className="top-section__form" onSubmit={handleSubmitClick}>
       <Input
-        id="destinations"
+        id="destination"
         className="top-section__input-destination"
         type="text"
-        name="destinations"
+        name="destination"
         placeholder="New York"
-        forId="destinations"
+        forId="destination"
         labelClassName="top-section__label-destination"
         labelContent="Your destination or hotel name"
       />
@@ -69,7 +86,7 @@ export const Form = () => {
           className="top-section__input-adults"
           type="text"
           name="adults"
-          placeholder="2"
+          value={filterValues.adults}
           forId="adults"
           labelClassName="top-section__label-adults"
           labelContent="Adults"
@@ -83,7 +100,7 @@ export const Form = () => {
             className="top-section__input-children-room"
             type="text"
             name="children"
-            placeholder="0"
+            value={filterValues.children}
             forId="children"
             labelClassName="top-section__label-children"
             labelContent="Children"
@@ -98,7 +115,7 @@ export const Form = () => {
             className="top-section__input-children-room top-section__input-children-room--border"
             type="text"
             name="room"
-            placeholder="1"
+            value={filterValues.room}
             forId="room"
             labelClassName="top-section__label-room"
             labelContent="Room"
@@ -113,6 +130,7 @@ export const Form = () => {
         onClick={() => {
           handleOpenCloseFilter();
           handleScroll();
+          getCalendarValues();
         }}
       >
         Search

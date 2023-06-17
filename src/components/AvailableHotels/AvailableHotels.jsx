@@ -11,11 +11,12 @@ import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.contex
 import './AvailableHotels.css';
 
 export const AvailableHotels = () => {
-  const { availableHotels, showAvailableHotels } = useAvailableHotelsContext();
+  const { availableHotels, showAvailableHotels, availableHotelsRef } =
+    useAvailableHotelsContext();
 
   return (
     showAvailableHotels && (
-      <section className="available-hotels">
+      <section className="available-hotels" ref={availableHotelsRef}>
         <Container>
           <Title content="Available hotels" />
           <div className="homes__hotels">

@@ -23,8 +23,6 @@ export const SignInBlock = () => {
     const email = formData.get('email');
     const password = formData.get('password');
 
-    console.log(email, password);
-
     if (email && password) {
       dispatch(changeAuthStatus(authStatuses.loggedIn));
       navigate('/');
