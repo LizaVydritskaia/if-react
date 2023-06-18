@@ -1,20 +1,21 @@
 import React, { createContext, useContext, useState } from 'react';
 
 const AvailableHotelsContext = createContext({
-  availableHotels: [],
+  searchParams: '',
+  setSearchParams: (searchParams) => {},
 });
 
 export const AvailableHotelsContextProvider = ({ children }) => {
-  const [availableHotels, setAvailableHotels] = useState([]);
   const [showAvailableHotels, setShowAvailableHotels] = useState(false);
+  const [searchParams, setSearchParams] = useState('');
 
   return (
     <AvailableHotelsContext.Provider
       value={{
-        availableHotels,
-        setAvailableHotels,
         showAvailableHotels,
         setShowAvailableHotels,
+        searchParams,
+        setSearchParams,
       }}
     >
       {children}

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { Container } from '../Container';
 import { Header } from '../Header';
@@ -16,8 +15,4 @@ export const TopSection = () => {
       </Container>
     </section>
   );
-};
-
-TopSection.propTypes = {
-  setShowAvailableHotels: PropTypes.func,
 };

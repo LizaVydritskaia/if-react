@@ -7,13 +7,11 @@ import { Input } from '../Input';
 
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
-import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
-
 import './Form.css';
 
 export const Form = () => {
-  const { setSearchParams } = useAvailableHotelsSearch();
-  const { setShowAvailableHotels } = useAvailableHotelsContext();
+  const { setShowAvailableHotels, setSearchParams } =
+    useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
 
