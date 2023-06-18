@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { AvailableHotels } from '../AvailableHotels';
 import { Footer } from '../Footer';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
-import { Loader } from '../Loader';
 import { MainContent } from '../MainContent';
 import { TopSection } from '../TopSection';
 
@@ -31,9 +30,7 @@ export const App = () => {
       <MainContent>
         <AvailableHotelsContextProvider>
           <TopSection />
-          <Suspense fallback={<Loader />}>
-            <AvailableHotels />
-          </Suspense>
+          <AvailableHotels />
         </AvailableHotelsContextProvider>
         <HomesGuestsLoves />
         <Footer />

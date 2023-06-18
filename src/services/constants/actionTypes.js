@@ -19,3 +19,7 @@ export const FORM = {
   setRoom: 'form/set-room-count',
   setChildrenAges: 'form/set-children-ages',
 };
+
+export const AVAILABLE_HOTELS = {
+  setSearchParams: 'available-hotels/set-search-params',
+};

@@ -12,19 +12,17 @@ import {
   checkInOutAction,
   destinationAction,
 } from '../../store/actions/form.actions';
-
-// import { useAvailableHotelsSearch } from '../../hooks/useAvailableHotelsSearch';
+import { searchAction } from '../../store/actions/search.actions';
 
 import './Form.css';
 
 export const Form = () => {
-  // const { setSearchParams } = useAvailableHotelsSearch();
-  const { setShowAvailableHotels, availableHotelsRef } =
-    useAvailableHotelsContext();
+  const { availableHotelsRef } = useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
 
   const filterValues = useSelector((state) => state.filter);
+  const formValues = useSelector((state) => state.form);
 
   const dispatch = useDispatch();
 
@@ -36,10 +34,17 @@ export const Form = () => {
 
     const { destination } = data;
 
-    // setSearchParams(destination);
     dispatch(destinationAction(destination));
 
-    setShowAvailableHotels(true);
+    dispatch(
+      searchAction({
+        destinationValue: destination,
+        calendarValue: formValues.checkInOut,
+        adultsCount: filterValues.adults,
+        childrenAges: formValues.childrenAges,
+        roomsCount: filterValues.room,
+      }),
+    );
   };
 
   const handleOpenCloseFilter = useCallback(() => {

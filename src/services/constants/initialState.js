@@ -18,4 +18,11 @@ export const initialState = {
     roomCount: formValues.roomCount,
     childrenAges: null,
   },
+  search: {
+    destinationValue: '',
+    checkInOut: '',
+    adultsCount: 0,
+    childrenAges: '',
+    roomCount: 0,
+  },
 };
