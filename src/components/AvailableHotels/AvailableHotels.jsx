@@ -13,21 +13,23 @@ import { Loader } from '../Loader';
 import { Title } from '../Title';
 
 import './AvailableHotels.css';
+import { initialState } from '../../services/constants/initialState';
 
 export const AvailableHotels = () => {
   const { availableHotelsRef } = useAvailableHotelsContext();
 
   const searchValues = useSelector((state) => state.search);
 
-  const availableHotels = searchValues
-    ? getAvailableHotels({
-        search: searchValues.destinationValue,
-        checkInOut: searchValues.calendarValue,
-        adults: searchValues.adultsCount,
-        children: searchValues.childrenAges,
-        rooms: searchValues.roomsCount,
-      })
-    : null;
+  const availableHotels =
+    searchValues !== initialState.search
+      ? getAvailableHotels({
+          search: searchValues.destinationValue,
+          checkInOut: searchValues.calendarValue,
+          adults: searchValues.adultsCount,
+          children: searchValues.childrenAges,
+          rooms: searchValues.roomsCount,
+        })
+      : null;
 
   if (!availableHotels) {
     return null;
