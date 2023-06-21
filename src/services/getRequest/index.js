@@ -1,6 +1,14 @@
 import axios from 'axios';
 
-export const getRequest = async (url, config) => {
-  const data = await axios.get(url, config);
-  return data.data;
+const cache = new Map();
+
+export const getRequest = (url) => {
+  if (!cache.has(url)) {
+    cache.set(
+      url,
+      axios.get(url).then((result) => result.data),
+    );
+  }
+
+  return cache.get(url);
 };

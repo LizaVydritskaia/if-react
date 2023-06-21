@@ -21,7 +21,6 @@ export const Calendar = memo(function Calendar(props) {
       monthsShown={2}
       calendarStartDay={1}
       dateFormat="MMMM d, yyyy"
-      locale="en-GB"
     />
   );
 });
