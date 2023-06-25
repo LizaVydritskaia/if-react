@@ -7,6 +7,7 @@ import { AvailableHotels } from '../AvailableHotels';
 import { Footer } from '../Footer';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
 import { MainContent } from '../MainContent';
+import { Offer } from '../Offer';
 import { TopSection } from '../TopSection';
 
 import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
@@ -32,6 +33,7 @@ export const App = () => {
           <TopSection />
           <AvailableHotels />
         </AvailableHotelsContextProvider>
+        <Offer />
         <HomesGuestsLoves />
         <Footer />
       </MainContent>
