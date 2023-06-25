@@ -25,9 +25,6 @@ export const Filter = memo(function Filter({ showFilter }) {
 
   const filterValues = useSelector((state) => state.filter);
 
-  const state = useSelector((state) => state);
-  console.log(state);
-
   const dispatch = useDispatch();
 
   const openFilterChildrenSelect = () => {

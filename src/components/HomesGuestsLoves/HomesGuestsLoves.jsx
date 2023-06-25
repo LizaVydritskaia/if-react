@@ -1,6 +1,6 @@
-import React, { Suspense } from 'react';
+import React, { Fragment } from 'react';
 
-import { getHotels } from '../../services/getHotels';
+import { useGetHotelsQuery } from '../../services/hotels';
 
 import { Arrow } from '../Arrow';
 import { Container } from '../Container';
@@ -11,22 +11,23 @@ import { Title } from '../Title';
 import './HomesGuestsLoves.css';
 
 export const HomesGuestsLoves = () => {
-  const hotels = getHotels();
+  const { data: hotels = [], isLoading } = useGetHotelsQuery();
 
   return (
-    <Suspense fallback={<Loader />}>
+    <Loader loading={isLoading}>
       <section className="homes">
         <Container>
           <Title content="Homes guests loves" />
           <div className="homes__hotels">
-            <Hotel
-              hotelsPromise={hotels}
-              className="col-lg-3 col-md-6 col-sm-3"
-            />
+            {hotels.map((hotel) => (
+              <Fragment key={hotel.id}>
+                <Hotel {...hotel} />
+              </Fragment>
+            ))}
             <Arrow />
           </div>
         </Container>
       </section>
-    </Suspense>
+    </Loader>
   );
 };

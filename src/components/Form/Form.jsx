@@ -16,7 +16,8 @@ import {
 import './Form.css';
 
 export const Form = () => {
-  const { availableHotelsRef } = useAvailableHotelsContext();
+  const { availableHotelsRef, setShowAvailableHotels } =
+    useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
 
@@ -33,6 +34,8 @@ export const Form = () => {
     const { destination } = data;
 
     dispatch(setDestination(destination));
+
+    setShowAvailableHotels(true);
   };
 
   const handleOpenCloseFilter = useCallback(() => {
