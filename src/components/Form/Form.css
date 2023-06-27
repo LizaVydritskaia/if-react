@@ -87,6 +87,7 @@
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
+  background-color: var(--text-general-white);
 }
 
 .top-section__input-adults::placeholder {
@@ -125,6 +126,7 @@
   font-weight: 400;
   font-size: 18px;
   color: var(--text-primary-color);
+  background-color: var(--text-general-white);
 }
 
 .top-section__input-children-room::placeholder {

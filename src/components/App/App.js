@@ -1,28 +1,47 @@
-import React, { Suspense, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
+//components
 import { AvailableHotels } from '../AvailableHotels';
+import { Footer } from '../Footer';
+import { Destinations } from '../Destinations';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
-import { Loader } from '../Loader';
 import { MainContent } from '../MainContent';
-import { Sprite } from '../Sprite';
+import { Offer } from '../Offer';
+import { Reviews } from '../Reviews/Reviews';
+import { SignUp } from '../SignUp';
 import { TopSection } from '../TopSection';
 
 import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
 
+import { authStatuses } from '../../services/constants/authStatuses';
+
 export const App = () => {
-  const [showAvailableHotels, setShowAvailableHotels] = useState(false);
+  const navigate = useNavigate();
+  const loggedOut = useSelector(
+    (state) => state.auth.status !== authStatuses.loggedIn,
+  );
+
+  useEffect(() => {
+    if (loggedOut) {
+      navigate('/sign-in');
+    }
+  }, [loggedOut, navigate]);
 
   return (
     <>
-      <Sprite />
       <MainContent>
         <AvailableHotelsContextProvider>
-          <TopSection setShowAvailableHotels={setShowAvailableHotels} />
-          <Suspense fallback={<Loader />}>
-            <AvailableHotels showAvailableHotels={showAvailableHotels} />
-          </Suspense>
+          <TopSection />
+          <AvailableHotels />
         </AvailableHotelsContextProvider>
+        <Offer />
         <HomesGuestsLoves />
+        <Destinations />
+        <SignUp />
+        <Reviews />
+        <Footer />
       </MainContent>
     </>
   );

@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './FilterChildrenSelect.css';
+import { useFilterChildrenSelectStyles } from './FilterChildrenSelect.styles';
 
 export const FilterChildrenSelect = ({
   showFilterChildrenSelect,
   children,
 }) => {
+  const classes = useFilterChildrenSelectStyles();
+
   return (
     showFilterChildrenSelect && (
-      <div className="top-section__filter-children">
+      <div className={classes.filterChildren}>
         <form className="top-section__filter-form" action="/">
-          <label className="top-section__filter-label" htmlFor="child-age">
+          <label className={classes.filterLabel} htmlFor="child-age">
             What is the age of the child you’re travelling with?
           </label>
           {children}
