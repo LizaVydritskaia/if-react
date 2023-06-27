@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Container } from '../Container';
 
+import { footerData } from './footerConfig';
+
 import './Footer.css';
 
 export const Footer = () => {
@@ -14,27 +16,21 @@ export const Footer = () => {
           </svg>
         </div>
         <div className="footer__lists">
-          <ul className="col-lg-4 col-md-4">
-            <li>About</li>
-            <li>How Triphouse works</li>
-            <li>Careers</li>
-            <li>Privacy</li>
-            <li>Terms</li>
-          </ul>
-          <ul className="col-lg-4 col-md-4">
-            <li>Property types</li>
-            <li>Guest houses</li>
-            <li>Hotels</li>
-            <li>Apartments</li>
-            <li>Villas</li>
-            <li>Holiday homes</li>
-            <li>Hostels</li>
-          </ul>
-          <ul className="col-lg-4 col-md-4">
-            <li>Support</li>
-            <li>Contact Customer Service</li>
-            <li>FAQ</li>
-          </ul>
+          {footerData.map((item) => {
+            return (
+              <ul key={item.id} className="col-lg-4 col-md-4">
+                {item.linkText.map((link, index) => {
+                  return (
+                    <li key={index}>
+                      <a className="footer__link" href="#">
+                        {link}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            );
+          })}
         </div>
         <p className="footer__copyright">
           &#169; 2023Triphouse, Inc. All rights reserved

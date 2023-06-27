@@ -8,18 +8,3 @@
 .top-section__container {
   padding-top: 202px;
 }
-
-.top-section__title {
-  font-weight: 500;
-  font-size: 50px;
-  line-height: 118%;
-  color: var(--text-general-white);
-  margin-bottom: 145px;
-}
-
-.top-section__apps {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding-bottom: 120px;
-}

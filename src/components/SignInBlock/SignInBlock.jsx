@@ -38,18 +38,20 @@ export const SignInBlock = () => {
         </label>
         <input
           className="sign-in__text-field"
-          name="email"
           id={emailId}
           type="email"
+          name="email"
+          required
         />
         <label className="sign-in__label" htmlFor={passwordId}>
           Password
         </label>
         <input
           className="sign-in__text-field"
-          name="password"
           id={passwordId}
           type="password"
+          name="password"
+          required
         />
         <Button type="submit" className="sign-in__button">
           Sign in
