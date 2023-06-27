@@ -10,22 +10,11 @@ export const checkInOutAction = (value) => ({
   payload: value,
 });
 
-export const adultsAction = (value) => ({
-  type: FORM.setAdults,
-  payload: value,
-});
-
-export const childrenAction = (value) => ({
-  type: FORM.setChildren,
-  payload: value,
-});
-
-export const roomAction = (value) => ({
-  type: FORM.setRoom,
-  payload: value,
-});
-
 export const childrenAgesAction = (value) => ({
   type: FORM.setChildrenAges,
   payload: value,
+});
+
+export const counterActions = (actionType) => ({
+  type: actionType,
 });

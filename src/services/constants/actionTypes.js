@@ -14,12 +14,5 @@ export const FILTER_COUNTER = {
 export const FORM = {
   setDestination: 'form/set-destination',
   setCalendar: 'form/set-calendar-values',
-  setAdults: 'form/set-adults-count',
-  setChildren: 'form/set-children-count',
-  setRoom: 'form/set-room-count',
   setChildrenAges: 'form/set-children-ages',
-};
-
-export const AVAILABLE_HOTELS = {
-  setSearchParams: 'available-hotels/set-search-params',
 };

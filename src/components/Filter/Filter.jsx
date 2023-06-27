@@ -4,14 +4,11 @@ import PropTypes from 'prop-types';
 
 import { FILTER_COUNTER } from '../../services/constants/actionTypes';
 
-import { counterActions } from '../../store/actions/counter.actions';
-import {
-  adultsAction,
-  childrenAction,
-  childrenAgesAction,
-  roomAction,
-} from '../../store/actions/form.actions';
+//actions
+import { counterActions } from '../../store/actions/form.actions';
+import { childrenAgesAction } from '../../store/actions/form.actions';
 
+//components
 import { ChildrenSelectAge } from '../ChildrenSelectAge';
 import { Counter } from '../Counter';
 import { FilterChildrenSelect } from '../FilterChildrenSelect';
@@ -23,9 +20,7 @@ export const Filter = memo(function Filter({ showFilter }) {
   const [showFilterChildrenSelect, setShowFilterChildrenSelect] =
     useState(false);
 
-  const filterValues = useSelector((state) => state.filter);
-
-  const state = useSelector((state) => state);
+  const formValues = useSelector((state) => state.form);
 
   const dispatch = useDispatch();
 
@@ -37,6 +32,14 @@ export const Filter = memo(function Filter({ showFilter }) {
     if (value <= 1) {
       setShowFilterChildrenSelect(false);
     }
+  };
+
+  const handleDecrement = (action) => {
+    dispatch(action);
+  };
+
+  const handleIncrement = (action) => {
+    dispatch(action);
   };
 
   const addSelect = () => {
@@ -66,41 +69,35 @@ export const Filter = memo(function Filter({ showFilter }) {
     dispatch(childrenAgesAction(selectValues.join(',')));
   };
 
-  console.log(state);
-
   return (
     showFilter && (
       <div className="top-section__filter">
         <Counter
           id="adults"
           counterText="Adults"
-          value={filterValues.adults}
+          value={formValues.adults}
           min={1}
           max={30}
           onClickMinusButton={() => {
-            dispatch(counterActions(FILTER_COUNTER.adultsDecrement));
-            dispatch(adultsAction(filterValues.adults));
+            handleDecrement(counterActions(FILTER_COUNTER.adultsDecrement));
           }}
           onClickPlusButton={() => {
-            dispatch(counterActions(FILTER_COUNTER.adultsIncrement));
-            dispatch(adultsAction(filterValues.adults));
+            handleIncrement(counterActions(FILTER_COUNTER.adultsIncrement));
           }}
         />
         <Counter
           id="children"
           counterText="Children"
-          value={filterValues.children}
+          value={formValues.children}
           min={0}
           max={10}
           onClickMinusButton={() => {
-            dispatch(counterActions(FILTER_COUNTER.childrenDecrement));
-            dispatch(childrenAction(filterValues.children));
-            closeFilterChildrenSelect(filterValues.children);
+            handleDecrement(counterActions(FILTER_COUNTER.childrenDecrement));
+            closeFilterChildrenSelect(formValues.children);
             deleteSelect();
           }}
           onClickPlusButton={() => {
-            dispatch(counterActions(FILTER_COUNTER.childrenIncrement));
-            dispatch(childrenAction(filterValues.children));
+            handleIncrement(counterActions(FILTER_COUNTER.childrenIncrement));
             openFilterChildrenSelect();
             addSelect();
           }}
@@ -108,16 +105,14 @@ export const Filter = memo(function Filter({ showFilter }) {
         <Counter
           id="room"
           counterText="Room"
-          value={filterValues.room}
+          value={formValues.room}
           min={1}
           max={30}
           onClickMinusButton={() => {
-            dispatch(counterActions(FILTER_COUNTER.roomDecrement));
-            dispatch(roomAction(filterValues.room));
+            handleDecrement(counterActions(FILTER_COUNTER.roomDecrement));
           }}
           onClickPlusButton={() => {
-            dispatch(counterActions(FILTER_COUNTER.roomIncrement));
-            dispatch(roomAction(filterValues.room));
+            handleIncrement(counterActions(FILTER_COUNTER.roomIncrement));
           }}
         />
         <FilterChildrenSelect

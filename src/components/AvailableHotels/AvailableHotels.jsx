@@ -1,6 +1,8 @@
 import React, { Suspense } from 'react';
 import { useSelector } from 'react-redux';
 
+import { initialState } from '../../services/constants/initialState';
+
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
 import { getAvailableHotels } from '../../services/getAvailableHotels';
@@ -13,21 +15,20 @@ import { Loader } from '../Loader';
 import { Title } from '../Title';
 
 import './AvailableHotels.css';
-import { initialState } from '../../services/constants/initialState';
 
 export const AvailableHotels = () => {
   const { availableHotelsRef } = useAvailableHotelsContext();
 
-  const searchValues = useSelector((state) => state.search);
+  const formValues = useSelector((state) => state.form);
 
   const availableHotels =
-    searchValues !== initialState.search
+    formValues !== initialState.form
       ? getAvailableHotels({
-          search: searchValues.destinationValue,
-          checkInOut: searchValues.calendarValue,
-          adults: searchValues.adultsCount,
-          children: searchValues.childrenAges,
-          rooms: searchValues.roomsCount,
+          search: formValues.destinationValue,
+          checkInOut: formValues.checkInOut,
+          adults: formValues.adults,
+          children: formValues.childrenAges,
+          rooms: formValues.room,
         })
       : null;
 

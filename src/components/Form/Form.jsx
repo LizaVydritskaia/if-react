@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+//components
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
 import { Filter } from '../Filter';
@@ -12,7 +13,6 @@ import {
   checkInOutAction,
   destinationAction,
 } from '../../store/actions/form.actions';
-import { searchAction } from '../../store/actions/search.actions';
 
 import './Form.css';
 
@@ -21,7 +21,6 @@ export const Form = () => {
 
   const [showFilter, setShowFilter] = useState(false);
 
-  const filterValues = useSelector((state) => state.filter);
   const formValues = useSelector((state) => state.form);
 
   const dispatch = useDispatch();
@@ -35,16 +34,6 @@ export const Form = () => {
     const { destination } = data;
 
     dispatch(destinationAction(destination));
-
-    dispatch(
-      searchAction({
-        destinationValue: destination,
-        calendarValue: formValues.checkInOut,
-        adultsCount: filterValues.adults,
-        childrenAges: formValues.childrenAges,
-        roomsCount: filterValues.room,
-      }),
-    );
   };
 
   const handleOpenCloseFilter = useCallback(() => {
@@ -91,7 +80,7 @@ export const Form = () => {
           className="top-section__input-adults"
           type="text"
           name="adults"
-          value={filterValues.adults}
+          value={formValues.adults}
           forId="adults"
           labelClassName="top-section__label-adults"
           labelContent="Adults"
@@ -105,7 +94,7 @@ export const Form = () => {
             className="top-section__input-children-room"
             type="text"
             name="children"
-            value={filterValues.children}
+            value={formValues.children}
             forId="children"
             labelClassName="top-section__label-children"
             labelContent="Children"
@@ -120,7 +109,7 @@ export const Form = () => {
             className="top-section__input-children-room top-section__input-children-room--border"
             type="text"
             name="room"
-            value={filterValues.room}
+            value={formValues.room}
             forId="room"
             labelClassName="top-section__label-room"
             labelContent="Room"
