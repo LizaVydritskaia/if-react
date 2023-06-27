@@ -1,28 +1,24 @@
-import React, { Suspense, useState } from 'react';
+import React from 'react';
 
+//components
 import { AvailableHotels } from '../AvailableHotels';
+import { Footer } from '../Footer';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
-import { Loader } from '../Loader';
 import { MainContent } from '../MainContent';
-import { Sprite } from '../Sprite';
 import { TopSection } from '../TopSection';
 
 import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
 
 export const App = () => {
-  const [showAvailableHotels, setShowAvailableHotels] = useState(false);
-
   return (
     <>
-      <Sprite />
       <MainContent>
         <AvailableHotelsContextProvider>
-          <TopSection setShowAvailableHotels={setShowAvailableHotels} />
-          <Suspense fallback={<Loader />}>
-            <AvailableHotels showAvailableHotels={showAvailableHotels} />
-          </Suspense>
+          <TopSection />
+          <AvailableHotels />
         </AvailableHotelsContextProvider>
         <HomesGuestsLoves />
+        <Footer />
       </MainContent>
     </>
   );
