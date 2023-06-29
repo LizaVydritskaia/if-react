@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { useAuthContext } from '../../contexts/Auth.context';
+import { changeAuthStatus } from '../../store/actions';
+import { authStatuses } from '../../services/constants/authStatuses';
 
 //components
 import { Container } from '../Container';
@@ -20,7 +22,7 @@ export const Header = ({ className }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { setIsAuthenticated } = useAuthContext();
+  const dispatch = useDispatch();
 
   const openDropdown = () => {
     if (location.pathname !== '/sign-in') {
@@ -29,7 +31,7 @@ export const Header = ({ className }) => {
   };
 
   const signOut = () => {
-    setIsAuthenticated(false);
+    dispatch(changeAuthStatus(authStatuses.loggedOut));
     navigate('/sign-in');
   };
 

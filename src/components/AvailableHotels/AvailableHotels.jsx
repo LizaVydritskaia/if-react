@@ -1,4 +1,11 @@
 import React, { Suspense } from 'react';
+import { useSelector } from 'react-redux';
+
+import { initialState } from '../../services/constants/initialState';
+
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+
+import { getAvailableHotels } from '../../services/getAvailableHotels';
 
 //components
 import { Arrow } from '../Arrow';
@@ -7,18 +14,23 @@ import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
-import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
-
 import './AvailableHotels.css';
 
-import { getAvailableHotels } from '../../services/getAvailableHotels';
-
 export const AvailableHotels = () => {
-  const { searchParams } = useAvailableHotelsContext();
+  const { availableHotelsRef } = useAvailableHotelsContext();
 
-  const availableHotels = searchParams
-    ? getAvailableHotels(searchParams)
-    : null;
+  const formValues = useSelector((state) => state.form);
+
+  const availableHotels =
+    formValues !== initialState.form
+      ? getAvailableHotels({
+          search: formValues.destinationValue,
+          checkInOut: formValues.checkInOut,
+          adults: formValues.adults,
+          children: formValues.childrenAges,
+          rooms: formValues.room,
+        })
+      : null;
 
   if (!availableHotels) {
     return null;
@@ -26,7 +38,7 @@ export const AvailableHotels = () => {
 
   return (
     <Suspense fallback={<Loader />}>
-      <section className="available-hotels">
+      <section className="available-hotels" ref={availableHotelsRef}>
         <Container>
           <Title content="Available hotels" />
           <div className="homes__hotels">

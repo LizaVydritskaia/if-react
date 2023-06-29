@@ -15,6 +15,7 @@ export const Input = memo(function Input({
   forId,
   labelContent,
   children,
+  onChange,
   ...props
 }) {
   return (
@@ -27,6 +28,7 @@ export const Input = memo(function Input({
         value={value}
         placeholder={placeholder}
         disabled={isDisabledInput}
+        onChange={onChange}
         {...props}
       />
       <label htmlFor={forId} className={labelClassName}>

@@ -1,7 +1,9 @@
 import React, { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { useAuthContext } from '../../contexts/Auth.context';
+import { changeAuthStatus } from '../../store/actions';
+import { authStatuses } from '../../services/constants/authStatuses';
 
 import { Button } from '../Button';
 
@@ -11,20 +13,18 @@ export const SignInBlock = () => {
   const emailId = useId();
   const passwordId = useId();
 
-  const { setIsAuthenticated } = useAuthContext();
-
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const signIn = (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
-
-    const { email, password } = data;
+    const email = formData.get('email');
+    const password = formData.get('password');
 
     if (email && password) {
-      setIsAuthenticated(true);
+      dispatch(changeAuthStatus(authStatuses.loggedIn));
       navigate('/');
     }
   };

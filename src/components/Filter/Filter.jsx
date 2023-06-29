@@ -1,59 +1,45 @@
 import React, { useState, memo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { Button } from '../Button';
-import { ChildrenSelectAge } from '../ChildrenSelectAge';
-import { FilterChildrenSelect } from '../FilterChildrenSelect';
-import { Input } from '../Input';
+import { FILTER_COUNTER } from '../../services/constants/actionTypes';
 
-import { initialCounter } from './config';
+//actions
+import { counterActions } from '../../store/actions/form.actions';
+import { childrenAgesAction } from '../../store/actions/form.actions';
+
+//components
+import { ChildrenSelectAge } from '../ChildrenSelectAge';
+import { Counter } from '../Counter';
+import { FilterChildrenSelect } from '../FilterChildrenSelect';
 
 import './Filter.css';
 
 export const Filter = memo(function Filter({ showFilter }) {
-  const [counters, setCounters] = useState(initialCounter);
   const [selects, setSelects] = useState([]);
   const [showFilterChildrenSelect, setShowFilterChildrenSelect] =
     useState(false);
 
-  const handleMinusClick = (id) => {
-    const updatedCounters = counters.map((counter) => {
-      if (counter.id === id) {
-        return {
-          ...counter,
-          value: counter.value - 1,
-        };
-      }
-      return counter;
-    });
+  const formValues = useSelector((state) => state.form);
 
-    setCounters(updatedCounters);
+  const dispatch = useDispatch();
+
+  const openFilterChildrenSelect = () => {
+    setShowFilterChildrenSelect(true);
   };
 
-  const handlePlusClick = (id) => {
-    const updatedCounters = counters.map((counter) => {
-      if (counter.id === id) {
-        return {
-          ...counter,
-          value: counter.value + 1,
-        };
-      }
-      return counter;
-    });
-
-    setCounters(updatedCounters);
-  };
-
-  const openFilterChildrenSelect = (id) => {
-    if (id === 'children') {
-      setShowFilterChildrenSelect(true);
-    }
-  };
-
-  const closeFilterChildrenSelect = (id, value) => {
-    if (id === 'children' && value <= 1) {
+  const closeFilterChildrenSelect = (value) => {
+    if (value <= 1) {
       setShowFilterChildrenSelect(false);
     }
+  };
+
+  const handleDecrement = (action) => {
+    dispatch(action);
+  };
+
+  const handleIncrement = (action) => {
+    dispatch(action);
   };
 
   const addSelect = () => {
@@ -68,53 +54,72 @@ export const Filter = memo(function Filter({ showFilter }) {
     setSelects([...selects.slice(0, selects.length - 1)]);
   };
 
+  const getChildrenAges = () => {
+    const childrenSelect = document.getElementsByClassName(
+      'top-section__filter-select',
+    );
+    const childrenSelectArray = Array.from(childrenSelect);
+
+    const selectValues = [];
+
+    childrenSelectArray.forEach((select) => {
+      selectValues.push(select.value);
+    });
+
+    dispatch(childrenAgesAction(selectValues.join(',')));
+  };
+
   return (
     showFilter && (
       <div className="top-section__filter">
-        {counters.map((counter) => (
-          <div className="top-section__filter-block" key={counter.id}>
-            <span className="top-section__filter-text">
-              {counter.filterText}
-            </span>
-            <div className="top-section__filter-counter">
-              <Button
-                type="button"
-                className="top-section__filter-button"
-                isDisabledButton={counter.value === counter.min}
-                onClick={() => {
-                  handleMinusClick(counter.id);
-                  deleteSelect();
-                  closeFilterChildrenSelect(counter.id, counter.value);
-                }}
-              >
-                –
-              </Button>
-              <Input
-                type="text"
-                value={counter.value}
-                className="top-section__input-value"
-                isDisabledInput={true}
-              />
-              <Button
-                type="button"
-                className="top-section__filter-button"
-                isDisabledButton={counter.value === counter.max}
-                onClick={() => {
-                  handlePlusClick(counter.id);
-                  openFilterChildrenSelect(counter.id);
-                  addSelect();
-                }}
-              >
-                +
-              </Button>
-            </div>
-          </div>
-        ))}
+        <Counter
+          id="adults"
+          counterText="Adults"
+          value={formValues.adults}
+          min={1}
+          max={30}
+          onClickMinusButton={() => {
+            handleDecrement(counterActions(FILTER_COUNTER.adultsDecrement));
+          }}
+          onClickPlusButton={() => {
+            handleIncrement(counterActions(FILTER_COUNTER.adultsIncrement));
+          }}
+        />
+        <Counter
+          id="children"
+          counterText="Children"
+          value={formValues.children}
+          min={0}
+          max={10}
+          onClickMinusButton={() => {
+            handleDecrement(counterActions(FILTER_COUNTER.childrenDecrement));
+            closeFilterChildrenSelect(formValues.children);
+            deleteSelect();
+          }}
+          onClickPlusButton={() => {
+            handleIncrement(counterActions(FILTER_COUNTER.childrenIncrement));
+            openFilterChildrenSelect();
+            addSelect();
+          }}
+        />
+        <Counter
+          id="room"
+          counterText="Room"
+          value={formValues.room}
+          min={1}
+          max={30}
+          onClickMinusButton={() => {
+            handleDecrement(counterActions(FILTER_COUNTER.roomDecrement));
+          }}
+          onClickPlusButton={() => {
+            handleIncrement(counterActions(FILTER_COUNTER.roomIncrement));
+          }}
+        />
         <FilterChildrenSelect
           showFilterChildrenSelect={showFilterChildrenSelect}
         >
           {selects.map((select) => (
-            <ChildrenSelectAge key={select.id} />
+            <ChildrenSelectAge key={select.id} onChange={getChildrenAges} />
           ))}
         </FilterChildrenSelect>
       </div>
