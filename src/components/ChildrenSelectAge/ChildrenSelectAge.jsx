@@ -1,11 +1,9 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { useChildrenSelectAgeStyles } from './ChildrenSelectAge.styles';
+import './ChildrenSelectAge.css';
 
 export const ChildrenSelectAge = ({ onChange }) => {
-  const classes = useChildrenSelectAgeStyles();
-
   const options = useMemo(() => {
     const option = [];
     for (let i = 0; i <= 17; i++) {
@@ -20,7 +18,7 @@ export const ChildrenSelectAge = ({ onChange }) => {
 
   return (
     <select
-      className={classes.filterSelect}
+      className="top-section__filter-select"
       id="child-age"
       name="child-age"
       onChange={onChange}

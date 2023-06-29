@@ -1,78 +1,83 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { destinationsConfig } from './destinationsConfig';
 
 import { Container } from '../Container';
+import { Title } from '../Title';
 
-import './Destinations.css';
+import { useDestinationsStyles } from './Destinations.styles';
 
 export const Destinations = () => {
+  const classes = useDestinationsStyles();
+
   return (
-    <section className="destinations">
+    <section className={classes.root}>
       <Container>
-        <h2 className="destinations__title">The best destinations</h2>
-        <form className="destinations__form" action="/">
+        <Title content="The best destinations" />
+        <form className={classes.form} action="/">
           <input
-            className="destinations__input"
+            className={classes.input}
             type="radio"
             id="regions"
             name="destinations"
             value="1"
             checked
           />
-          <label className="destinations__label" htmlFor="regions">
+          <label className={classes.label} htmlFor="regions">
             Regions
           </label>
           <input
-            className="destinations__input"
+            className={classes.input}
             type="radio"
             id="cities"
             name="destinations"
             value="2"
           />
-          <label className="destinations__label" htmlFor="cities">
+          <label className={classes.label} htmlFor="cities">
             Cities
           </label>
           <input
-            className="destinations__input"
+            className={classes.input}
             type="radio"
             id="places"
             name="destinations"
             value="3"
           />
           <label
-            className="destinations__label destinations__label--places"
+            className={classNames(classes.label, classes.labelPlaces)}
             htmlFor="places"
           >
             Places <span>of interest</span>
           </label>
         </form>
-        <div className="destinations__countries">
+        <div className={classes.countries}>
           {destinationsConfig.map((item) => {
             return (
               <div
                 key={item.id}
-                className="col-lg-3 col-md-6 col-sm-3 destinations__country-block"
+                className={classNames(
+                  'col-lg-3 col-md-6 col-sm-3',
+                  classes.countryBlock,
+                )}
               >
-                <div className="destinations__image-block">
+                <div className={classes.imageBlock}>
                   <img
-                    className="destinations__country-image"
+                    className={classes.countryImage}
                     src={item.image}
                     alt={item.country}
                   />
-                  <div className="destinations__hover-block">
-                    <button className="destinations__hover-button">
-                      Book now
-                    </button>
+                  <div className={classes.hoverBlock}>
+                    <button className={classes.hoverButton}>Book now</button>
                   </div>
                 </div>
-                <p className="destinations__country">{item.country}</p>
+                <p className={classes.country}>{item.country}</p>
               </div>
             );
           })}
         </div>
-        <div className="destinations__circle-arrow">
-          <div className="destinations__arrow"></div>
+        <div className={classes.circleArrow}>
+          <div className={classes.arrow}></div>
         </div>
       </Container>
     </section>

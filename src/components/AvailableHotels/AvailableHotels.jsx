@@ -12,9 +12,13 @@ import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
-import './AvailableHotels.css';
+import { useAvailableHotelsStyles } from './AvailavleHotels.styles';
+import { useHomesGuestsLovesStyles } from '../HomesGuestsLoves/HomesGuestsLoves.styles';
 
 export const AvailableHotels = () => {
+  const classes = useAvailableHotelsStyles();
+  const homesClasses = useHomesGuestsLovesStyles();
+
   const { availableHotelsRef, showAvailableHotels } =
     useAvailableHotelsContext();
 
@@ -32,10 +36,10 @@ export const AvailableHotels = () => {
   return (
     showAvailableHotels && (
       <Loader loading={isLoading}>
-        <section className="available-hotels" ref={availableHotelsRef}>
+        <section className={classes.availableHotels} ref={availableHotelsRef}>
           <Container>
             <Title content="Available hotels" />
-            <div className="homes__hotels">
+            <div className={homesClasses.hotels}>
               {availableHotels.map((hotel) => (
                 <Fragment key={hotel.id}>
                   <Hotel {...hotel} />

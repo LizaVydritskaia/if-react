@@ -8,6 +8,10 @@ export const footerStyles = () => ({
   footerLogo: {
     display: 'none',
   },
+  footerLogoSize: {
+    width: 0,
+    height: 0,
+  },
   lists: {
     display: 'flex',
     paddingTop: 120,
@@ -46,6 +50,18 @@ export const footerStyles = () => ({
     fontSize: 14,
     color: 'var(--text-general-white)',
     paddingBottom: 120,
+  },
+  '@media (max-width: 1024px)': {
+    footerLogoSize: {
+      width: 155,
+      height: 30,
+    },
+  },
+  '@media (max-width: 480px)': {
+    footerLogoSize: {
+      width: 98,
+      height: 19,
+    },
   },
 });
 

@@ -1,30 +1,17 @@
 import { createUseStyles } from 'react-jss';
+import topSectionBackground from '../../assets/images/top-section-background.jpg';
 
 export const topSectionStyles = () => ({
   root: {
-    // background: {
-    //   image: 'url("../../assets/images/top-section-background.jpg")',
-    //   repeat: 'no-repeat',
-    //   size: '100%',
-    // },
-    backgroundImage: 'url(../../assets/images/top-section-background.jpg)',
+    background: {
+      image: `url(${topSectionBackground})`,
+      repeat: 'no-repeat',
+      size: '100%',
+    },
     order: 0,
   },
   container: {
     paddingTop: 202,
-  },
-  title: {
-    fontWeight: 500,
-    fontSize: 50,
-    lineHeight: '118%',
-    color: 'var(--text-general-white)',
-    marginBottom: 145,
-  },
-  apps: {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: 16,
-    paddingBottom: 120,
   },
 });
 

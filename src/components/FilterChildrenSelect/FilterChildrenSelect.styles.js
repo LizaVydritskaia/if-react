@@ -4,7 +4,6 @@ export const filterChildrenSelectStyles = () => ({
   filterChildren: {
     paddingTop: 28,
   },
-  filterForm: {},
   filterLabel: {
     fontSize: 12,
     fontWeight: 400,

@@ -8,17 +8,19 @@ import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
-import './HomesGuestsLoves.css';
+import { useHomesGuestsLovesStyles } from './HomesGuestsLoves.styles';
 
 export const HomesGuestsLoves = () => {
+  const classes = useHomesGuestsLovesStyles();
+
   const { data: hotels = [], isLoading } = useGetHotelsQuery();
 
   return (
     <Loader loading={isLoading}>
-      <section className="homes">
+      <section className={classes.root}>
         <Container>
           <Title content="Homes guests loves" />
-          <div className="homes__hotels">
+          <div className={classes.hotels}>
             {hotels.map((hotel) => (
               <Fragment key={hotel.id}>
                 <Hotel {...hotel} />

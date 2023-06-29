@@ -1,52 +1,59 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { reviewsConfig } from './reviewsConfig';
 
 import { Container } from '../Container';
+import { Title } from '../Title';
 
-import './Reviews.css';
+import { useReviewsStyles } from './Reviews.styles';
 
 export const Reviews = () => {
+  const classes = useReviewsStyles();
+
   return (
-    <section className="reviews">
+    <section className={classes.root}>
       <Container>
-        <h2 className="reviews__title">Guests reviews</h2>
-        <div className="reviews__blocks">
+        <Title content="Guests reviews" />
+        <div className={classes.blocksList}>
           {reviewsConfig.map((review) => {
             return (
               <div
                 key={review.id}
-                className="col-lg-4 col-md-6 col-sm-6 reviews__review-block"
+                className={classNames(
+                  'col-lg-4 col-md-6 col-sm-6',
+                  classes.block,
+                )}
               >
-                <div className="reviews__img">
+                <div className={classes.img}>
                   <img src={review.image} alt={review.hotelName} />
-                  <div className="reviews__price">
+                  <div className={classes.price}>
                     <p>
                       From <span>{review.price}</span>
                     </p>
                   </div>
                 </div>
-                <div className="reviews__hotel">
-                  <div className="reviews__name-location">
-                    <p className="reviews__hotel-name">{review.hotelName}</p>
-                    <p className="reviews__hotel-location">
+                <div className={classes.hotel}>
+                  <div>
+                    <p className={classes.hotelName}>{review.hotelName}</p>
+                    <p className={classes.hotelLocation}>
                       {review.hotelLocation}
                     </p>
                   </div>
-                  <div className="reviews__rating">
-                    <div className="reviews__score">
+                  <div className={classes.rating}>
+                    <div className={classes.score}>
                       <span>{review.score}</span>
                     </div>
-                    <p className="reviews__amount">{review.reviewsAmount}</p>
+                    <p className={classes.amount}>{review.reviewsAmount}</p>
                   </div>
                 </div>
-                <div className="reviews__name">
-                  <svg className="reviews__user-logo">
+                <div className={classes.name}>
+                  <svg className={classes.userLogo}>
                     <use href="#user-logo" />
                   </svg>
-                  <div className="reviews__name-country">
-                    <p className="reviews__user-name">{review.userName}</p>
-                    <p className="reviews__country">
+                  <div>
+                    <p className={classes.userName}>{review.userName}</p>
+                    <p className={classes.country}>
                       <span>
                         <img
                           src={review.userCountryLogo}
@@ -57,19 +64,19 @@ export const Reviews = () => {
                     </p>
                   </div>
                 </div>
-                <p className="reviews__text">{review.text}</p>
+                <p className={classes.text}>{review.text}</p>
               </div>
             );
           })}
-          <div className="reviews__circle-arrow">
-            <div className="reviews__arrow"></div>
+          <div className={classes.circleArrow}>
+            <div className={classes.arrow}></div>
           </div>
         </div>
-        <div className="reviews__paginator">
-          <div className="reviews__paginator-fill"></div>
-          <div className="reviews__paginator-empty"></div>
-          <div className="reviews__paginator-empty"></div>
-          <div className="reviews__paginator-empty"></div>
+        <div className={classes.paginator}>
+          <div className={classes.paginatorFill}></div>
+          <div className={classes.paginatorEmpty}></div>
+          <div className={classes.paginatorEmpty}></div>
+          <div className={classes.paginatorEmpty}></div>
         </div>
       </Container>
     </section>

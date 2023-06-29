@@ -4,7 +4,6 @@ import { Container } from '../Container';
 
 import { footerData } from './footerConfig';
 
-import './Footer.css';
 import { useFooterStyles } from './Footer.styles';
 
 export const Footer = () => {
@@ -13,8 +12,8 @@ export const Footer = () => {
   return (
     <footer className={classes.root}>
       <Container>
-        <div className={classes.logo}>
-          <svg className="footer__footer-logo--size">
+        <div className={classes.footerLogo}>
+          <svg className={classes.footerLogoSize}>
             <use href="#footer-logo" />
           </svg>
         </div>

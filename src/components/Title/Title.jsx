@@ -1,9 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './Title.css';
+import { useTitleStyle } from './Title.styles';
 
-export const Title = ({ content }) => <h2 className="title">{content}</h2>;
+export const Title = ({ content }) => {
+  const classes = useTitleStyle();
+
+  return <h2 className={classes.title}>{content}</h2>;
+};
 
 Title.propTypes = {
   content: PropTypes.string,

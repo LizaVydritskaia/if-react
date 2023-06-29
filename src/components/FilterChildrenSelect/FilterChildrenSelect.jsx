@@ -12,7 +12,7 @@ export const FilterChildrenSelect = ({
   return (
     showFilterChildrenSelect && (
       <div className={classes.filterChildren}>
-        <form className="top-section__filter-form" action="/">
+        <form action="/">
           <label className={classes.filterLabel} htmlFor="child-age">
             What is the age of the child you’re travelling with?
           </label>

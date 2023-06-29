@@ -1,16 +1,22 @@
 import React from 'react';
 
+//components
 import { Header } from '../Header';
 import { Container } from '../Container';
 import { SignInBlock } from '../SignInBlock';
 
-import './SignInPage.css';
+//styles
+import { useTopSectionStyles } from '../TopSection/TopSection.styles';
+import { useSignInPageStyles } from './SignInPage.styles';
 
 export const SignInPage = () => {
+  const topSectionClasses = useTopSectionStyles();
+  const classes = useSignInPageStyles();
+
   return (
-    <section className="top-section">
+    <section className={topSectionClasses.root}>
       <Header />
-      <Container className="sign-in__container">
+      <Container className={classes.signInContainer}>
         <SignInBlock />
       </Container>
     </section>

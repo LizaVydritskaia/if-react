@@ -3,26 +3,22 @@ import React from 'react';
 import { Form } from '../Form';
 import { Icon } from '../Icon';
 
-import './TopSectionContent.css';
+import { useTopSectionContentStyles } from './TopSectionContent.styles';
 
 export const TopSectionContent = () => {
+  const classes = useTopSectionContentStyles();
+
   return (
     <>
-      <h1 className="top-section__title">
+      <h1 className={classes.title}>
         Discover stays
         <br />
         to live, work or just relax
       </h1>
       <Form />
-      <div className="top-section__apps">
-        <Icon
-          className="top-section__apps--google-play"
-          hrefIconName="#google-play"
-        />
-        <Icon
-          className="top-section__apps--app-store"
-          hrefIconName="#app-store"
-        />
+      <div className={classes.apps}>
+        <Icon className={classes.googlePlay} hrefIconName="#google-play" />
+        <Icon className={classes.appStore} hrefIconName="#app-store" />
       </div>
     </>
   );

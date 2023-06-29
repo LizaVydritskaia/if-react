@@ -2,16 +2,18 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
-import './IconAccount.css';
+import { useIconAccountStyles } from './IconAccount.styles';
 
 export const IconAccount = ({ ...props }) => {
+  const classes = useIconAccountStyles();
+
   const location = useLocation();
 
   return (
-    <svg className="header__account" {...props}>
+    <svg className={classes.account} {...props}>
       <use
-        className={classNames('header__account--logged-out', {
-          'header__account--logged-in': location.pathname !== '/sign-in',
+        className={classNames(classes.loggedOut, {
+          [classes.loggedIn]: location.pathname !== '/sign-in',
         })}
         href="#account"
       />

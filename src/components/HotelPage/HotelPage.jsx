@@ -5,27 +5,29 @@ import { Container } from '../Container';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 
-import './HotelPage.css';
+import { useHotelPageStyles } from './HotelPage.styles';
 
 export const HotelPage = () => {
+  const classes = useHotelPageStyles();
+
   const location = useLocation();
   const { state } = location;
 
   return (
     <>
-      <div className="header-wrap">
-        <Header className="header__hotel-page" />
+      <div className={classes.headerWrap}>
+        <Header className={classes.header} />
       </div>
       <Container>
-        <section className="hotel-page">
+        <section className={classes.root}>
           <img
-            className="hotel-page__image"
+            className={classes.image}
             src={state.imageUrl}
             alt={state.name}
           />
-          <div className="hotel-page__description">
-            <p className="hotel-page__name">{state.name}</p>
-            <p className="hotel-page__location">
+          <div className={classes.description}>
+            <p className={classes.name}>{state.name}</p>
+            <p className={classes.location}>
               {state.city}, {state.country}
             </p>
           </div>

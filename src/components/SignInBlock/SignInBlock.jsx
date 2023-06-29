@@ -7,9 +7,11 @@ import { authStatuses } from '../../services/constants/authStatuses';
 
 import { Button } from '../Button';
 
-import './SignInBlock.css';
+import { useSignInBlockStyles } from './SignInBlock.styles';
 
 export const SignInBlock = () => {
+  const classes = useSignInBlockStyles();
+
   const emailId = useId();
   const passwordId = useId();
 
@@ -30,28 +32,28 @@ export const SignInBlock = () => {
   };
 
   return (
-    <div className="sign-in">
-      <h2 className="sign-in__title">Sign in</h2>
-      <form className="sign-in__form" onSubmit={signIn}>
-        <label className="sign-in__label" htmlFor={emailId}>
+    <div className={classes.signIn}>
+      <h2 className={classes.title}>Sign in</h2>
+      <form className={classes.form} onSubmit={signIn}>
+        <label className={classes.label} htmlFor={emailId}>
           Email address
         </label>
         <input
-          className="sign-in__text-field"
+          className={classes.textField}
           name="email"
           id={emailId}
           type="email"
         />
-        <label className="sign-in__label" htmlFor={passwordId}>
+        <label className={classes.label} htmlFor={passwordId}>
           Password
         </label>
         <input
-          className="sign-in__text-field"
+          className={classes.textField}
           name="password"
           id={passwordId}
           type="password"
         />
-        <Button type="submit" className="sign-in__button">
+        <Button type="submit" className={classes.button}>
           Sign in
         </Button>
       </form>
