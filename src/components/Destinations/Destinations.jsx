@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
 import { destinationsConfig } from './destinationsConfig';
@@ -9,7 +10,8 @@ import { Title } from '../Title';
 import { useDestinationsStyles } from './Destinations.styles';
 
 export const Destinations = () => {
-  const classes = useDestinationsStyles();
+  const theme = useTheme();
+  const classes = useDestinationsStyles({ theme });
 
   return (
     <section className={classes.root}>

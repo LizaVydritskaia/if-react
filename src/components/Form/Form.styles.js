@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
 
-export const formStyles = () => ({
+export const formStyles = (theme) => ({
   form: {
     maxWidth: 1232,
     height: 64,
-    backgroundColor: 'var(--text-general-white)',
-    border: '3px solid var(--stroke-color)',
+    backgroundColor: theme.palette.form.background.general,
+    border: `3px solid ${theme.palette.background.stroke}`,
     borderRightWidth: 0,
     borderRadius: 8,
     marginBottom: 120,
@@ -17,7 +17,7 @@ export const formStyles = () => ({
   labelDestination: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
     position: 'absolute',
     top: '-48px',
     left: 22,
@@ -31,12 +31,12 @@ export const formStyles = () => ({
     padding: '22px 24px',
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.primary,
 
     '&::placeholder': {
       fontWeight: 400,
       fontSize: 18,
-      color: 'var(--text-primary-color)',
+      color: theme.palette.text.primary,
     },
     '&:focus': {
       outline: 'none',
@@ -49,7 +49,7 @@ export const formStyles = () => ({
   labelCheckInOut: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
     position: 'absolute',
     top: '-48px',
     left: '38%',
@@ -62,13 +62,13 @@ export const formStyles = () => ({
   inputRoomDash: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.primary,
     padding: '21px 5px',
   },
   labelAdults: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.primary,
     position: 'absolute',
     left: 47,
     top: 21,
@@ -80,13 +80,13 @@ export const formStyles = () => ({
     paddingLeft: 24,
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
-    backgroundColor: 'var(--text-general-white)',
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.form.background.general,
 
     '&::placeholder': {
       fontWeight: 400,
       fontSize: 18,
-      color: 'var(--text-primary-color)',
+      color: theme.palette.text.primary,
     },
     '&:focus': {
       outline: 'none',
@@ -109,7 +109,7 @@ export const formStyles = () => ({
   labelChildren: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.primary,
     position: 'absolute',
     left: 25,
     top: 21,
@@ -120,13 +120,13 @@ export const formStyles = () => ({
     border: 'none',
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
-    backgroundColor: 'var(--text-general-white)',
+    color: theme.palette.text.primary,
+    backgroundColor: theme.palette.form.background.general,
 
     '&::placeholder': {
       fontWeight: 400,
       fontSize: 18,
-      color: 'var(--text-primary-color),',
+      color: theme.palette.text.primary,
     },
     '&:focus': {
       outline: 'none',
@@ -144,7 +144,7 @@ export const formStyles = () => ({
   labelRoom: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.primary,
     position: 'absolute',
     left: 25,
     top: 21,
@@ -152,12 +152,12 @@ export const formStyles = () => ({
   button: {
     width: '16%',
     height: 64,
-    backgroundColor: 'var(--accent-blue)',
+    backgroundColor: theme.palette.blue.accent,
     borderRadius: 8,
     border: 'none',
     fontWeight: 500,
     fontSize: 24,
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
 
     '&:hover': {
       cursor: 'pointer',
@@ -167,7 +167,7 @@ export const formStyles = () => ({
     line: {
       width: 1,
       height: 32,
-      backgroundColor: 'var(--text-secondary-color)',
+      backgroundColor: theme.palette.text.secondary,
       position: 'absolute',
       top: 8,
     },

@@ -1,18 +1,18 @@
 import { createUseStyles } from 'react-jss';
 
-export const signInBlockStyles = () => ({
+export const signInBlockStyles = (theme) => ({
   signIn: {
     display: 'flex',
     flexDirection: 'column',
     width: 400,
-    backgroundColor: 'var(--text-general-white)',
-    border: '1px solid #cecece',
+    backgroundColor: theme.palette.form.background.general,
+    border: `1px solid ${theme.palette.grey.secondary}`,
     margin: '0 auto',
   },
   title: {
     fontSize: 24,
     fontWeight: 500,
-    color: 'var(--dark-gray)',
+    color: theme.palette.grey.primary,
     padding: '36px 0 40px',
     margin: '0 auto',
   },
@@ -25,13 +25,13 @@ export const signInBlockStyles = () => ({
   label: {
     fontSize: 16,
     lineHeight: '19px',
-    color: 'var(--dark-gray)',
+    color: theme.palette.grey.primary,
     marginBottom: 8,
   },
   textField: {
     height: 41,
-    background: 'var(--text-general-white)',
-    border: '2px solid var(--light-gray)',
+    backgroundColor: theme.palette.form.background.general,
+    border: `2px solid ${theme.palette.grey.secondary}`,
     borderRadius: 8,
     padding: '0 16px',
     marginBottom: 16,
@@ -43,13 +43,13 @@ export const signInBlockStyles = () => ({
   button: {
     maxWidth: 320,
     height: 48,
-    background: 'var(--accent-blue)',
+    backgroundColor: theme.palette.blue.accent,
     border: 'none',
     borderRadius: 8,
     marginBottom: 36,
     fontWeight: 500,
     fontSize: 24,
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
     cursor: 'pointer',
   },
 });

@@ -1,6 +1,8 @@
+import React from 'react';
+import { useTheme } from 'react-jss';
+
 import { Button } from '../Button';
 import { Input } from '../Input';
-import React from 'react';
 
 import { useCounterStyles } from './Counter.styles';
 
@@ -12,7 +14,8 @@ export const Counter = ({
   onClickMinusButton,
   onClickPlusButton,
 }) => {
-  const classes = useCounterStyles();
+  const theme = useTheme();
+  const classes = useCounterStyles({ theme });
 
   return (
     <div className={classes.filterBlock}>

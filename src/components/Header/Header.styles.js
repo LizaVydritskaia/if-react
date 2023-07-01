@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const headerStyles = () => ({
+export const headerStyles = (theme) => ({
   root: {
     paddingTop: 50,
     display: 'flex',
@@ -26,7 +26,7 @@ export const headerStyles = () => ({
   link: {
     fontWeight: 400,
     fontSize: 24,
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
     textDecoration: 'none',
   },
   hoverLine: {
@@ -34,7 +34,7 @@ export const headerStyles = () => ({
       content: '""',
       display: 'block',
       height: 4,
-      backgroundColor: 'var(--accent-yellow)',
+      backgroundColor: theme.palette.yellow,
       borderStyle: 'none',
       position: 'absolute',
       left: '50%',
@@ -67,9 +67,22 @@ export const headerStyles = () => ({
     width: 205,
     height: 40,
   },
-  night: {
+  light: {
     width: 30,
     height: 30,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
+  },
+  dark: {
+    width: 30,
+    height: 30,
+    fill: theme.palette.yellow,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   menu: {
     display: 'none',

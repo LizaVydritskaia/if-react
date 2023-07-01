@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
 import { offerConfig } from './offerConfig';
@@ -8,7 +9,8 @@ import { Container } from '../Container';
 import { useOfferStyles } from './Offer.styles';
 
 export const Offer = () => {
-  const classes = useOfferStyles();
+  const theme = useTheme();
+  const classes = useOfferStyles({ theme });
 
   return (
     <section className={classes.root}>

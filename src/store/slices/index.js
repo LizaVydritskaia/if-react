@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import { authReducer } from './auth.slice';
 import { counterReducer } from './counter.slice';
 import { formReducer } from './form.slice';
+import { themeReducer } from './theme.slice';
 import { hotels } from '../../services/hotels';
 import { availableHotels } from '../../services/availableHotels';
 
@@ -22,5 +23,6 @@ export const rootReducer = persistReducer(
     auth: authReducer,
     filter: counterReducer,
     form: formReducer,
+    theme: themeReducer,
   }),
 );

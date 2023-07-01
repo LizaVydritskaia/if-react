@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
 
-export const topSectionContentStyles = () => ({
+export const topSectionContentStyles = (theme) => ({
   title: {
     fontWeight: 500,
     fontSize: 50,
     lineHeight: '118%',
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
     marginBottom: 145,
   },
   apps: {

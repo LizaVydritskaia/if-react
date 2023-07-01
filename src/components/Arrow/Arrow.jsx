@@ -1,11 +1,13 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { useArrowStyles } from './Arrow.styles';
 
 export const Arrow = ({ className }) => {
-  const classes = useArrowStyles();
+  const theme = useTheme();
+  const classes = useArrowStyles({ theme });
 
   return (
     <div className={classes.circleArrow}>

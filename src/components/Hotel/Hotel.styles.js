@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const hotelStyles = () => ({
+export const hotelStyles = (theme) => ({
   hotelBlock: {
     width: 296,
 
@@ -24,13 +24,13 @@ export const hotelStyles = () => ({
   name: {
     fontWeight: 400,
     fontSize: 24,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
     margin: '24px 0',
   },
   location: {
     fontWeight: 400,
     fontSize: 24,
-    color: 'var(--text-secondary-color)',
+    color: theme.palette.text.secondary,
     paddingBottom: 120,
   },
 });

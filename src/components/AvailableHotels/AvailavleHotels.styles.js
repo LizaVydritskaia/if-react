@@ -1,8 +1,8 @@
 import { createUseStyles } from 'react-jss';
 
-export const availableHotelsStyles = () => ({
+export const availableHotelsStyles = (theme) => ({
   availableHotels: {
-    backgroundColor: 'var(--background-color)',
+    backgroundColor: theme.palette.background.secondary,
     order: 1,
   },
 });

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
@@ -12,12 +13,14 @@ import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
+//styles
 import { useAvailableHotelsStyles } from './AvailavleHotels.styles';
 import { useHomesGuestsLovesStyles } from '../HomesGuestsLoves/HomesGuestsLoves.styles';
 
 export const AvailableHotels = () => {
-  const classes = useAvailableHotelsStyles();
-  const homesClasses = useHomesGuestsLovesStyles();
+  const theme = useTheme();
+  const classes = useAvailableHotelsStyles({ theme });
+  const homesClasses = useHomesGuestsLovesStyles({ theme });
 
   const { availableHotelsRef, showAvailableHotels } =
     useAvailableHotelsContext();

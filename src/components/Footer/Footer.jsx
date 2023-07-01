@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 
 import { Container } from '../Container';
 
@@ -7,7 +8,8 @@ import { footerData } from './footerConfig';
 import { useFooterStyles } from './Footer.styles';
 
 export const Footer = () => {
-  const classes = useFooterStyles();
+  const theme = useTheme();
+  const classes = useFooterStyles({ theme });
 
   return (
     <footer className={classes.root}>

@@ -1,12 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import { useHotelStyles } from './Hotel.styles';
 
 export const Hotel = ({ className, id, name, city, country, imageUrl }) => {
-  const classes = useHotelStyles();
+  const theme = useTheme();
+  const classes = useHotelStyles({ theme });
 
   return (
     <div className={classNames(classes.hotelBlock, className)}>

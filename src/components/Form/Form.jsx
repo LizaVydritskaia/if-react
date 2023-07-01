@@ -1,23 +1,29 @@
 import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
+//components
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
 import { Filter } from '../Filter';
 import { Input } from '../Input';
 
+//context
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
+//slices
 import {
   setCalendarValues,
   setDestination,
 } from '../../store/slices/form.slice';
 
+//styles
 import { useFormStyles } from './Form.styles';
 
 export const Form = () => {
-  const classes = useFormStyles();
+  const theme = useTheme();
+  const classes = useFormStyles({ theme });
 
   const { availableHotelsRef, setShowAvailableHotels } =
     useAvailableHotelsContext();

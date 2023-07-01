@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -15,9 +16,11 @@ import { SignOutDropdown } from '../SignOutDropdown';
 
 //styles
 import { useHeaderStyles } from './Header.styles';
+import { toggleThemeMode } from '../../store/slices/theme.slice';
 
 export const Header = ({ className }) => {
-  const classes = useHeaderStyles();
+  const theme = useTheme();
+  const classes = useHeaderStyles({ theme });
 
   const [showSignOutDropdown, setShowSignOutDropdown] = useState(false);
 
@@ -25,6 +28,8 @@ export const Header = ({ className }) => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const themeValue = useSelector((state) => state.theme);
 
   const openDropdown = () => {
     if (location.pathname !== '/sign-in') {
@@ -35,6 +40,11 @@ export const Header = ({ className }) => {
   const signOut = () => {
     dispatch(changeStatus(authStatuses.loggedOut));
     navigate('/sign-in');
+  };
+
+  const toggleTheme = () => {
+    const nextTheme = themeValue.mode !== 'light' ? 'light' : 'dark';
+    dispatch(toggleThemeMode(nextTheme));
   };
 
   return (
@@ -59,7 +69,19 @@ export const Header = ({ className }) => {
             </span>
           </div>
           <div className={classes.nightAccount}>
-            <Icon className={classes.night} hrefIconName="#night" />
+            {themeValue.mode === 'light' ? (
+              <Icon
+                className={classes.light}
+                hrefIconName="#light-mode"
+                onClick={toggleTheme}
+              />
+            ) : (
+              <Icon
+                className={classes.dark}
+                hrefIconName="#dark-mode"
+                onClick={toggleTheme}
+              />
+            )}
             <IconAccount onClick={openDropdown} />
             <SignOutDropdown
               onClick={signOut}

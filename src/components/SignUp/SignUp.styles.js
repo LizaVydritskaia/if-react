@@ -1,14 +1,17 @@
 import { createUseStyles } from 'react-jss';
 
-export const signUpStyles = () => ({
+export const signUpStyles = (theme) => ({
   root: {
+    order: 4,
+    backgroundColor: theme.palette.background.general,
+  },
+  signUp: {
     width: '100%',
     maxWidth: 1232,
-    backgroundColor: 'var(--background-color)',
+    backgroundColor: theme.palette.background.secondary,
     padding: '51px 24px 52px',
     margin: '0 auto',
     position: 'relative',
-    order: 4,
   },
   contentWrapper: {
     display: 'flex',
@@ -18,7 +21,7 @@ export const signUpStyles = () => ({
     width: 86,
     height: 86,
     borderRadius: '50%',
-    backgroundColor: 'var(--text-general-white)',
+    backgroundColor: theme.palette.form.background.general,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,7 +36,7 @@ export const signUpStyles = () => ({
   text: {
     fontWeight: 500,
     fontSize: 24,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.dark,
     marginBottom: 20,
 
     '& span': {
@@ -44,12 +47,12 @@ export const signUpStyles = () => ({
     width: '100%',
     maxWidth: 128,
     height: 48,
-    backgroundColor: 'var(--text-general-white)',
-    border: '1px solid var(--accent-blue)',
+    backgroundColor: theme.palette.form.background.general,
+    border: `1px solid ${theme.palette.blue.accent}`,
     borderRadius: 8,
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
   },
   close: {
     width: 26,

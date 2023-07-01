@@ -1,14 +1,15 @@
 import { createUseStyles } from 'react-jss';
 
-export const destinationsStyles = () => ({
+export const destinationsStyles = (theme) => ({
   root: {
     order: 3,
+    backgroundColor: theme.palette.background.general,
   },
   form: {
     width: '100%',
     maxWidth: 622,
     height: 64,
-    background: 'var(--stroke-color)',
+    background: theme.palette.background.stroke,
     borderRadius: 8,
     marginBottom: 65,
     display: 'flex',
@@ -19,8 +20,8 @@ export const destinationsStyles = () => ({
     opacity: 0,
 
     '&:checked + $label': {
-      color: 'var(--text-general-white)',
-      backgroundColor: 'var(--accent-blue)',
+      color: theme.palette.text.main,
+      backgroundColor: theme.palette.blue.accent,
     },
   },
   label: {
@@ -29,7 +30,7 @@ export const destinationsStyles = () => ({
     fontWeight: 400,
     fontSize: 24,
     textAlign: 'center',
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.primary,
     borderRadius: 8,
     padding: 17,
 
@@ -81,12 +82,12 @@ export const destinationsStyles = () => ({
     display: 'none',
     width: 128,
     height: 48,
-    background: 'var(--text-general-white)',
-    border: '1px solid var(--accent-blue)',
+    background: theme.palette.background.general,
+    border: `1px solid ${theme.palette.blue.accent}`,
     borderRadius: 8,
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -95,7 +96,7 @@ export const destinationsStyles = () => ({
   country: {
     fontWeight: 400,
     fontSize: 24,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
     marginTop: 24,
     marginBottom: 48,
   },
@@ -103,14 +104,14 @@ export const destinationsStyles = () => ({
     width: 40,
     height: 40,
     borderRadius: '50%',
-    backgroundColor: 'var(--stroke-color)',
+    backgroundColor: theme.palette.background.stroke,
     boxShadow: '0 2px 5px rgba(56, 56, 56, 50)',
     margin: '0 auto 120px',
   },
   arrow: {
     width: 13,
     height: 13,
-    border: '2px solid var(--text-primary-color)',
+    border: `2px solid ${theme.palette.grey.additional}`,
     borderLeft: 0,
     borderTop: 0,
     borderBottomRightRadius: 2,

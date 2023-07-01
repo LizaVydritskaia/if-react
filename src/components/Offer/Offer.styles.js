@@ -1,9 +1,10 @@
 import { createUseStyles } from 'react-jss';
 
-export const offerStyles = () => ({
+export const offerStyles = (theme) => ({
   root: {
     width: '100%',
     order: 2,
+    backgroundColor: theme.palette.background.general,
   },
   title: {
     marginTop: 120,
@@ -11,7 +12,7 @@ export const offerStyles = () => ({
     textAlign: 'center',
     fontSize: 40,
     fontWeight: 500,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.dark,
     position: 'relative',
 
     '&:after': {
@@ -19,7 +20,7 @@ export const offerStyles = () => ({
       display: 'block',
       width: 100,
       height: 4,
-      backgroundColor: 'var(--accent-yellow)',
+      backgroundColor: theme.palette.yellow,
       borderStyle: 'none',
       position: 'absolute',
       bottom: '-24px',
@@ -71,7 +72,7 @@ export const offerStyles = () => ({
   text: {
     fontSize: 24,
     fontWeight: 400,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.dark,
   },
 });
 

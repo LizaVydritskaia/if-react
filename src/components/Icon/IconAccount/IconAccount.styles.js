@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const iconAccountStyles = () => ({
+export const iconAccountStyles = (theme) => ({
   account: {
     width: 40,
     height: 40,
@@ -10,10 +10,10 @@ export const iconAccountStyles = () => ({
     },
   },
   loggedOut: {
-    fill: 'var(--text-general-white)',
+    fill: theme.palette.form.background.general,
   },
   loggedIn: {
-    fill: 'var(--accent-yellow)',
+    fill: theme.palette.yellow,
   },
 });
 

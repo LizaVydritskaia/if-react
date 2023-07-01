@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
 import { useFilterChildrenSelectStyles } from './FilterChildrenSelect.styles';
@@ -7,7 +8,8 @@ export const FilterChildrenSelect = ({
   showFilterChildrenSelect,
   children,
 }) => {
-  const classes = useFilterChildrenSelectStyles();
+  const theme = useTheme();
+  const classes = useFilterChildrenSelectStyles({ theme });
 
   return (
     showFilterChildrenSelect && (

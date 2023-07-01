@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
 
-export const signOutDropdownStyles = () => ({
+export const signOutDropdownStyles = (theme) => ({
   dropdown: {
     width: 192,
     height: 50,
-    backgroundColor: 'var(--text-general-white)',
-    border: '1px solid var(--light-gray)',
+    backgroundColor: theme.palette.form.background.general,
+    border: `1px solid ${theme.palette.grey.secondary}`,
     display: 'flex',
     alignItems: 'center',
     gap: 16,
@@ -37,7 +37,7 @@ export const signOutDropdownStyles = () => ({
   text: {
     fontWeight: 400,
     fontSize: 20,
-    color: 'var(--dark-gray)',
+    color: theme.palette.grey.primary,
   },
 });
 

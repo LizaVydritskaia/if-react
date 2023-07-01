@@ -1,8 +1,8 @@
 import { createUseStyles } from 'react-jss';
 
-export const homesGuestsLovesStyles = () => ({
+export const homesGuestsLovesStyles = (theme) => ({
   root: {
-    backgroundColor: 'var(--background-color)',
+    backgroundColor: theme.palette.background.secondary,
     order: 2,
   },
   hotels: {

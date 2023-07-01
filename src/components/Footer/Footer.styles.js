@@ -1,8 +1,8 @@
 import { createUseStyles } from 'react-jss';
 
-export const footerStyles = () => ({
+export const footerStyles = (theme) => ({
   root: {
-    backgroundColor: 'var(--general-blue)',
+    backgroundColor: theme.palette.blue.general,
     order: 6,
   },
   footerLogo: {
@@ -24,7 +24,7 @@ export const footerStyles = () => ({
     },
     '& ul': {
       listStyle: 'none',
-      color: 'var(--text-general-white)',
+      color: theme.palette.text.main,
       fontWeight: 400,
       fontSize: 20,
       lineHeight: '115%',
@@ -43,12 +43,12 @@ export const footerStyles = () => ({
   },
   link: {
     textDecoration: 'none',
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
   },
   copyright: {
     fontWeight: 400,
     fontSize: 14,
-    color: 'var(--text-general-white)',
+    color: theme.palette.text.main,
     paddingBottom: 120,
   },
   '@media (max-width: 1024px)': {

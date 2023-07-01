@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { useTheme } from 'react-jss';
 
 import { useGetHotelsQuery } from '../../services/hotels';
 
@@ -11,7 +12,8 @@ import { Title } from '../Title';
 import { useHomesGuestsLovesStyles } from './HomesGuestsLoves.styles';
 
 export const HomesGuestsLoves = () => {
-  const classes = useHomesGuestsLovesStyles();
+  const theme = useTheme();
+  const classes = useHomesGuestsLovesStyles({ theme });
 
   const { data: hotels = [], isLoading } = useGetHotelsQuery();
 

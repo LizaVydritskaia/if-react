@@ -1,6 +1,7 @@
 import React, { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTheme } from 'react-jss';
 
 import { changeStatus } from '../../store/slices/auth.slice';
 import { authStatuses } from '../../services/constants/authStatuses';
@@ -10,7 +11,8 @@ import { Button } from '../Button';
 import { useSignInBlockStyles } from './SignInBlock.styles';
 
 export const SignInBlock = () => {
-  const classes = useSignInBlockStyles();
+  const theme = useTheme();
+  const classes = useSignInBlockStyles({ theme });
 
   const emailId = useId();
   const passwordId = useId();

@@ -1,7 +1,9 @@
 import React, { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
+//slices
 import { setChildrenAges } from '../../store/slices/form.slice';
 import {
   adultsDecrement,
@@ -12,14 +14,17 @@ import {
   roomIncrement,
 } from '../../store/slices/counter.slice';
 
+//components
 import { ChildrenSelectAge } from '../ChildrenSelectAge';
 import { Counter } from '../Counter';
 import { FilterChildrenSelect } from '../FilterChildrenSelect';
 
+//styles
 import { useFilterStyles } from './Filter.styles';
 
 export const Filter = memo(function Filter({ showFilter }) {
-  const classes = useFilterStyles();
+  const theme = useTheme();
+  const classes = useFilterStyles({ theme });
 
   const [selects, setSelects] = useState([]);
   const [showFilterChildrenSelect, setShowFilterChildrenSelect] =

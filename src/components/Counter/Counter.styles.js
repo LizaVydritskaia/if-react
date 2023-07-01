@@ -1,6 +1,6 @@
 import { createUseStyles } from 'react-jss';
 
-export const counterStyles = () => ({
+export const counterStyles = (theme) => ({
   filterBlock: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -13,7 +13,7 @@ export const counterStyles = () => ({
   },
   filterText: {
     fontSize: 16,
-    color: 'var(--dark-gray)',
+    color: theme.palette.grey.primary,
   },
   filterCounter: {
     display: 'flex',
@@ -23,11 +23,11 @@ export const counterStyles = () => ({
   filterButton: {
     width: 30,
     height: 30,
-    border: '1px solid var(--accent-blue)',
+    border: `1px solid ${theme.palette.blue.accent}`,
     fontSize: 18,
     fontWeight: 400,
     color: 'var(--accent-blue)',
-    backgroundColor: 'var(--text-general-white)',
+    backgroundColor: theme.palette.form.background.general,
     padding: '5px 9px',
     userSelect: 'none',
 
@@ -35,8 +35,8 @@ export const counterStyles = () => ({
       cursor: 'pointer',
     },
     '&:disabled': {
-      border: '1px solid var(--light-gray)',
-      color: 'var(--light-gray)',
+      border: `1px solid ${theme.palette.grey.secondary}`,
+      color: theme.palette.grey.secondary,
     },
     '&:disabled:hover': {
       cursor: 'default',
@@ -44,7 +44,7 @@ export const counterStyles = () => ({
   },
   inputValue: {
     width: 48,
-    backgroundColor: 'var(--text-general-white)',
+    backgroundColor: theme.palette.form.background.general,
     border: 'none',
     fontSize: 16,
     textAlign: 'center',

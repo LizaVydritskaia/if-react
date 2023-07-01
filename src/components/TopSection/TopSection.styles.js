@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import topSectionBackground from '../../assets/images/top-section-background.jpg';
 
-export const topSectionStyles = () => ({
+export const topSectionStyles = {
   root: {
     background: {
       image: `url(${topSectionBackground})`,
@@ -13,7 +13,7 @@ export const topSectionStyles = () => ({
   container: {
     paddingTop: 202,
   },
-});
+};
 
 export const useTopSectionStyles = createUseStyles(topSectionStyles, {
   name: 'TopSection',

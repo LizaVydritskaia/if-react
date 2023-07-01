@@ -22,4 +22,7 @@ export const initialState = {
     childrenAges: '',
     roomsCount: 0,
   },
+  theme: {
+    mode: 'light',
+  },
 };

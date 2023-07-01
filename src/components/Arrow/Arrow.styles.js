@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
 
-export const arrowStyles = () => ({
+export const arrowStyles = (theme) => ({
   circleArrow: {
     width: 40,
     height: 40,
     borderRadius: '50%',
-    backgroundColor: 'var(--stroke-color)',
+    backgroundColor: theme.palette.background.stroke,
     boxShadow: '0 2px 5px rgba(56, 56, 56, 50)',
     position: 'absolute',
     top: '23%',
@@ -14,7 +14,7 @@ export const arrowStyles = () => ({
   arrow: {
     width: 13,
     height: 13,
-    border: '2px solid var(--text-primary-color)',
+    border: `2px solid ${theme.palette.text.primary}`,
     borderLeft: 0,
     borderTop: 0,
     borderBottomRightRadius: 2,

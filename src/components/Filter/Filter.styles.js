@@ -1,11 +1,11 @@
 import { createUseStyles } from 'react-jss';
 
-export const filterStyles = () => ({
+export const filterStyles = (theme) => ({
   filter: {
     width: 259,
-    backgroundColor: 'var(--text-general-white)',
+    backgroundColor: theme.palette.form.background.general,
     padding: 22,
-    border: '2px solid var(--stroke-color)',
+    border: `2px solid ${theme.palette.background.stroke}`,
     borderRadius: 8,
     position: 'absolute',
     top: '130%',

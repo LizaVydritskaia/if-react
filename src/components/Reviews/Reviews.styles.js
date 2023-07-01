@@ -1,8 +1,9 @@
 import { createUseStyles } from 'react-jss';
 
-export const reviewsStyles = () => ({
+export const reviewsStyles = (theme) => ({
   root: {
     order: 5,
+    backgroundColor: theme.palette.background.general,
   },
   blocksList: {
     display: 'flex',
@@ -10,7 +11,7 @@ export const reviewsStyles = () => ({
     position: 'relative',
   },
   block: {
-    backgroundColor: 'var(--background-color)',
+    backgroundColor: theme.palette.background.secondary,
     paddingBottom: 24,
 
     '&:first-child': {
@@ -37,7 +38,7 @@ export const reviewsStyles = () => ({
     '& > p': {
       fontWeight: 400,
       fontSize: 18,
-      color: 'var(--text-general-white)',
+      color: theme.palette.text.main,
     },
     '& span': {
       fontWeight: 500,
@@ -51,13 +52,13 @@ export const reviewsStyles = () => ({
   hotelName: {
     fontWeight: 500,
     fontSize: 18,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
     marginBottom: 16,
   },
   hotelLocation: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
   },
   rating: {
     display: 'flex',
@@ -67,7 +68,7 @@ export const reviewsStyles = () => ({
   score: {
     width: 48,
     height: 32,
-    backgroundColor: 'var(--general-blue)',
+    backgroundColor: theme.palette.blue.general,
     borderRadius: 8,
     marginBottom: 8,
     display: 'flex',
@@ -79,13 +80,13 @@ export const reviewsStyles = () => ({
       fontStyle: 'normal',
       fontWeight: 600,
       fontSize: 18,
-      color: 'var(--text-general-white)',
+      color: theme.palette.text.main,
     },
   },
   amount: {
     fontWeight: 400,
     fontSize: 14,
-    color: 'var(--text-secondary-color)',
+    color: theme.palette.text.secondary,
   },
   name: {
     display: 'flex',
@@ -100,13 +101,13 @@ export const reviewsStyles = () => ({
   userName: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.dark,
     marginBottom: 8,
   },
   country: {
     fontWeight: 400,
     fontSize: 18,
-    color: 'var(--text-secondary-color)',
+    color: theme.palette.text.secondary,
 
     '& img': {
       width: 16,
@@ -118,14 +119,14 @@ export const reviewsStyles = () => ({
     fontWeight: 400,
     fontSize: 18,
     lineHeight: '117%',
-    color: 'var(--text-primary-color)',
+    color: theme.palette.text.dark,
     margin: '0 24px',
   },
   circleArrow: {
     width: 40,
     height: 40,
     borderRadius: '50%',
-    backgroundColor: 'var(--stroke-color)',
+    backgroundColor: theme.palette.background.stroke,
     boxShadow: '0 2px 5px rgba(56, 56, 56, 50)',
     position: 'absolute',
     top: '24%',
@@ -134,7 +135,7 @@ export const reviewsStyles = () => ({
   arrow: {
     width: 13,
     height: 13,
-    border: '2px solid var(--text-primary-color)',
+    border: `2px solid ${theme.palette.text.primary}`,
     borderLeft: 0,
     borderTop: 0,
     borderBottomRightRadius: 2,
@@ -151,13 +152,13 @@ export const reviewsStyles = () => ({
     paginatorFill: {
       width: 8,
       height: 8,
-      backgroundColor: 'var(--dark-gray)',
+      backgroundColor: theme.palette.grey.primary,
       borderRadius: '50%',
     },
     paginatorEmpty: {
       width: 8,
       height: 8,
-      border: '1px solid var(--dark-gray)',
+      border: `1px solid ${theme.palette.grey.primary}`,
       borderRadius: '50%',
     },
   },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 
 import { Form } from '../Form';
 import { Icon } from '../Icon';
@@ -6,7 +7,8 @@ import { Icon } from '../Icon';
 import { useTopSectionContentStyles } from './TopSectionContent.styles';
 
 export const TopSectionContent = () => {
-  const classes = useTopSectionContentStyles();
+  const theme = useTheme();
+  const classes = useTopSectionContentStyles({ theme });
 
   return (
     <>

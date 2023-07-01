@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
 import { useTitleStyle } from './Title.styles';
 
 export const Title = ({ content }) => {
-  const classes = useTitleStyle();
+  const theme = useTheme();
+  const classes = useTitleStyle({ theme });
 
   return <h2 className={classes.title}>{content}</h2>;
 };

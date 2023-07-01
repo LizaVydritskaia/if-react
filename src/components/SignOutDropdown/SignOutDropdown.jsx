@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
 import { Icon } from '../Icon';
@@ -6,7 +7,8 @@ import { Icon } from '../Icon';
 import { useSignOutDropdownStyles } from './SignOutDropdown.styles';
 
 export const SignOutDropdown = ({ showSignOutDropdown, ...props }) => {
-  const classes = useSignOutDropdownStyles();
+  const theme = useTheme();
+  const classes = useSignOutDropdownStyles({ theme });
 
   return (
     showSignOutDropdown && (

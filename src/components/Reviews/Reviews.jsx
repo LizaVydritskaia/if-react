@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
 import { reviewsConfig } from './reviewsConfig';
@@ -9,7 +10,8 @@ import { Title } from '../Title';
 import { useReviewsStyles } from './Reviews.styles';
 
 export const Reviews = () => {
-  const classes = useReviewsStyles();
+  const theme = useTheme();
+  const classes = useReviewsStyles({ theme });
 
   return (
     <section className={classes.root}>
