@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
+//styles
 import { useTitleStyle } from './Title.styles';
 
 export const Title = ({ content }) => {

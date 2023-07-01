@@ -2,10 +2,13 @@ import React from 'react';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
+//config
 import { offerConfig } from './offerConfig';
 
+//components
 import { Container } from '../Container';
 
+//styles
 import { useOfferStyles } from './Offer.styles';
 
 export const Offer = () => {

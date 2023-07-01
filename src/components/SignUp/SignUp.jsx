@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTheme } from 'react-jss';
 
+//components
 import { Container } from '../Container';
 
+//styles
 import { useSignUpStyles } from './SignUp.styles';
 
 export const SignUp = () => {

@@ -2,10 +2,12 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useTheme } from 'react-jss';
 
+//components
 import { Container } from '../Container';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 
+//styles
 import { useHotelPageStyles } from './HotelPage.styles';
 
 export const HotelPage = () => {

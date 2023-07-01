@@ -1,5 +1,6 @@
 import React from 'react';
 
+//styles
 import { useSpriteStyles } from './Sprite.styles';
 
 export const Sprite = () => {

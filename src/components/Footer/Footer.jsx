@@ -1,10 +1,13 @@
 import React from 'react';
 import { useTheme } from 'react-jss';
 
-import { Container } from '../Container';
-
+//config
 import { footerData } from './footerConfig';
 
+//components
+import { Container } from '../Container';
+
+//styles
 import { useFooterStyles } from './Footer.styles';
 
 export const Footer = () => {

@@ -1,14 +1,17 @@
 import React, { Fragment } from 'react';
 import { useTheme } from 'react-jss';
 
+//services
 import { useGetHotelsQuery } from '../../services/hotels';
 
+//components
 import { Arrow } from '../Arrow';
 import { Container } from '../Container';
 import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
+//styles
 import { useHomesGuestsLovesStyles } from './HomesGuestsLoves.styles';
 
 export const HomesGuestsLoves = () => {

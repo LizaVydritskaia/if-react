@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+//context
+import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
+
 //components
 import { AvailableHotels } from '../AvailableHotels';
 import { Footer } from '../Footer';
@@ -13,8 +16,7 @@ import { Reviews } from '../Reviews/Reviews';
 import { SignUp } from '../SignUp';
 import { TopSection } from '../TopSection';
 
-import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
-
+//styles
 import { authStatuses } from '../../services/constants/authStatuses';
 
 export const App = () => {

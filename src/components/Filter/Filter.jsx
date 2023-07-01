@@ -4,15 +4,15 @@ import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
 //slices
-import { setChildrenAges } from '../../store/slices/form.slice';
 import {
+  setFormValue,
   adultsDecrement,
   adultsIncrement,
   childrenDecrement,
   childrenIncrement,
   roomDecrement,
   roomIncrement,
-} from '../../store/slices/counter.slice';
+} from '../../store/slices/form.slice';
 
 //components
 import { ChildrenSelectAge } from '../ChildrenSelectAge';
@@ -30,7 +30,7 @@ export const Filter = memo(function Filter({ showFilter }) {
   const [showFilterChildrenSelect, setShowFilterChildrenSelect] =
     useState(false);
 
-  const filterValues = useSelector((state) => state.filter);
+  const formValues = useSelector((state) => state.form);
 
   const dispatch = useDispatch();
 
@@ -42,6 +42,10 @@ export const Filter = memo(function Filter({ showFilter }) {
     if (value <= 1) {
       setShowFilterChildrenSelect(false);
     }
+  };
+
+  const handleChangeInputValue = (action) => {
+    dispatch(action);
   };
 
   const addSelect = () => {
@@ -68,7 +72,7 @@ export const Filter = memo(function Filter({ showFilter }) {
       selectValues.push(select.value);
     });
 
-    dispatch(setChildrenAges(selectValues.join(',')));
+    dispatch(setFormValue({ childrenAges: selectValues.join(',') }));
   };
 
   return (
@@ -77,29 +81,29 @@ export const Filter = memo(function Filter({ showFilter }) {
         <Counter
           id="adults"
           counterText="Adults"
-          value={filterValues.adults}
+          value={formValues.adults}
           min={1}
           max={30}
           onClickMinusButton={() => {
-            dispatch(adultsDecrement());
+            handleChangeInputValue(adultsDecrement());
           }}
           onClickPlusButton={() => {
-            dispatch(adultsIncrement());
+            handleChangeInputValue(adultsIncrement());
           }}
         />
         <Counter
           id="children"
           counterText="Children"
-          value={filterValues.children}
+          value={formValues.children}
           min={0}
           max={10}
           onClickMinusButton={() => {
-            dispatch(childrenDecrement());
-            closeFilterChildrenSelect(filterValues.children);
+            handleChangeInputValue(childrenDecrement());
+            closeFilterChildrenSelect(formValues.children);
             deleteSelect();
           }}
           onClickPlusButton={() => {
-            dispatch(childrenIncrement());
+            handleChangeInputValue(childrenIncrement());
             openFilterChildrenSelect();
             addSelect();
           }}
@@ -107,14 +111,14 @@ export const Filter = memo(function Filter({ showFilter }) {
         <Counter
           id="room"
           counterText="Room"
-          value={filterValues.room}
+          value={formValues.room}
           min={1}
           max={30}
           onClickMinusButton={() => {
-            dispatch(roomDecrement());
+            handleChangeInputValue(roomDecrement());
           }}
           onClickPlusButton={() => {
-            dispatch(roomIncrement());
+            handleChangeInputValue(roomIncrement());
           }}
         />
         <FilterChildrenSelect

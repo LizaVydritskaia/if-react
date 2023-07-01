@@ -3,20 +3,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
+//slices
+import { setFormValue } from '../../store/slices/form.slice';
+
+//context
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+
 //components
 import { Button } from '../Button';
 import { Calendar } from '../Calendar';
 import { Filter } from '../Filter';
 import { Input } from '../Input';
-
-//context
-import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
-
-//slices
-import {
-  setCalendarValues,
-  setDestination,
-} from '../../store/slices/form.slice';
 
 //styles
 import { useFormStyles } from './Form.styles';
@@ -30,7 +27,7 @@ export const Form = () => {
 
   const [showFilter, setShowFilter] = useState(false);
 
-  const filterValues = useSelector((state) => state.filter);
+  const formValues = useSelector((state) => state.form);
 
   const dispatch = useDispatch();
 
@@ -42,7 +39,7 @@ export const Form = () => {
 
     const { destination } = data;
 
-    dispatch(setDestination(destination));
+    dispatch(setFormValue({ destinationValue: destination }));
 
     setShowAvailableHotels(true);
   };
@@ -66,7 +63,7 @@ export const Form = () => {
       'react-datepicker__input-container',
     );
 
-    dispatch(setCalendarValues(calendarInput[0].children[1].value));
+    dispatch(setFormValue({ checkInOut: calendarInput[0].children[1].value }));
   };
 
   return (
@@ -89,7 +86,7 @@ export const Form = () => {
           className={classes.inputAdults}
           type="text"
           name="adults"
-          value={filterValues.adults}
+          value={formValues.adults}
           forId="adults"
           labelClassName={classes.labelAdults}
           labelContent="Adults"
@@ -103,7 +100,7 @@ export const Form = () => {
             className={classes.inputChildrenRoom}
             type="text"
             name="children"
-            value={filterValues.children}
+            value={formValues.children}
             forId="children"
             labelClassName={classes.labelChildren}
             labelContent="Children"
@@ -121,7 +118,7 @@ export const Form = () => {
             )}
             type="text"
             name="room"
-            value={filterValues.room}
+            value={formValues.room}
             forId="room"
             labelClassName={classes.labelRoom}
             labelContent="Room"

@@ -4,6 +4,7 @@ import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+//styles
 import { useHotelStyles } from './Hotel.styles';
 
 export const Hotel = ({ className, id, name, city, country, imageUrl }) => {

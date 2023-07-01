@@ -2,8 +2,10 @@ import React from 'react';
 import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
+//components
 import { Icon } from '../Icon';
 
+//styles
 import { useSignOutDropdownStyles } from './SignOutDropdown.styles';
 
 export const SignOutDropdown = ({ showSignOutDropdown, ...props }) => {

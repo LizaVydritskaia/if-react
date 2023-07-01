@@ -5,22 +5,13 @@ export const initialState = {
   auth: {
     status: authStatuses.loggedOut,
   },
-  filter: {
-    adults: formValues.adultsCount,
-    children: formValues.childrenCount,
-    room: formValues.roomCount,
-  },
   form: {
     destinationValue: null,
     checkInOut: null,
+    adults: formValues.adultsCount,
+    children: formValues.childrenCount,
+    room: formValues.roomCount,
     childrenAges: null,
-  },
-  search: {
-    destinationValue: '',
-    calendarValue: '',
-    adultsCount: 0,
-    childrenAges: '',
-    roomsCount: 0,
   },
   theme: {
     mode: 'light',

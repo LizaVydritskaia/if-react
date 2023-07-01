@@ -2,11 +2,14 @@ import React from 'react';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
+//config
 import { destinationsConfig } from './destinationsConfig';
 
+//components
 import { Container } from '../Container';
 import { Title } from '../Title';
 
+//styles
 import { useDestinationsStyles } from './Destinations.styles';
 
 export const Destinations = () => {

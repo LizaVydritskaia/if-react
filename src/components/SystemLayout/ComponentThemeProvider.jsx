@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'react-jss';
 
+//themes
 import { darkTheme } from '../../themes/darkTheme';
 import { lightTheme } from '../../themes/lightTheme';
 

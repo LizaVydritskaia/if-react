@@ -3,11 +3,16 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTheme } from 'react-jss';
 
+//slices
 import { changeStatus } from '../../store/slices/auth.slice';
+
+//constants
 import { authStatuses } from '../../services/constants/authStatuses';
 
+//components
 import { Button } from '../Button';
 
+//styles
 import { useSignInBlockStyles } from './SignInBlock.styles';
 
 export const SignInBlock = () => {

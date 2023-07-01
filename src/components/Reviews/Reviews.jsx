@@ -2,11 +2,14 @@ import React from 'react';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
+//config
 import { reviewsConfig } from './reviewsConfig';
 
+//components
 import { Container } from '../Container';
 import { Title } from '../Title';
 
+//styles
 import { useReviewsStyles } from './Reviews.styles';
 
 export const Reviews = () => {

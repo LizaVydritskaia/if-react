@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTheme } from 'react-jss';
 
+//components
 import { Form } from '../Form';
 import { Icon } from '../Icon';
 
+//styles
 import { useTopSectionContentStyles } from './TopSectionContent.styles';
 
 export const TopSectionContent = () => {

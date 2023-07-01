@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
+//styles
 import { useIconAccountStyles } from './IconAccount.styles';
 
 export const IconAccount = ({ ...props }) => {

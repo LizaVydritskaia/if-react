@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTheme } from 'react-jss';
 
+//components
 import { Button } from '../Button';
 import { Input } from '../Input';
 
+//styles
 import { useCounterStyles } from './Counter.styles';
 
 export const Counter = ({

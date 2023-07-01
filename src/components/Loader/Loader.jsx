@@ -2,6 +2,7 @@ import React from 'react';
 
 import loadingImg from '../../assets/images/loading.gif';
 
+//styles
 import { useLoaderStyles } from './Loader.styles';
 
 export const Loader = ({ loading, children }) => {

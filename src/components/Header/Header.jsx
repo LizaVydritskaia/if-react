@@ -5,7 +5,11 @@ import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+//slices
 import { changeStatus } from '../../store/slices/auth.slice';
+import { toggleThemeMode } from '../../store/slices/theme.slice';
+
+//constants
 import { authStatuses } from '../../services/constants/authStatuses';
 
 //components
@@ -16,7 +20,6 @@ import { SignOutDropdown } from '../SignOutDropdown';
 
 //styles
 import { useHeaderStyles } from './Header.styles';
-import { toggleThemeMode } from '../../store/slices/theme.slice';
 
 export const Header = ({ className }) => {
   const theme = useTheme();
