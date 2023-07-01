@@ -37,6 +37,14 @@ export const Filter = memo(function Filter({ showFilter }) {
     }
   };
 
+  const handleDecrement = (action) => {
+    dispatch(action);
+  };
+
+  const handleIncrement = (action) => {
+    dispatch(action);
+  };
+
   const addSelect = () => {
     const newSelect = {
       id: Math.random(),
