@@ -5,22 +5,30 @@ export const formSlice = createSlice({
   name: 'form',
   initialState: initialState.form,
   reducers: {
-    setDestination: (state, action) => ({
+    setFormValue: (state, action) => ({ ...state, ...action.payload }),
+    adultsIncrement: (state) => ({
       ...state,
-      destinationValue: action.payload,
+      adults: state.adults + 1,
     }),
-    setCalendarValues: (state, action) => ({
+    childrenIncrement: (state) => ({
       ...state,
-      checkInOut: action.payload,
+      children: state.children + 1,
     }),
-    setChildrenAges: (state, action) => ({
-      ...state,
-      childrenAges: action.payload,
-    }),
+    roomIncrement: (state) => ({ ...state, room: state.room + 1 }),
+    adultsDecrement: (state) => ({ ...state, adults: state.adults - 1 }),
+    childrenDecrement: (state) => ({ ...state, children: state.children - 1 }),
+    roomDecrement: (state) => ({ ...state, room: state.room - 1 }),
   },
 });
 
-export const { setDestination, setCalendarValues, setChildrenAges } =
-  formSlice.actions;
+export const {
+  setFormValue,
+  adultsIncrement,
+  childrenIncrement,
+  roomIncrement,
+  adultsDecrement,
+  childrenDecrement,
+  roomDecrement,
+} = formSlice.actions;
 
 export const formReducer = formSlice.reducer;

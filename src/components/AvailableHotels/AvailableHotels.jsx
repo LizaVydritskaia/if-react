@@ -18,15 +18,14 @@ export const AvailableHotels = () => {
   const { availableHotelsRef, showAvailableHotels } =
     useAvailableHotelsContext();
 
-  const filterValues = useSelector((state) => state.filter);
   const formValues = useSelector((state) => state.form);
 
   const { data: availableHotels = [], isLoading } = useGetAvailableHotelsQuery({
     search: formValues.destinationValue,
     checkInOut: formValues.checkInOut,
-    adults: filterValues.adults,
+    adults: formValues.adults,
     children: formValues.childrenAges,
-    rooms: filterValues.room,
+    rooms: formValues.room,
   });
 
   return (

@@ -3,7 +3,6 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth.slice';
-import { counterReducer } from './counter.slice';
 import { formReducer } from './form.slice';
 import { hotels } from '../../services/hotels';
 import { availableHotels } from '../../services/availableHotels';
@@ -20,7 +19,6 @@ export const rootReducer = persistReducer(
     [hotels.reducerPath]: hotels.reducer,
     [availableHotels.reducerPath]: availableHotels.reducer,
     auth: authReducer,
-    filter: counterReducer,
     form: formReducer,
   }),
 );

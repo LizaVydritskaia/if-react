@@ -3,6 +3,7 @@ import React from 'react';
 import { destinationsConfig } from './destinationsConfig';
 
 import { Container } from '../Container';
+import { Title } from '../Title';
 
 import './Destinations.css';
 
@@ -10,7 +11,7 @@ export const Destinations = () => {
   return (
     <section className="destinations">
       <Container>
-        <h2 className="destinations__title">The best destinations</h2>
+        <Title content="The best destinations" />
         <form className="destinations__form" action="/">
           <input
             className="destinations__input"

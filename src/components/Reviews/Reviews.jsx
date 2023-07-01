@@ -3,6 +3,7 @@ import React from 'react';
 import { reviewsConfig } from './reviewsConfig';
 
 import { Container } from '../Container';
+import { Title } from '../Title';
 
 import './Reviews.css';
 
@@ -10,7 +11,7 @@ export const Reviews = () => {
   return (
     <section className="reviews">
       <Container>
-        <h2 className="reviews__title">Guests reviews</h2>
+        <Title content="Guests reviews" />
         <div className="reviews__blocks">
           {reviewsConfig.map((review) => {
             return (

@@ -9,10 +9,7 @@ import { Input } from '../Input';
 
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
-import {
-  setCalendarValues,
-  setDestination,
-} from '../../store/slices/form.slice';
+import { setFormValue } from '../../store/slices/form.slice';
 
 import './Form.css';
 
@@ -22,7 +19,7 @@ export const Form = () => {
 
   const [showFilter, setShowFilter] = useState(false);
 
-  const filterValues = useSelector((state) => state.filter);
+  const formValues = useSelector((state) => state.form);
 
   const dispatch = useDispatch();
 
@@ -34,7 +31,7 @@ export const Form = () => {
 
     const { destination } = data;
 
-    dispatch(setDestination(destination));
+    dispatch(setFormValue({ destinationValue: destination }));
 
     setShowAvailableHotels(true);
   };
@@ -58,7 +55,7 @@ export const Form = () => {
       'react-datepicker__input-container',
     );
 
-    dispatch(setCalendarValues(calendarInput[0].children[1].value));
+    dispatch(setFormValue({ checkInOut: calendarInput[0].children[1].value }));
   };
 
   return (
@@ -83,7 +80,7 @@ export const Form = () => {
           className="top-section__input-adults"
           type="text"
           name="adults"
-          value={filterValues.adults}
+          value={formValues.adults}
           forId="adults"
           labelClassName="top-section__label-adults"
           labelContent="Adults"
@@ -97,7 +94,7 @@ export const Form = () => {
             className="top-section__input-children-room"
             type="text"
             name="children"
-            value={filterValues.children}
+            value={formValues.children}
             forId="children"
             labelClassName="top-section__label-children"
             labelContent="Children"
@@ -112,7 +109,7 @@ export const Form = () => {
             className="top-section__input-children-room top-section__input-children-room--border"
             type="text"
             name="room"
-            value={filterValues.room}
+            value={formValues.room}
             forId="room"
             labelClassName="top-section__label-room"
             labelContent="Room"
