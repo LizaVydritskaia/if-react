@@ -1,32 +1,40 @@
-import React, { Suspense } from 'react';
+import React, { Fragment } from 'react';
+import { useTheme } from 'react-jss';
 
-import { getHotels } from '../../services/getHotels';
+//services
+import { useGetHotelsQuery } from '../../services/hotels';
 
+//components
 import { Arrow } from '../Arrow';
 import { Container } from '../Container';
 import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
-import './HomesGuestsLoves.css';
+//styles
+import { useHomesGuestsLovesStyles } from './HomesGuestsLoves.styles';
 
 export const HomesGuestsLoves = () => {
-  const hotels = getHotels();
+  const theme = useTheme();
+  const classes = useHomesGuestsLovesStyles({ theme });
+
+  const { data: hotels = [], isLoading } = useGetHotelsQuery();
 
   return (
-    <Suspense fallback={<Loader />}>
-      <section className="homes">
+    <Loader loading={isLoading}>
+      <section className={classes.root}>
         <Container>
           <Title content="Homes guests loves" />
-          <div className="homes__hotels">
-            <Hotel
-              hotelsPromise={hotels}
-              className="col-lg-3 col-md-6 col-sm-3"
-            />
+          <div className={classes.hotels}>
+            {hotels.map((hotel) => (
+              <Fragment key={hotel.id}>
+                <Hotel {...hotel} />
+              </Fragment>
+            ))}
             <Arrow />
           </div>
         </Container>
       </section>
-    </Suspense>
+    </Loader>
   );
 };

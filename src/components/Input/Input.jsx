@@ -1,8 +1,6 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-import './Input.css';
-
 export const Input = memo(function Input({
   id,
   className,

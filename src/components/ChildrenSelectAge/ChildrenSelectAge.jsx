@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
+//styles
 import './ChildrenSelectAge.css';
 
 export const ChildrenSelectAge = ({ onChange }) => {

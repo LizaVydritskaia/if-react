@@ -1,11 +1,12 @@
-import React, { Suspense } from 'react';
+import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 
-import { initialState } from '../../services/constants/initialState';
-
+//context
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
-import { getAvailableHotels } from '../../services/getAvailableHotels';
+//services
+import { useGetAvailableHotelsQuery } from '../../services/availableHotels';
 
 //components
 import { Arrow } from '../Arrow';
@@ -14,42 +15,45 @@ import { Hotel } from '../Hotel';
 import { Loader } from '../Loader';
 import { Title } from '../Title';
 
-import './AvailableHotels.css';
+//styles
+import { useAvailableHotelsStyles } from './AvailavleHotels.styles';
+import { useHomesGuestsLovesStyles } from '../HomesGuestsLoves/HomesGuestsLoves.styles';
 
 export const AvailableHotels = () => {
-  const { availableHotelsRef } = useAvailableHotelsContext();
+  const theme = useTheme();
+  const classes = useAvailableHotelsStyles({ theme });
+  const homesClasses = useHomesGuestsLovesStyles({ theme });
+
+  const { availableHotelsRef, showAvailableHotels } =
+    useAvailableHotelsContext();
 
   const formValues = useSelector((state) => state.form);
 
-  const availableHotels =
-    formValues !== initialState.form
-      ? getAvailableHotels({
-          search: formValues.destinationValue,
-          checkInOut: formValues.checkInOut,
-          adults: formValues.adults,
-          children: formValues.childrenAges,
-          rooms: formValues.room,
-        })
-      : null;
-
-  if (!availableHotels) {
-    return null;
-  }
+  const { data: availableHotels = [], isLoading } = useGetAvailableHotelsQuery({
+    search: formValues.destinationValue,
+    checkInOut: formValues.checkInOut,
+    adults: formValues.adults,
+    children: formValues.childrenAges,
+    rooms: formValues.room,
+  });
 
   return (
-    <Suspense fallback={<Loader />}>
-      <section className="available-hotels" ref={availableHotelsRef}>
-        <Container>
-          <Title content="Available hotels" />
-          <div className="homes__hotels">
-            <Hotel
-              hotelsPromise={availableHotels}
-              className="col-lg-3 col-md-6 col-sm-3"
-            />
-            <Arrow />
-          </div>
-        </Container>
-      </section>
-    </Suspense>
+    showAvailableHotels && (
+      <Loader loading={isLoading}>
+        <section className={classes.availableHotels} ref={availableHotelsRef}>
+          <Container>
+            <Title content="Available hotels" />
+            <div className={homesClasses.hotels}>
+              {availableHotels.map((hotel) => (
+                <Fragment key={hotel.id}>
+                  <Hotel {...hotel} />
+                </Fragment>
+              ))}
+              <Arrow />
+            </div>
+          </Container>
+        </section>
+      </Loader>
+    )
   );
 };
