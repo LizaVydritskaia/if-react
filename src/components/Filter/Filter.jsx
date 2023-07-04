@@ -2,13 +2,16 @@ import React, { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { FILTER_COUNTER } from '../../services/constants/actionTypes';
+import {
+  setFormValue,
+  adultsDecrement,
+  adultsIncrement,
+  childrenDecrement,
+  childrenIncrement,
+  roomDecrement,
+  roomIncrement,
+} from '../../store/slices/form.slice';
 
-//actions
-import { counterActions } from '../../store/actions/form.actions';
-import { childrenAgesAction } from '../../store/actions/form.actions';
-
-//components
 import { ChildrenSelectAge } from '../ChildrenSelectAge';
 import { Counter } from '../Counter';
 import { FilterChildrenSelect } from '../FilterChildrenSelect';
@@ -34,11 +37,7 @@ export const Filter = memo(function Filter({ showFilter }) {
     }
   };
 
-  const handleDecrement = (action) => {
-    dispatch(action);
-  };
-
-  const handleIncrement = (action) => {
+  const handleChangeInputValue = (action) => {
     dispatch(action);
   };
 
@@ -66,7 +65,7 @@ export const Filter = memo(function Filter({ showFilter }) {
       selectValues.push(select.value);
     });
 
-    dispatch(childrenAgesAction(selectValues.join(',')));
+    dispatch(setFormValue({ childrenAges: selectValues.join(',') }));
   };
 
   return (
@@ -79,10 +78,10 @@ export const Filter = memo(function Filter({ showFilter }) {
           min={1}
           max={30}
           onClickMinusButton={() => {
-            handleDecrement(counterActions(FILTER_COUNTER.adultsDecrement));
+            handleChangeInputValue(adultsDecrement());
           }}
           onClickPlusButton={() => {
-            handleIncrement(counterActions(FILTER_COUNTER.adultsIncrement));
+            handleChangeInputValue(adultsIncrement());
           }}
         />
         <Counter
@@ -92,12 +91,12 @@ export const Filter = memo(function Filter({ showFilter }) {
           min={0}
           max={10}
           onClickMinusButton={() => {
-            handleDecrement(counterActions(FILTER_COUNTER.childrenDecrement));
+            handleChangeInputValue(childrenDecrement());
             closeFilterChildrenSelect(formValues.children);
             deleteSelect();
           }}
           onClickPlusButton={() => {
-            handleIncrement(counterActions(FILTER_COUNTER.childrenIncrement));
+            handleChangeInputValue(childrenIncrement());
             openFilterChildrenSelect();
             addSelect();
           }}
@@ -109,10 +108,10 @@ export const Filter = memo(function Filter({ showFilter }) {
           min={1}
           max={30}
           onClickMinusButton={() => {
-            handleDecrement(counterActions(FILTER_COUNTER.roomDecrement));
+            handleChangeInputValue(roomDecrement());
           }}
           onClickPlusButton={() => {
-            handleIncrement(counterActions(FILTER_COUNTER.roomIncrement));
+            handleChangeInputValue(roomIncrement());
           }}
         />
         <FilterChildrenSelect

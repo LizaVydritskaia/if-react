@@ -2,7 +2,7 @@ import React, { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { changeAuthStatus } from '../../store/actions';
+import { changeStatus } from '../../store/slices/auth.slice';
 import { authStatuses } from '../../services/constants/authStatuses';
 
 import { Button } from '../Button';
@@ -24,7 +24,7 @@ export const SignInBlock = () => {
     const password = formData.get('password');
 
     if (email && password) {
-      dispatch(changeAuthStatus(authStatuses.loggedIn));
+      dispatch(changeStatus(authStatuses.loggedIn));
       navigate('/');
     }
   };

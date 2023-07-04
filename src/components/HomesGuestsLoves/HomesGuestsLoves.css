@@ -5,6 +5,7 @@
 
 .homes__hotels {
   display: flex;
+  gap: 16px;
   position: relative;
 }
 

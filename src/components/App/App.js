@@ -5,8 +5,12 @@ import { useSelector } from 'react-redux';
 //components
 import { AvailableHotels } from '../AvailableHotels';
 import { Footer } from '../Footer';
+import { Destinations } from '../Destinations';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
 import { MainContent } from '../MainContent';
+import { Offer } from '../Offer';
+import { Reviews } from '../Reviews/Reviews';
+import { SignUp } from '../SignUp';
 import { TopSection } from '../TopSection';
 
 import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
@@ -32,7 +36,11 @@ export const App = () => {
           <TopSection />
           <AvailableHotels />
         </AvailableHotelsContextProvider>
+        <Offer />
         <HomesGuestsLoves />
+        <Destinations />
+        <SignUp />
+        <Reviews />
         <Footer />
       </MainContent>
     </>

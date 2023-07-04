@@ -9,15 +9,13 @@ import { Input } from '../Input';
 
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
-import {
-  checkInOutAction,
-  destinationAction,
-} from '../../store/actions/form.actions';
+import { setFormValue } from '../../store/slices/form.slice';
 
 import './Form.css';
 
 export const Form = () => {
-  const { availableHotelsRef } = useAvailableHotelsContext();
+  const { availableHotelsRef, setShowAvailableHotels } =
+    useAvailableHotelsContext();
 
   const [showFilter, setShowFilter] = useState(false);
 
@@ -33,7 +31,9 @@ export const Form = () => {
 
     const { destination } = data;
 
-    dispatch(destinationAction(destination));
+    dispatch(setFormValue({ destinationValue: destination }));
+
+    setShowAvailableHotels(true);
   };
 
   const handleOpenCloseFilter = useCallback(() => {
@@ -55,7 +55,7 @@ export const Form = () => {
       'react-datepicker__input-container',
     );
 
-    dispatch(checkInOutAction(calendarInput[0].children[1].value));
+    dispatch(setFormValue({ checkInOut: calendarInput[0].children[1].value }));
   };
 
   return (

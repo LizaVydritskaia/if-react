@@ -1,11 +1,9 @@
-import React, { Suspense } from 'react';
+import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-
-import { initialState } from '../../services/constants/initialState';
 
 import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
-import { getAvailableHotels } from '../../services/getAvailableHotels';
+import { useGetAvailableHotelsQuery } from '../../services/availableHotels';
 
 //components
 import { Arrow } from '../Arrow';
@@ -17,39 +15,36 @@ import { Title } from '../Title';
 import './AvailableHotels.css';
 
 export const AvailableHotels = () => {
-  const { availableHotelsRef } = useAvailableHotelsContext();
+  const { availableHotelsRef, showAvailableHotels } =
+    useAvailableHotelsContext();
 
   const formValues = useSelector((state) => state.form);
 
-  const availableHotels =
-    formValues !== initialState.form
-      ? getAvailableHotels({
-          search: formValues.destinationValue,
-          checkInOut: formValues.checkInOut,
-          adults: formValues.adults,
-          children: formValues.childrenAges,
-          rooms: formValues.room,
-        })
-      : null;
-
-  if (!availableHotels) {
-    return null;
-  }
+  const { data: availableHotels = [], isLoading } = useGetAvailableHotelsQuery({
+    search: formValues.destinationValue,
+    checkInOut: formValues.checkInOut,
+    adults: formValues.adults,
+    children: formValues.childrenAges,
+    rooms: formValues.room,
+  });
 
   return (
-    <Suspense fallback={<Loader />}>
-      <section className="available-hotels" ref={availableHotelsRef}>
-        <Container>
-          <Title content="Available hotels" />
-          <div className="homes__hotels">
-            <Hotel
-              hotelsPromise={availableHotels}
-              className="col-lg-3 col-md-6 col-sm-3"
-            />
-            <Arrow />
-          </div>
-        </Container>
-      </section>
-    </Suspense>
+    showAvailableHotels && (
+      <Loader loading={isLoading}>
+        <section className="available-hotels" ref={availableHotelsRef}>
+          <Container>
+            <Title content="Available hotels" />
+            <div className="homes__hotels">
+              {availableHotels.map((hotel) => (
+                <Fragment key={hotel.id}>
+                  <Hotel {...hotel} />
+                </Fragment>
+              ))}
+              <Arrow />
+            </div>
+          </Container>
+        </section>
+      </Loader>
+    )
   );
 };

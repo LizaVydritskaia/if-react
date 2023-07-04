@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
-import { changeAuthStatus } from '../../store/actions';
+import { changeStatus } from '../../store/slices/auth.slice';
 import { authStatuses } from '../../services/constants/authStatuses';
 
 //components
@@ -31,7 +31,7 @@ export const Header = ({ className }) => {
   };
 
   const signOut = () => {
-    dispatch(changeAuthStatus(authStatuses.loggedOut));
+    dispatch(changeStatus(authStatuses.loggedOut));
     navigate('/sign-in');
   };
 
