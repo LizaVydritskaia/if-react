@@ -2,15 +2,8 @@
 
 :root {
   --text-primary-color: #383838;
-  --text-general-white: #ffffff;
-  --text-secondary-color: #bfbfbf;
-  --stroke-color: #f3f3f4;
-  --background-color: #eaf0f9;
   --accent-yellow: #f5bd41;
-  --general-blue: #10367c;
-  --accent-blue: #3077c6;
-  --dark-gray: #333333;
-  --light-gray: #cecece;
+  --dark-grey: #333333;
 
   --col-width: calc(100% / 12);
 }
