@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
@@ -16,6 +16,12 @@ export const Destinations = () => {
   const theme = useTheme();
   const classes = useDestinationsStyles({ theme });
 
+  const [destination, setDestination] = useState('regions');
+
+  const handleDestinationChange = (event) => {
+    setDestination(event.target.value);
+  };
+
   return (
     <section className={classes.root}>
       <Container>
@@ -26,8 +32,9 @@ export const Destinations = () => {
             type="radio"
             id="regions"
             name="destinations"
-            value="1"
-            checked
+            value="regions"
+            checked={destination === 'regions'}
+            onChange={handleDestinationChange}
           />
           <label className={classes.label} htmlFor="regions">
             Regions
@@ -37,7 +44,9 @@ export const Destinations = () => {
             type="radio"
             id="cities"
             name="destinations"
-            value="2"
+            value="cities"
+            checked={destination === 'cities'}
+            onChange={handleDestinationChange}
           />
           <label className={classes.label} htmlFor="cities">
             Cities
@@ -47,7 +56,9 @@ export const Destinations = () => {
             type="radio"
             id="places"
             name="destinations"
-            value="3"
+            value="places"
+            checked={destination === 'places'}
+            onChange={handleDestinationChange}
           />
           <label
             className={classNames(classes.label, classes.labelPlaces)}

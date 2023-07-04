@@ -53,6 +53,10 @@ export const signUpStyles = (theme) => ({
     fontWeight: 400,
     fontSize: 18,
     color: theme.palette.blue.accent,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   close: {
     width: 26,
@@ -60,6 +64,10 @@ export const signUpStyles = (theme) => ({
     position: 'absolute',
     top: 24,
     right: 24,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   logo: {
     width: 0,

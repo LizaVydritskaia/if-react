@@ -2,7 +2,11 @@
 
 :root {
   --text-primary-color: #383838;
+  --text-general-white: #ffffff;
+  --text-secondary-color: #bfbfbf;
+  --stroke-color: #f3f3f4;
   --accent-yellow: #f5bd41;
+  --accent-blue: #3077c6;
   --dark-grey: #333333;
 
   --col-width: calc(100% / 12);

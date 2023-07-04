@@ -10,6 +10,10 @@ export const arrowStyles = (theme) => ({
     position: 'absolute',
     top: '23%',
     right: '-20px',
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   arrow: {
     width: 13,

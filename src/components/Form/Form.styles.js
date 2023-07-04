@@ -58,6 +58,10 @@ export const formStyles = (theme) => ({
     width: '29%',
     display: 'flex',
     position: 'relative',
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   inputRoomDash: {
     fontWeight: 400,
@@ -72,6 +76,10 @@ export const formStyles = (theme) => ({
     position: 'absolute',
     left: 47,
     top: 21,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   inputAdults: {
     width: '34%',
@@ -90,6 +98,9 @@ export const formStyles = (theme) => ({
     },
     '&:focus': {
       outline: 'none',
+    },
+    '&:hover': {
+      cursor: 'pointer',
     },
   },
   line: {
@@ -113,6 +124,10 @@ export const formStyles = (theme) => ({
     position: 'absolute',
     left: 25,
     top: 21,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   inputChildrenRoom: {
     width: '100%',
@@ -131,6 +146,9 @@ export const formStyles = (theme) => ({
     '&:focus': {
       outline: 'none',
     },
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   inputChildrenRoomBorder: {
     borderTopRightRadius: 0,
@@ -148,6 +166,10 @@ export const formStyles = (theme) => ({
     position: 'absolute',
     left: 25,
     top: 21,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   button: {
     width: '16%',

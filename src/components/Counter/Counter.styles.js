@@ -26,7 +26,7 @@ export const counterStyles = (theme) => ({
     border: `1px solid ${theme.palette.blue.accent}`,
     fontSize: 18,
     fontWeight: 400,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
     backgroundColor: theme.palette.form.background.general,
     padding: '5px 9px',
     userSelect: 'none',

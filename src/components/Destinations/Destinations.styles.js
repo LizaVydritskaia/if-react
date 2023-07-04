@@ -107,6 +107,10 @@ export const destinationsStyles = (theme) => ({
     backgroundColor: theme.palette.background.stroke,
     boxShadow: '0 2px 5px rgba(56, 56, 56, 50)',
     margin: '0 auto 120px',
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   arrow: {
     width: 13,
