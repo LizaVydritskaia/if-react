@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
+
 import { rootReducer } from './slices';
+
 import { hotels } from '../services/hotels';
 import { availableHotels } from '../services/availableHotels';
 

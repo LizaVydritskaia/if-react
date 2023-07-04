@@ -50,6 +50,8 @@ export const SignInBlock = () => {
           name="email"
           id={emailId}
           type="email"
+          name="email"
+          required
         />
         <label className={classes.label} htmlFor={passwordId}>
           Password
@@ -59,6 +61,8 @@ export const SignInBlock = () => {
           name="password"
           id={passwordId}
           type="password"
+          name="password"
+          required
         />
         <Button type="submit" className={classes.button}>
           Sign in

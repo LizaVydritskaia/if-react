@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useTheme } from 'react-jss';
 
 //components
@@ -49,4 +50,13 @@ export const Counter = ({
       </div>
     </div>
   );
+};
+
+Counter.propTypes = {
+  counterText: PropTypes.string,
+  value: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  onClickMinusButton: PropTypes.func,
+  onClickPlusButton: PropTypes.func,
 };
