@@ -12,7 +12,7 @@ import { Destinations } from '../Destinations';
 import { HomesGuestsLoves } from '../HomesGuestsLoves';
 import { MainContent } from '../MainContent';
 import { Offer } from '../Offer';
-import { Reviews } from '../Reviews/Reviews';
+import { Reviews } from '../Reviews';
 import { SignUp } from '../SignUp';
 import { TopSection } from '../TopSection';
 
