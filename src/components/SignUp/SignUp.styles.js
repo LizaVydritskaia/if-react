@@ -76,6 +76,21 @@ export const signUpStyles = (theme) => ({
   install: {
     opacity: 0,
   },
+  mobileLogo: {
+    display: 'none',
+  },
+  '@media (max-width: 480px)': {
+    mobileLogo: {
+      width: 58,
+      height: 58,
+      backgroundColor: theme.palette.blue.accent,
+      borderRadius: 4,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      order: 2,
+    },
+  },
 });
 
 export const useSignUpStyles = createUseStyles(signUpStyles, {

@@ -16,7 +16,7 @@ export const SignUp = () => {
       <div className={classes.signUp}>
         <Container>
           <div className={classes.contentWrapper}>
-            <div className="sign-up__mobile-logo">
+            <div className={classes.mobileLogo}>
               <svg className={classes.logo}>
                 <use href="#footer-logo" />
               </svg>
