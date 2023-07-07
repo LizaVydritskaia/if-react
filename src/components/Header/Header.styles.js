@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 export const headerStyles = (theme) => ({
   root: {
-    paddingTop: 50,
+    paddingTop: 52,
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -64,20 +64,20 @@ export const headerStyles = (theme) => ({
     position: 'relative',
   },
   logo: {
-    width: 205,
+    width: 204,
     height: 40,
   },
   light: {
-    width: 30,
-    height: 30,
+    width: 32,
+    height: 32,
 
     '&:hover': {
       cursor: 'pointer',
     },
   },
   dark: {
-    width: 30,
-    height: 30,
+    width: 32,
+    height: 32,
     fill: theme.palette.yellow,
 
     '&:hover': {

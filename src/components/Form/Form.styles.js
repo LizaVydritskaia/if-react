@@ -20,7 +20,7 @@ export const formStyles = (theme) => ({
     color: theme.palette.text.main,
     position: 'absolute',
     top: '-48px',
-    left: 22,
+    left: 24,
   },
   inputDestination: {
     width: '39%',
@@ -28,7 +28,7 @@ export const formStyles = (theme) => ({
     border: 'none',
     borderTopLeftRadius: 8,
     borderBottomLeftRadius: 8,
-    padding: '22px 24px',
+    padding: '24px 24px',
     fontWeight: 400,
     fontSize: 18,
     color: theme.palette.text.primary,
@@ -63,14 +63,14 @@ export const formStyles = (theme) => ({
     fontWeight: 400,
     fontSize: 18,
     color: theme.palette.text.primary,
-    padding: '21px 5px',
+    padding: '20px 4px',
   },
   labelAdults: {
     fontWeight: 400,
     fontSize: 18,
     color: theme.palette.text.primary,
     position: 'absolute',
-    left: 47,
+    left: 48,
     top: 21,
   },
   inputAdults: {
@@ -111,7 +111,7 @@ export const formStyles = (theme) => ({
     fontSize: 18,
     color: theme.palette.text.primary,
     position: 'absolute',
-    left: 25,
+    left: 24,
     top: 21,
   },
   inputChildrenRoom: {
@@ -146,7 +146,7 @@ export const formStyles = (theme) => ({
     fontSize: 18,
     color: theme.palette.text.primary,
     position: 'absolute',
-    left: 25,
+    left: 24,
     top: 21,
   },
   button: {

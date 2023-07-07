@@ -54,20 +54,20 @@ export const offerStyles = (theme) => ({
     marginBottom: 48,
   },
   iconSupport: {
-    width: 75,
+    width: 76,
     height: 92,
   },
   iconCommunicate: {
-    width: 83,
-    height: 83,
+    width: 84,
+    height: 84,
   },
   iconBooking: {
     width: 100,
-    height: 67,
+    height: 68,
   },
   iconReviews: {
     width: 92,
-    height: 83,
+    height: 84,
   },
   text: {
     fontSize: 24,

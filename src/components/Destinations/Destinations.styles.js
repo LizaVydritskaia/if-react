@@ -7,11 +7,11 @@ export const destinationsStyles = (theme) => ({
   },
   form: {
     width: '100%',
-    maxWidth: 622,
+    maxWidth: 624,
     height: 64,
     background: theme.palette.background.stroke,
     borderRadius: 8,
-    marginBottom: 65,
+    marginBottom: 64,
     display: 'flex',
     position: 'relative',
   },
@@ -32,7 +32,7 @@ export const destinationsStyles = (theme) => ({
     textAlign: 'center',
     color: theme.palette.text.primary,
     borderRadius: 8,
-    padding: 17,
+    padding: 18,
 
     '&:hover': {
       cursor: 'pointer',
@@ -109,13 +109,13 @@ export const destinationsStyles = (theme) => ({
     margin: '0 auto 120px',
   },
   arrow: {
-    width: 13,
-    height: 13,
+    width: 12,
+    height: 12,
     border: `2px solid ${theme.palette.grey.additional}`,
     borderLeft: 0,
     borderTop: 0,
     borderBottomRightRadius: 2,
-    transform: 'rotate(45deg) skew(-8deg, -8deg) translate(140%, 10%)',
+    transform: 'rotate(45deg) skew(-8deg, -8deg) translate(150%, 10%)',
   },
 });
 

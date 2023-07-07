@@ -7,7 +7,7 @@ export const titleStyles = (theme) => ({
     color: theme.palette.text.dark,
     textAlign: 'center',
     paddingTop: 120,
-    marginBottom: 105,
+    marginBottom: 108,
   },
 });
 

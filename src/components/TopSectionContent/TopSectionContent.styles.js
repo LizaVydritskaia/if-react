@@ -6,7 +6,7 @@ export const topSectionContentStyles = (theme) => ({
     fontSize: 50,
     lineHeight: '118%',
     color: theme.palette.text.main,
-    marginBottom: 145,
+    marginBottom: 144,
   },
   apps: {
     display: 'flex',
@@ -19,7 +19,7 @@ export const topSectionContentStyles = (theme) => ({
     height: 40,
   },
   googlePlay: {
-    width: 135,
+    width: 136,
     height: 40,
   },
 });

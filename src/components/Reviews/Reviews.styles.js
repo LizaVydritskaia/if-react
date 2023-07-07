@@ -47,7 +47,7 @@ export const reviewsStyles = (theme) => ({
   hotel: {
     display: 'flex',
     justifyContent: 'space-between',
-    margin: '0 24px 29px',
+    margin: '0 24px 32px',
   },
   hotelName: {
     fontWeight: 500,
@@ -91,12 +91,12 @@ export const reviewsStyles = (theme) => ({
   name: {
     display: 'flex',
     alignItems: 'center',
-    gap: 21,
-    margin: '0 29px 22px',
+    gap: 20,
+    margin: '0 32px 24px',
   },
   userLogo: {
-    width: 53,
-    height: 53,
+    width: 52,
+    height: 52,
   },
   userName: {
     fontWeight: 400,
@@ -111,7 +111,7 @@ export const reviewsStyles = (theme) => ({
 
     '& img': {
       width: 16,
-      height: 13,
+      height: 12,
       marginRight: 8,
     },
   },
@@ -133,13 +133,13 @@ export const reviewsStyles = (theme) => ({
     right: '-20px',
   },
   arrow: {
-    width: 13,
-    height: 13,
+    width: 12,
+    height: 12,
     border: `2px solid ${theme.palette.text.primary}`,
     borderLeft: 0,
     borderTop: 0,
     borderBottomRightRadius: 2,
-    transform: 'rotate(-45deg) skew(-10deg, -5deg) translate(15%, 135%)',
+    transform: 'rotate(-45deg) skew(-10deg, -5deg) translate(15%, 150%)',
   },
   '@media (max-width: 480px)': {
     paginator: {

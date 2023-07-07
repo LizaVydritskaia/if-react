@@ -9,7 +9,7 @@ export const signUpStyles = (theme) => ({
     width: '100%',
     maxWidth: 1232,
     backgroundColor: theme.palette.background.secondary,
-    padding: '51px 24px 52px',
+    padding: '52px 24px 52px',
     margin: '0 auto',
     position: 'relative',
   },
@@ -18,8 +18,8 @@ export const signUpStyles = (theme) => ({
     alignItems: 'center',
   },
   circle: {
-    width: 86,
-    height: 86,
+    width: 88,
+    height: 88,
     borderRadius: '50%',
     backgroundColor: theme.palette.form.background.general,
     display: 'flex',
@@ -27,7 +27,7 @@ export const signUpStyles = (theme) => ({
     alignItems: 'center',
   },
   user: {
-    width: 50,
+    width: 52,
     height: 44,
   },
   textButton: {
@@ -55,8 +55,8 @@ export const signUpStyles = (theme) => ({
     color: theme.palette.blue.accent,
   },
   close: {
-    width: 26,
-    height: 26,
+    width: 24,
+    height: 24,
     position: 'absolute',
     top: 24,
     right: 24,

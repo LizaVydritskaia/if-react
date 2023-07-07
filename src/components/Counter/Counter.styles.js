@@ -21,14 +21,14 @@ export const counterStyles = (theme) => ({
     alignItems: 'center',
   },
   filterButton: {
-    width: 30,
-    height: 30,
+    width: 32,
+    height: 32,
     border: `1px solid ${theme.palette.blue.accent}`,
     fontSize: 18,
     fontWeight: 400,
-    color: 'var(--accent-blue)',
+    color: theme.palette.blue.accent,
     backgroundColor: theme.palette.form.background.general,
-    padding: '5px 9px',
+    padding: '4px 8px',
     userSelect: 'none',
 
     '&:hover': {
@@ -47,6 +47,7 @@ export const counterStyles = (theme) => ({
     backgroundColor: theme.palette.form.background.general,
     border: 'none',
     fontSize: 16,
+    color: theme.palette.grey.primary,
     textAlign: 'center',
   },
 });

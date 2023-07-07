@@ -29,7 +29,7 @@ export const signInBlockStyles = (theme) => ({
     marginBottom: 8,
   },
   textField: {
-    height: 41,
+    height: 40,
     backgroundColor: theme.palette.form.background.general,
     border: `2px solid ${theme.palette.grey.secondary}`,
     borderRadius: 8,
