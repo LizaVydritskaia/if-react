@@ -5,7 +5,7 @@ export const loaderStyles = {
     textAlign: 'center',
 
     '& img': {
-      maxWidth: 300,
+      maxWidth: 304,
       padding: '80px 0',
     },
   },

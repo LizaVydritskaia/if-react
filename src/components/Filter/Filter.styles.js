@@ -2,9 +2,9 @@ import { createUseStyles } from 'react-jss';
 
 export const filterStyles = (theme) => ({
   filter: {
-    width: 259,
+    width: 260,
     backgroundColor: theme.palette.form.background.general,
-    padding: 22,
+    padding: 24,
     border: `2px solid ${theme.palette.background.stroke}`,
     borderRadius: 8,
     position: 'absolute',

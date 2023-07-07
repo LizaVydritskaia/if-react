@@ -53,7 +53,7 @@ export const footerStyles = (theme) => ({
   },
   '@media (max-width: 1024px)': {
     footerLogoSize: {
-      width: 155,
+      width: 156,
       height: 30,
     },
   },

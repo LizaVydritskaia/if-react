@@ -16,8 +16,8 @@ export const hotelPageStyles = (theme) => ({
   description: {
     display: 'flex',
     flexDirection: 'column',
-    gap: 30,
-    paddingTop: 25,
+    gap: 32,
+    paddingTop: 24,
   },
   name: {
     fontWeight: 400,
@@ -33,7 +33,7 @@ export const hotelPageStyles = (theme) => ({
     backgroundColor: theme.palette.blue.general,
   },
   header: {
-    paddingBottom: 50,
+    paddingBottom: 52,
   },
 });
 

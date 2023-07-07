@@ -11,7 +11,7 @@ export const topSectionStyles = {
     order: 0,
   },
   container: {
-    paddingTop: 202,
+    paddingTop: 200,
   },
 };
 

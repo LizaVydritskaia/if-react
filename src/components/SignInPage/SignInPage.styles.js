@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 export const signInPageStyles = {
   signInContainer: {
-    padding: '202px 0 268px',
+    padding: '200px 0 268px',
   },
 };
 

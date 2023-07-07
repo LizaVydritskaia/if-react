@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 export const filterChildrenSelectStyles = (theme) => ({
   filterChildren: {
-    paddingTop: 28,
+    paddingTop: 24,
   },
   filterLabel: {
     fontSize: 12,

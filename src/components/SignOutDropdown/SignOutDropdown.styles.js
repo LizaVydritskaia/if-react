@@ -3,7 +3,7 @@ import { createUseStyles } from 'react-jss';
 export const signOutDropdownStyles = (theme) => ({
   dropdown: {
     width: 192,
-    height: 50,
+    height: 52,
     backgroundColor: theme.palette.form.background.general,
     border: `1px solid ${theme.palette.grey.secondary}`,
     display: 'flex',
