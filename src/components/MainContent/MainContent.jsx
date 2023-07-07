@@ -1,7 +1,10 @@
 import React from 'react';
 
-import './MainContent.css';
+//styles
+import { useMainContentStyles } from './MainContent.styles';
 
-export const MainContent = ({ children }) => (
-  <main className="main-content">{children}</main>
-);
+export const MainContent = ({ children }) => {
+  const classes = useMainContentStyles();
+
+  return <main className={classes.mainContent}>{children}</main>;
+};

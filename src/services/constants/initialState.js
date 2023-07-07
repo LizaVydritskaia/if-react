@@ -13,4 +13,7 @@ export const initialState = {
     room: formValues.roomCount,
     childrenAges: null,
   },
+  theme: {
+    mode: 'light',
+  },
 };

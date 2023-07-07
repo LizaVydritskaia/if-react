@@ -1,15 +1,24 @@
 import React, { useId } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useTheme } from 'react-jss';
 
+//slices
 import { changeStatus } from '../../store/slices/auth.slice';
+
+//constants
 import { authStatuses } from '../../services/constants/authStatuses';
 
+//components
 import { Button } from '../Button';
 
-import './SignInBlock.css';
+//styles
+import { useSignInBlockStyles } from './SignInBlock.styles';
 
 export const SignInBlock = () => {
+  const theme = useTheme();
+  const classes = useSignInBlockStyles({ theme });
+
   const emailId = useId();
   const passwordId = useId();
 
@@ -30,30 +39,28 @@ export const SignInBlock = () => {
   };
 
   return (
-    <div className="sign-in">
-      <h2 className="sign-in__title">Sign in</h2>
-      <form className="sign-in__form" onSubmit={signIn}>
-        <label className="sign-in__label" htmlFor={emailId}>
+    <div className={classes.signIn}>
+      <h2 className={classes.title}>Sign in</h2>
+      <form className={classes.form} onSubmit={signIn}>
+        <label className={classes.label} htmlFor={emailId}>
           Email address
         </label>
         <input
-          className="sign-in__text-field"
+          className={classes.textField}
+          name="email"
           id={emailId}
           type="email"
-          name="email"
-          required
         />
-        <label className="sign-in__label" htmlFor={passwordId}>
+        <label className={classes.label} htmlFor={passwordId}>
           Password
         </label>
         <input
-          className="sign-in__text-field"
+          className={classes.textField}
+          name="password"
           id={passwordId}
           type="password"
-          name="password"
-          required
         />
-        <Button type="submit" className="sign-in__button">
+        <Button type="submit" className={classes.button}>
           Sign in
         </Button>
       </form>

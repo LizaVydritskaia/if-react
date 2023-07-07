@@ -1,13 +1,13 @@
 .top-section__filter-select {
-  width: 99px;
+  width: 96px;
   height: 30px;
-  border: 1px solid var(--accent-blue);
-  padding: 6px;
-  margin-top: 15px;
+  border: 1px solid #3077c6;
+  padding: 4px;
+  margin-top: 16px;
   font-size: 12px;
   font-weight: 400;
   text-align: left;
-  color: var(--dark-gray);
+  color: #333333;
   display: inline-block;
 }
 
@@ -16,12 +16,5 @@
 }
 
 .top-section__filter-select:nth-child(even) {
-  margin-right: 13px;
-}
-
-.top-section__filter-label {
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--dark-gray);
-  display: block;
+  margin-right: 16px;
 }

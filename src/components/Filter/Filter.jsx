@@ -1,7 +1,9 @@
 import React, { useState, memo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
+//slices
 import {
   setFormValue,
   adultsDecrement,
@@ -12,13 +14,18 @@ import {
   roomIncrement,
 } from '../../store/slices/form.slice';
 
+//components
 import { ChildrenSelectAge } from '../ChildrenSelectAge';
 import { Counter } from '../Counter';
 import { FilterChildrenSelect } from '../FilterChildrenSelect';
 
-import './Filter.css';
+//styles
+import { useFilterStyles } from './Filter.styles';
 
 export const Filter = memo(function Filter({ showFilter }) {
+  const theme = useTheme();
+  const classes = useFilterStyles({ theme });
+
   const [selects, setSelects] = useState([]);
   const [showFilterChildrenSelect, setShowFilterChildrenSelect] =
     useState(false);
@@ -70,7 +77,7 @@ export const Filter = memo(function Filter({ showFilter }) {
 
   return (
     showFilter && (
-      <div className="top-section__filter">
+      <div className={classes.filter}>
         <Counter
           id="adults"
           counterText="Adults"

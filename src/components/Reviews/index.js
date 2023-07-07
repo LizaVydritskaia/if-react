@@ -1,1 +1,1 @@
-export * from './Reviews.css';
+export * from './Reviews';

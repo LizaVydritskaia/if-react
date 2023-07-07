@@ -1,18 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import './Hotel.css';
+//styles
+import { useHotelStyles } from './Hotel.styles';
 
 export const Hotel = ({ className, id, name, city, country, imageUrl }) => {
+  const theme = useTheme();
+  const classes = useHotelStyles({ theme });
+
   return (
-    <div className={classNames('homes__hotel-block', className)}>
+    <div className={classNames(classes.hotelBlock, className)}>
       <NavLink to={`/${id}`} state={{ name, city, country, imageUrl }}>
-        <img className="hotel-image" src={imageUrl} alt={name} />
-        <p className="hotel-name">{name}</p>
+        <img className={classes.image} src={imageUrl} alt={name} />
+        <p className={classes.name}>{name}</p>
       </NavLink>
-      <p className="hotel-location">
+      <p className={classes.location}>
         {city}, {country}
       </p>
     </div>

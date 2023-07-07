@@ -1,5 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
+import classNames from 'classnames';
+
+//slices
+import { setFormValue } from '../../store/slices/form.slice';
+
+//context
+import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
 
 //components
 import { Button } from '../Button';
@@ -7,13 +15,13 @@ import { Calendar } from '../Calendar';
 import { Filter } from '../Filter';
 import { Input } from '../Input';
 
-import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
-
-import { setFormValue } from '../../store/slices/form.slice';
-
-import './Form.css';
+//styles
+import { useFormStyles } from './Form.styles';
 
 export const Form = () => {
+  const theme = useTheme();
+  const classes = useFormStyles({ theme });
+
   const { availableHotelsRef, setShowAvailableHotels } =
     useAvailableHotelsContext();
 
@@ -59,59 +67,60 @@ export const Form = () => {
   };
 
   return (
-    <form className="top-section__form" onSubmit={handleSubmitClick}>
+    <form className={classes.form} onSubmit={handleSubmitClick}>
       <Input
         id="destination"
-        className="top-section__input-destination"
+        className={classes.inputDestination}
         type="text"
         name="destination"
         placeholder="New York"
         forId="destination"
-        labelClassName="top-section__label-destination"
+        labelClassName={classes.labelDestination}
         labelContent="Your destination or hotel name"
       />
       <Calendar placeholderText="Tue 15 Sept — Sat 19 Sept" />
-      <span className="top-section__label-check-in-out">
-        Check-in — Check-out
-      </span>
-      <div className="top-section__room" onClick={handleOpenCloseFilter}>
+      <span className={classes.labelCheckInOut}>Check-in — Check-out</span>
+      <div className={classes.room} onClick={handleOpenCloseFilter}>
         <Input
           id="adults"
-          className="top-section__input-adults"
+          className={classes.inputAdults}
           type="text"
           name="adults"
           value={formValues.adults}
           forId="adults"
-          labelClassName="top-section__label-adults"
+          labelClassName={classes.labelAdults}
           labelContent="Adults"
           isDisabledInput
         />
-        <span className="top-section__input-room-dash">—</span>
-        <div className="top-section__children">
-          <div className="top-section__line top-section__line--left"></div>
+        <span className={classes.inputRoomDash}>—</span>
+        <div className={classes.children}>
+          <div className={classNames(classes.line, classes.lineLeft)}></div>
           <Input
             id="children"
-            className="top-section__input-children-room"
+            className={classes.inputChildrenRoom}
             type="text"
             name="children"
             value={formValues.children}
             forId="children"
-            labelClassName="top-section__label-children"
+            labelClassName={classes.labelChildren}
             labelContent="Children"
             isDisabledInput
           />
-          <div className="top-section__line top-section__line--right"></div>
+          <div className={classNames(classes.line, classes.lineRight)}></div>
         </div>
-        <span className="top-section__input-room-dash">—</span>
-        <div className="top-section__form-room">
+        <span className={classes.inputRoomDash}>—</span>
+        <div className={classes.formRoom}>
           <Input
             id="room"
-            className="top-section__input-children-room top-section__input-children-room--border"
+            className={classNames(
+              classes.inputChildrenRoom,
+              classes.inputChildrenRoomBorder,
+            )}
             type="text"
             name="room"
             value={formValues.room}
             forId="room"
-            labelClassName="top-section__label-room"
+            labelClassName={classes.labelRoom}
             labelContent="Room"
             isDisabledInput
           />
@@ -119,7 +128,7 @@ export const Form = () => {
       </div>
       <Filter showFilter={showFilter} />
       <Button
-        className="top-section__button"
+        className={classes.button}
         type="submit"
         onClick={() => {
           handleOpenCloseFilter();

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
+//slices
 import { changeStatus } from '../../store/slices/auth.slice';
+import { toggleThemeMode } from '../../store/slices/theme.slice';
+
+//constants
 import { authStatuses } from '../../services/constants/authStatuses';
 
 //components
@@ -14,15 +19,20 @@ import { IconAccount } from '../Icon/IconAccount';
 import { SignOutDropdown } from '../SignOutDropdown';
 
 //styles
-import './Header.css';
+import { useHeaderStyles } from './Header.styles';
 
 export const Header = ({ className }) => {
+  const theme = useTheme();
+  const classes = useHeaderStyles({ theme });
+
   const [showSignOutDropdown, setShowSignOutDropdown] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
+
+  const themeValue = useSelector((state) => state.theme);
 
   const openDropdown = () => {
     if (location.pathname !== '/sign-in') {
@@ -35,33 +45,52 @@ export const Header = ({ className }) => {
     navigate('/sign-in');
   };
 
+  const toggleTheme = () => {
+    const nextTheme = themeValue.mode !== 'light' ? 'light' : 'dark';
+    dispatch(toggleThemeMode(nextTheme));
+  };
+
   return (
     <Container>
-      <header className={classNames('header', className)}>
+      <header className={classNames(classes.root, className)}>
         <Link to="/">
-          <Icon className="header__logo" hrefIconName="#logo" />
+          <Icon className={classes.logo} hrefIconName="#logo" />
         </Link>
-        <nav className="header__nav">
-          <div className="header__stays-attractions">
-            <span className="header__stays header__hover-line">
-              <a href="#" className="header__link">
+        <nav className={classes.nav}>
+          <div className={classes.staysAttractions}>
+            <span className={classNames(classes.stays, classes.hoverLine)}>
+              <a href="#" className={classes.link}>
                 Stays
               </a>
             </span>
-            <span className="header__attractions header__hover-line">
-              <a href="#" className="header__link">
+            <span
+              className={classNames(classes.attractions, classes.hoverLine)}
+            >
+              <a href="#" className={classes.link}>
                 Attractions
               </a>
             </span>
           </div>
-          <div className="header__night-account">
-            <Icon className="header__night" hrefIconName="#night" />
+          <div className={classes.nightAccount}>
+            {themeValue.mode === 'light' ? (
+              <Icon
+                className={classes.light}
+                hrefIconName="#light-mode"
+                onClick={toggleTheme}
+              />
+            ) : (
+              <Icon
+                className={classes.dark}
+                hrefIconName="#dark-mode"
+                onClick={toggleTheme}
+              />
+            )}
             <IconAccount onClick={openDropdown} />
             <SignOutDropdown
               onClick={signOut}
               showSignOutDropdown={showSignOutDropdown}
             />
-            <Icon className="header__menu" hrefIconName="#menu" />
+            <Icon className={classes.menu} hrefIconName="#menu" />
           </div>
         </nav>
       </header>

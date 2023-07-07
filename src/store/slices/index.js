@@ -4,6 +4,8 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './auth.slice';
 import { formReducer } from './form.slice';
+import { themeReducer } from './theme.slice';
+
 import { hotels } from '../../services/hotels';
 import { availableHotels } from '../../services/availableHotels';
 
@@ -20,5 +22,6 @@ export const rootReducer = persistReducer(
     [availableHotels.reducerPath]: availableHotels.reducer,
     auth: authReducer,
     form: formReducer,
+    theme: themeReducer,
   }),
 );

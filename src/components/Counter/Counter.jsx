@@ -1,10 +1,13 @@
 import React from 'react';
+import { useTheme } from 'react-jss';
 import PropTypes from 'prop-types';
 
+//components
 import { Button } from '../Button';
 import { Input } from '../Input';
 
-import './Counter.css';
+//styles
+import { useCounterStyles } from './Counter.styles';
 
 export const Counter = ({
   counterText,
@@ -14,13 +17,16 @@ export const Counter = ({
   onClickMinusButton,
   onClickPlusButton,
 }) => {
+  const theme = useTheme();
+  const classes = useCounterStyles({ theme });
+
   return (
-    <div className="top-section__filter-block">
-      <span className="top-section__filter-text">{counterText}</span>
-      <div className="top-section__filter-counter">
+    <div className={classes.filterBlock}>
+      <span className={classes.filterText}>{counterText}</span>
+      <div className={classes.filterCounter}>
         <Button
           type="button"
-          className="top-section__filter-button"
+          className={classes.filterButton}
           isDisabledButton={value === min}
           onClick={onClickMinusButton}
         >
@@ -30,12 +36,12 @@ export const Counter = ({
           type="text"
           value={value}
           name="counter-value"
-          className="top-section__input-value"
+          className={classes.inputValue}
           isDisabledInput
         />
         <Button
           type="button"
-          className="top-section__filter-button"
+          className={classes.filterButton}
           isDisabledButton={value === max}
           onClick={onClickPlusButton}
         >

@@ -1,16 +1,20 @@
 import React from 'react';
 
+//components
 import { Container } from '../Container';
 import { Header } from '../Header';
 import { TopSectionContent } from '../TopSectionContent';
 
-import './TopSection.css';
+//styles
+import { useTopSectionStyles } from './TopSection.styles';
 
 export const TopSection = () => {
+  const classes = useTopSectionStyles();
+
   return (
-    <section className="top-section">
+    <section className={classes.root}>
       <Header />
-      <Container className="top-section__container">
+      <Container className={classes.container}>
         <TopSectionContent />
       </Container>
     </section>
