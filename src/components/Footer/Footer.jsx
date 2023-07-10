@@ -29,7 +29,10 @@ export const Footer = () => {
                 {item.linkText.map((link, index) => {
                   return (
                     <li key={index}>
-                      <a className={classes.link} href="#">
+                      <a
+                        className={classes.link}
+                        href="if-react/src/components/Footer/index#"
+                      >
                         {link}
                       </a>
                     </li>

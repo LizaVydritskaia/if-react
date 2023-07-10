@@ -59,14 +59,20 @@ export const Header = ({ className }) => {
         <nav className={classes.nav}>
           <div className={classes.staysAttractions}>
             <span className={classNames(classes.stays, classes.hoverLine)}>
-              <a href="#" className={classes.link}>
+              <a
+                href="if-react/src/components/Header/index#"
+                className={classes.link}
+              >
                 Stays
               </a>
             </span>
             <span
               className={classNames(classes.attractions, classes.hoverLine)}
             >
-              <a href="#" className={classes.link}>
+              <a
+                href="if-react/src/components/Header/index#"
+                className={classes.link}
+              >
                 Attractions
               </a>
             </span>
