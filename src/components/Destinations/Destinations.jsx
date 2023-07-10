@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useTheme } from 'react-jss';
 import classNames from 'classnames';
 
-//config
-import { destinationsConfig } from './destinationsConfig';
+//configs
+import { citiesConfig } from './citiesConfig';
+import { placesConfig } from './placesConfig';
+import { regionsConfig } from './regionsConfig';
 
 //components
 import { Container } from '../Container';
@@ -16,6 +18,17 @@ export const Destinations = () => {
   const theme = useTheme();
   const classes = useDestinationsStyles({ theme });
 
+  const [destination, setDestination] = useState('regions');
+  const [hideCountryBlock, setHideCountryBlock] = useState(true);
+
+  const handleDestinationChange = (event) => {
+    setDestination(event.target.value);
+  };
+
+  const handleToggleVisibility = () => {
+    setHideCountryBlock((prevState) => !prevState);
+  };
+
   return (
     <section className={classes.root}>
       <Container>
@@ -26,8 +39,9 @@ export const Destinations = () => {
             type="radio"
             id="regions"
             name="destinations"
-            value="1"
-            checked
+            value="regions"
+            checked={destination === 'regions'}
+            onChange={handleDestinationChange}
           />
           <label className={classes.label} htmlFor="regions">
             Regions
@@ -37,7 +51,9 @@ export const Destinations = () => {
             type="radio"
             id="cities"
             name="destinations"
-            value="2"
+            value="cities"
+            checked={destination === 'cities'}
+            onChange={handleDestinationChange}
           />
           <label className={classes.label} htmlFor="cities">
             Cities
@@ -47,7 +63,9 @@ export const Destinations = () => {
             type="radio"
             id="places"
             name="destinations"
-            value="3"
+            value="places"
+            checked={destination === 'places'}
+            onChange={handleDestinationChange}
           />
           <label
             className={classNames(classes.label, classes.labelPlaces)}
@@ -57,13 +75,20 @@ export const Destinations = () => {
           </label>
         </form>
         <div className={classes.countries}>
-          {destinationsConfig.map((item) => {
+          {(destination === 'regions'
+            ? regionsConfig
+            : destination === 'cities'
+            ? citiesConfig
+            : placesConfig
+          ).map((item) => {
             return (
               <div
                 key={item.id}
                 className={classNames(
                   'col-lg-3 col-md-6 col-sm-3',
-                  classes.countryBlock,
+                  hideCountryBlock
+                    ? classes.countryBlockHidden
+                    : classes.countryBlock,
                 )}
               >
                 <div className={classes.imageBlock}>
@@ -81,8 +106,12 @@ export const Destinations = () => {
             );
           })}
         </div>
-        <div className={classes.circleArrow}>
-          <div className={classes.arrow}></div>
+        <div className={classes.circleArrow} onClick={handleToggleVisibility}>
+          <div
+            className={
+              hideCountryBlock ? classes.arrowHiddenBlock : classes.arrow
+            }
+          ></div>
         </div>
       </Container>
     </section>

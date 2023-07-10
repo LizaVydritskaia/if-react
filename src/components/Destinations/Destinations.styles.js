@@ -32,7 +32,7 @@ export const destinationsStyles = (theme) => ({
     textAlign: 'center',
     color: theme.palette.text.primary,
     borderRadius: 8,
-    padding: 18,
+    padding: 16,
 
     '&:hover': {
       cursor: 'pointer',
@@ -43,20 +43,29 @@ export const destinationsStyles = (theme) => ({
   },
   countries: {
     display: 'flex',
+    flexWrap: 'wrap',
+    gap: 16,
+  },
+  countryBlockHidden: {
+    width: 296,
+    marginLeft: 0,
+    marginRight: 0,
+
+    '&:nth-child(n + 5)': {
+      display: 'none',
+    },
   },
   countryBlock: {
-    '&:first-child': {
-      marginLeft: 0,
-    },
-    '&:last-child': {
-      marginRight: 0,
-    },
+    width: 296,
+    marginLeft: 0,
+    marginRight: 0,
   },
   countryImage: {
     width: '100%',
     height: 296,
   },
   imageBlock: {
+    width: 296,
     height: 296,
     position: 'relative',
 
@@ -98,7 +107,7 @@ export const destinationsStyles = (theme) => ({
     fontSize: 24,
     color: theme.palette.blue.accent,
     marginTop: 24,
-    marginBottom: 48,
+    marginBottom: 64,
   },
   circleArrow: {
     width: 40,
@@ -107,8 +116,12 @@ export const destinationsStyles = (theme) => ({
     backgroundColor: theme.palette.background.stroke,
     boxShadow: '0 2px 5px rgba(56, 56, 56, 50)',
     margin: '0 auto 120px',
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
-  arrow: {
+  arrowHiddenBlock: {
     width: 12,
     height: 12,
     border: `2px solid ${theme.palette.grey.additional}`,
@@ -116,6 +129,15 @@ export const destinationsStyles = (theme) => ({
     borderTop: 0,
     borderBottomRightRadius: 2,
     transform: 'rotate(45deg) skew(-8deg, -8deg) translate(150%, 10%)',
+  },
+  arrow: {
+    width: 13,
+    height: 13,
+    border: `2px solid ${theme.palette.grey.additional}`,
+    borderLeft: 0,
+    borderTop: 0,
+    borderBottomRightRadius: 2,
+    transform: 'rotate(-135deg) skew(-8deg, -8deg) translate(-165%, -35%)',
   },
 });
 

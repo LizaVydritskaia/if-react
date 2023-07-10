@@ -131,6 +131,10 @@ export const reviewsStyles = (theme) => ({
     position: 'absolute',
     top: '24%',
     right: '-20px',
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   arrow: {
     width: 12,

@@ -53,6 +53,10 @@ export const signUpStyles = (theme) => ({
     fontWeight: 400,
     fontSize: 18,
     color: theme.palette.blue.accent,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   close: {
     width: 24,
@@ -60,6 +64,10 @@ export const signUpStyles = (theme) => ({
     position: 'absolute',
     top: 24,
     right: 24,
+
+    '&:hover': {
+      cursor: 'pointer',
+    },
   },
   logo: {
     width: 0,
@@ -67,6 +75,21 @@ export const signUpStyles = (theme) => ({
   },
   install: {
     opacity: 0,
+  },
+  mobileLogo: {
+    display: 'none',
+  },
+  '@media (max-width: 480px)': {
+    mobileLogo: {
+      width: 58,
+      height: 58,
+      backgroundColor: theme.palette.blue.accent,
+      borderRadius: 4,
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      order: 2,
+    },
   },
 });
 

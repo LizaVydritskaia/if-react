@@ -25,6 +25,10 @@
   caret-color: transparent;
 }
 
+.react-datepicker__input-container input:hover {
+  cursor: pointer;
+}
+
 .react-datepicker {
   min-width: 590px;
   height: 260px;
