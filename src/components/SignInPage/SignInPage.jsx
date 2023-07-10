@@ -1,12 +1,12 @@
 import React from 'react';
 
 //components
-import { Header } from '../Header';
+import { Header } from '../sections/Header';
 import { Container } from '../Container';
 import { SignInBlock } from '../SignInBlock';
 
 //styles
-import { useTopSectionStyles } from '../TopSection/TopSection.styles';
+import { useTopSectionStyles } from '../sections/TopSection/TopSection.styles';
 import { useSignInPageStyles } from './SignInPage.styles';
 
 export const SignInPage = () => {

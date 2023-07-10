@@ -8,8 +8,8 @@ import { placesConfig } from './placesConfig';
 import { regionsConfig } from './regionsConfig';
 
 //components
-import { Container } from '../Container';
-import { Title } from '../Title';
+import { Container } from '../../Container';
+import { Title } from '../../Title';
 
 //styles
 import { useDestinationsStyles } from './Destinations.styles';

@@ -4,8 +4,8 @@ import { useTheme } from 'react-jss';
 
 //components
 import { Container } from '../Container';
-import { Footer } from '../Footer';
-import { Header } from '../Header';
+import { Footer } from '../sections/Footer';
+import { Header } from '../sections/Header';
 
 //styles
 import { useHotelPageStyles } from './HotelPage.styles';

@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import { reviewsConfig } from './reviewsConfig';
 
 //components
-import { Container } from '../Container';
-import { Title } from '../Title';
+import { Container } from '../../Container';
+import { Title } from '../../Title';
 
 //styles
 import { useReviewsStyles } from './Reviews.styles';

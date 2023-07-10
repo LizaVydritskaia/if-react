@@ -1,9 +1,9 @@
-import baliImage from '../../assets/images/bali-resort.png';
-import ukraineLogo from '../../assets/images/ukraine.png';
-import rotterdamImage from '../../assets/images/king-kong-hostel.png';
-import usaLogo from '../../assets/images/usa.png';
-import ourikaImage from '../../assets/images/rokoko-hotel.png';
-import germanyLogo from '../../assets/images/germany.png';
+import baliImage from '../../../assets/images/bali-resort.png';
+import ukraineLogo from '../../../assets/images/ukraine.png';
+import rotterdamImage from '../../../assets/images/king-kong-hostel.png';
+import usaLogo from '../../../assets/images/usa.png';
+import ourikaImage from '../../../assets/images/rokoko-hotel.png';
+import germanyLogo from '../../../assets/images/germany.png';
 
 export const reviewsConfig = [
   {

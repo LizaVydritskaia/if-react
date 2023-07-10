@@ -6,15 +6,15 @@ import { useSelector } from 'react-redux';
 import { AvailableHotelsContextProvider } from '../../contexts/AvailableHotels.context';
 
 //components
-import { AvailableHotels } from '../AvailableHotels';
-import { Footer } from '../Footer';
-import { Destinations } from '../Destinations';
-import { HomesGuestsLoves } from '../HomesGuestsLoves';
+import { AvailableHotels } from '../sections/AvailableHotels';
+import { Footer } from '../sections/Footer';
+import { Destinations } from '../sections/Destinations';
+import { HomesGuestsLoves } from '../sections/HomesGuestsLoves';
 import { MainContent } from '../MainContent';
-import { Offer } from '../Offer';
-import { Reviews } from '../Reviews';
+import { Offer } from '../sections/Offer';
+import { Reviews } from '../sections/Reviews';
 import { SignUp } from '../SignUp';
-import { TopSection } from '../TopSection';
+import { TopSection } from '../sections/TopSection';
 
 //styles
 import { authStatuses } from '../../services/constants/authStatuses';

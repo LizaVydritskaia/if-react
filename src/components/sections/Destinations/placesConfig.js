@@ -1,11 +1,11 @@
-import castleImage from '../../assets/images/Edinburgh Castle.png';
-import neuschwansteinImage from '../../assets/images/Neuschwanstein.png';
-import bigBenImage from '../../assets/images/Big Ben.png';
-import colosseumImage from '../../assets/images/Colosseum.png';
-import matterhornImage from '../../assets/images/Matterhorn.png';
-import morskieOkoImage from '../../assets/images/Morskie Oko.png';
-import krkaImage from '../../assets/images/Krka.png';
-import caboImage from '../../assets/images/Cabo da rosa.png';
+import castleImage from '../../../assets/images/Edinburgh Castle.png';
+import neuschwansteinImage from '../../../assets/images/Neuschwanstein.png';
+import bigBenImage from '../../../assets/images/Big Ben.png';
+import colosseumImage from '../../../assets/images/Colosseum.png';
+import matterhornImage from '../../../assets/images/Matterhorn.png';
+import morskieOkoImage from '../../../assets/images/Morskie Oko.png';
+import krkaImage from '../../../assets/images/Krka.png';
+import caboImage from '../../../assets/images/Cabo da rosa.png';
 
 export const placesConfig = [
   {

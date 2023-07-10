@@ -5,7 +5,7 @@ import { useTheme } from 'react-jss';
 import { footerData } from './footerConfig';
 
 //components
-import { Container } from '../Container';
+import { Container } from '../../Container';
 
 //styles
 import { useFooterStyles } from './Footer.styles';
@@ -29,7 +29,10 @@ export const Footer = () => {
                 {item.linkText.map((link, index) => {
                   return (
                     <li key={index}>
-                      <a className={classes.link} href="#">
+                      <a
+                        className={classes.link}
+                        href="if-react/src/components/sections/Footer/index#"
+                      >
                         {link}
                       </a>
                     </li>

@@ -3,17 +3,17 @@ import { useSelector } from 'react-redux';
 import { useTheme } from 'react-jss';
 
 //context
-import { useAvailableHotelsContext } from '../../contexts/AvailableHotels.context';
+import { useAvailableHotelsContext } from '../../../contexts/AvailableHotels.context';
 
 //services
-import { useGetAvailableHotelsQuery } from '../../services/availableHotels';
+import { useGetAvailableHotelsQuery } from '../../../services/availableHotels';
 
 //components
-import { Arrow } from '../Arrow';
-import { Container } from '../Container';
-import { Hotel } from '../Hotel';
-import { Loader } from '../Loader';
-import { Title } from '../Title';
+import { Arrow } from '../../Arrow';
+import { Container } from '../../Container';
+import { Hotel } from '../../Hotel';
+import { Loader } from '../../Loader';
+import { Title } from '../../Title';
 
 //styles
 import { useAvailableHotelsStyles } from './AvailavleHotels.styles';

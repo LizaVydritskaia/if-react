@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { offerConfig } from './offerConfig';
 
 //components
-import { Container } from '../Container';
+import { Container } from '../../Container';
 
 //styles
 import { useOfferStyles } from './Offer.styles';
