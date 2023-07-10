@@ -6,17 +6,17 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 //slices
-import { changeStatus } from '../../store/slices/auth.slice';
-import { toggleThemeMode } from '../../store/slices/theme.slice';
+import { changeStatus } from '../../../store/slices/auth.slice';
+import { toggleThemeMode } from '../../../store/slices/theme.slice';
 
 //constants
-import { authStatuses } from '../../services/constants/authStatuses';
+import { authStatuses } from '../../../services/constants/authStatuses';
 
 //components
-import { Container } from '../Container';
-import { Icon } from '../Icon';
-import { IconAccount } from '../Icon/IconAccount';
-import { SignOutDropdown } from '../SignOutDropdown';
+import { Container } from '../../Container';
+import { Icon } from '../../Icon';
+import { IconAccount } from '../../Icon/IconAccount';
+import { SignOutDropdown } from '../../SignOutDropdown';
 
 //styles
 import { useHeaderStyles } from './Header.styles';
@@ -60,7 +60,7 @@ export const Header = ({ className }) => {
           <div className={classes.staysAttractions}>
             <span className={classNames(classes.stays, classes.hoverLine)}>
               <a
-                href="if-react/src/components/Header/index#"
+                href="if-react/src/components/sections/Header/index#"
                 className={classes.link}
               >
                 Stays
@@ -70,7 +70,7 @@ export const Header = ({ className }) => {
               className={classNames(classes.attractions, classes.hoverLine)}
             >
               <a
-                href="if-react/src/components/Header/index#"
+                href="if-react/src/components/sections/Header/index#"
                 className={classes.link}
               >
                 Attractions

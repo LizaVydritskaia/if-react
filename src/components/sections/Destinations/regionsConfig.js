@@ -1,11 +1,11 @@
-import maldivesImage from '../../assets/images/Maldives.png';
-import spainImage from '../../assets/images/Spain.png';
-import norwayImage from '../../assets/images/Norway.png';
-import islandImage from '../../assets/images/Island.png';
-import japanImage from '../../assets/images/Japan.png';
-import franceImage from '../../assets/images/France.png';
-import scotlandImage from '../../assets/images/Scotland.png';
-import russiaImage from '../../assets/images/Russia.png';
+import maldivesImage from '../../../assets/images/Maldives.png';
+import spainImage from '../../../assets/images/Spain.png';
+import norwayImage from '../../../assets/images/Norway.png';
+import islandImage from '../../../assets/images/Island.png';
+import japanImage from '../../../assets/images/Japan.png';
+import franceImage from '../../../assets/images/France.png';
+import scotlandImage from '../../../assets/images/Scotland.png';
+import russiaImage from '../../../assets/images/Russia.png';
 
 export const regionsConfig = [
   {

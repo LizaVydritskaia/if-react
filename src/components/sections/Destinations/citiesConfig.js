@@ -1,11 +1,11 @@
-import berlinImage from '../../assets/images/Berlin.png';
-import parisImage from '../../assets/images/Paris.png';
-import budapestImage from '../../assets/images/Budapest.png';
-import londonImage from '../../assets/images/London.png';
-import barcelonaImage from '../../assets/images/Barcelona.png';
-import tbilisiImage from '../../assets/images/Tbilisi.png';
-import moscowImage from '../../assets/images/Moscow.png';
-import amsterdamImage from '../../assets/images/Amsterdam.png';
+import berlinImage from '../../../assets/images/Berlin.png';
+import parisImage from '../../../assets/images/Paris.png';
+import budapestImage from '../../../assets/images/Budapest.png';
+import londonImage from '../../../assets/images/London.png';
+import barcelonaImage from '../../../assets/images/Barcelona.png';
+import tbilisiImage from '../../../assets/images/Tbilisi.png';
+import moscowImage from '../../../assets/images/Moscow.png';
+import amsterdamImage from '../../../assets/images/Amsterdam.png';
 
 export const citiesConfig = [
   {

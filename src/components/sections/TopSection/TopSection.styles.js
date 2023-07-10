@@ -1,5 +1,5 @@
 import { createUseStyles } from 'react-jss';
-import topSectionBackground from '../../assets/images/top-section-background.jpg';
+import topSectionBackground from '../../../assets/images/top-section-background.jpg';
 
 export const topSectionStyles = {
   root: {

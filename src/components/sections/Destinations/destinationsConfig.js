@@ -1,7 +1,7 @@
-import maldivesImage from '../../assets/images/Maldives.png';
-import spainImage from '../../assets/images/Spain.png';
-import norwayImage from '../../assets/images/Norway.png';
-import islandImage from '../../assets/images/Island.png';
+import maldivesImage from '../../../assets/images/Maldives.png';
+import spainImage from '../../../assets/images/Spain.png';
+import norwayImage from '../../../assets/images/Norway.png';
+import islandImage from '../../../assets/images/Island.png';
 
 export const destinationsConfig = [
   {
